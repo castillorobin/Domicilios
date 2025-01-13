@@ -4831,139 +4831,16 @@ License: For each use you must have a valid license purchased only from above li
 																<tr class="border-0">
 																	<th class="p-0 w-50px">Guia</th>
 																	<th class="p-0 min-w-150px">Comercio</th>
-																	<th class="p-0 min-w-140px"></th>
-																	<th class="p-0 min-w-110px"></th>
-																	<th class="p-0 min-w-50px"></th>
+																	<th class="p-0 min-w-140px">Destinatario</th>
+																	<th class="p-0 min-w-110px">Fecha</th>
+																	<th class="p-0 min-w-50px">Precio</th>
+																	<th class="p-0 min-w-50px">Estado</th>
 																</tr>
 															</thead>
 															<!--end::Table head-->
 															<!--begin::Table body-->
 															<tbody>
-																<tr>
-																	<td>
-																		<div class="symbol symbol-45px me-2">
-																			<span class="symbol-label">
-																				<img src="assets/media/svg/brand-logos/plurk.svg" class="h-50 align-self-center" alt="" />
-																			</span>
-																		</div>
-																	</td>
-																	<td>
-																		<a href="#" class="text-dark fw-bold text-hover-primary mb-1 fs-6">Brad Simmons</a>
-																		<span class="text-muted fw-semibold d-block">Movie Creator</span>
-																	</td>
-																	<td class="text-end text-muted fw-bold">React, HTML</td>
-																	<td class="text-end">
-																		<span class="badge badge-light-success">Approved</span>
-																	</td>
-																	<td class="text-end">
-																		<a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary">
-																			<i class="ki-duotone ki-arrow-right fs-2">
-																				<span class="path1"></span>
-																				<span class="path2"></span>
-																			</i>
-																		</a>
-																	</td>
-																</tr>
-																<tr>
-																	<td>
-																		<div class="symbol symbol-45px me-2">
-																			<span class="symbol-label">
-																				<img src="assets/media/svg/brand-logos/telegram.svg" class="h-50 align-self-center" alt="" />
-																			</span>
-																		</div>
-																	</td>
-																	<td>
-																		<a href="#" class="text-dark fw-bold text-hover-primary mb-1 fs-6">Popular Authors</a>
-																		<span class="text-muted fw-semibold d-block">Most Successful</span>
-																	</td>
-																	<td class="text-end text-muted fw-bold">Python, MySQL</td>
-																	<td class="text-end">
-																		<span class="badge badge-light-warning">In Progress</span>
-																	</td>
-																	<td class="text-end">
-																		<a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary">
-																			<i class="ki-duotone ki-arrow-right fs-2">
-																				<span class="path1"></span>
-																				<span class="path2"></span>
-																			</i>
-																		</a>
-																	</td>
-																</tr>
-																<tr>
-																	<td>
-																		<div class="symbol symbol-45px me-2">
-																			<span class="symbol-label">
-																				<img src="assets/media/svg/brand-logos/vimeo.svg" class="h-50 align-self-center" alt="" />
-																			</span>
-																		</div>
-																	</td>
-																	<td>
-																		<a href="#" class="text-dark fw-bold text-hover-primary mb-1 fs-6">New Users</a>
-																		<span class="text-muted fw-semibold d-block">Awesome Users</span>
-																	</td>
-																	<td class="text-end text-muted fw-bold">Laravel,Metronic</td>
-																	<td class="text-end">
-																		<span class="badge badge-light-primary">Success</span>
-																	</td>
-																	<td class="text-end">
-																		<a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary">
-																			<i class="ki-duotone ki-arrow-right fs-2">
-																				<span class="path1"></span>
-																				<span class="path2"></span>
-																			</i>
-																		</a>
-																	</td>
-																</tr>
-																<tr>
-																	<td>
-																		<div class="symbol symbol-45px me-2">
-																			<span class="symbol-label">
-																				<img src="assets/media/svg/brand-logos/bebo.svg" class="h-50 align-self-center" alt="" />
-																			</span>
-																		</div>
-																	</td>
-																	<td>
-																		<a href="#" class="text-dark fw-bold text-hover-primary mb-1 fs-6">Active Customers</a>
-																		<span class="text-muted fw-semibold d-block">Movie Creator</span>
-																	</td>
-																	<td class="text-end text-muted fw-bold">AngularJS, C#</td>
-																	<td class="text-end">
-																		<span class="badge badge-light-danger">Rejected</span>
-																	</td>
-																	<td class="text-end">
-																		<a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary">
-																			<i class="ki-duotone ki-arrow-right fs-2">
-																				<span class="path1"></span>
-																				<span class="path2"></span>
-																			</i>
-																		</a>
-																	</td>
-																</tr>
-																<tr>
-																	<td>
-																		<div class="symbol symbol-45px me-2">
-																			<span class="symbol-label">
-																				<img src="assets/media/svg/brand-logos/kickstarter.svg" class="h-50 align-self-center" alt="" />
-																			</span>
-																		</div>
-																	</td>
-																	<td>
-																		<a href="#" class="text-dark fw-bold text-hover-primary mb-1 fs-6">Bestseller Theme</a>
-																		<span class="text-muted fw-semibold d-block">Best Customers</span>
-																	</td>
-																	<td class="text-end text-muted fw-bold">ReactJS, Ruby</td>
-																	<td class="text-end">
-																		<span class="badge badge-light-warning">In Progress</span>
-																	</td>
-																	<td class="text-end">
-																		<a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary">
-																			<i class="ki-duotone ki-arrow-right fs-2">
-																				<span class="path1"></span>
-																				<span class="path2"></span>
-																			</i>
-																		</a>
-																	</td>
-																</tr>
+																
 															</tbody>
 															<!--end::Table body-->
 														</table>
