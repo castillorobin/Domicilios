@@ -4811,22 +4811,10 @@ License: For each use you must have a valid license purchased only from above li
 										<!--begin::Header-->
 										<div class="card-header border-0 pt-5">
 											<h3 class="card-title align-items-start flex-column">
-												<span class="card-label fw-bold fs-3 mb-1">Latest Products</span>
-												<span class="text-muted mt-1 fw-semibold fs-7">More than 400 new products</span>
+												<span class="card-label fw-bold fs-3 mb-1">Envios</span>
+												<span class="text-muted mt-1 fw-semibold fs-7"></span>
 											</h3>
-											<div class="card-toolbar">
-												<ul class="nav">
-													<li class="nav-item">
-														<a class="nav-link btn btn-sm btn-color-muted btn-active btn-active-secondary fw-bold px-4 me-1 active" data-bs-toggle="tab" href="#kt_table_widget_5_tab_1">Month</a>
-													</li>
-													<li class="nav-item">
-														<a class="nav-link btn btn-sm btn-color-muted btn-active btn-active-secondary fw-bold px-4 me-1" data-bs-toggle="tab" href="#kt_table_widget_5_tab_2">Week</a>
-													</li>
-													<li class="nav-item">
-														<a class="nav-link btn btn-sm btn-color-muted btn-active btn-active-secondary fw-bold px-4" data-bs-toggle="tab" href="#kt_table_widget_5_tab_3">Day</a>
-													</li>
-												</ul>
-											</div>
+											
 										</div>
 										<!--end::Header-->
 										<!--begin::Body-->
@@ -4841,8 +4829,8 @@ License: For each use you must have a valid license purchased only from above li
 															<!--begin::Table head-->
 															<thead>
 																<tr class="border-0">
-																	<th class="p-0 w-50px"></th>
-																	<th class="p-0 min-w-150px"></th>
+																	<th class="p-0 w-50px">Guia</th>
+																	<th class="p-0 min-w-150px">Comercio</th>
 																	<th class="p-0 min-w-140px"></th>
 																	<th class="p-0 min-w-110px"></th>
 																	<th class="p-0 min-w-50px"></th>
