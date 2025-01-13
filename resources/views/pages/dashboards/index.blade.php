@@ -4811,7 +4811,7 @@ License: For each use you must have a valid license purchased only from above li
 										<!--begin::Header-->
 										<div class="card-header border-0 pt-5">
 											<h3 class="card-title align-items-start flex-column">
-												<span class="card-label fw-bold fs-3 mb-1">Envios</span>
+												<span class="card-label fw-bold fs-3 mb-1">Envios Asignados</span>
 												<span class="text-muted mt-1 fw-semibold fs-7"></span>
 											</h3>
 											
