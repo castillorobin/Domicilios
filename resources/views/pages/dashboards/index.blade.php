@@ -1840,8 +1840,10 @@ License: For each use you must have a valid license purchased only from above li
 															<tbody>
 																
 																@for ($i=0; $i< count($envios); $i++)
-                           
-                            
+                           @if($envios[$i]->repartidor ==  Auth::user()->name ) 
+							
+						   
+																
                             <tr >
                             <td>{{ $envios[$i]->guia }}</td>
                            
@@ -1872,7 +1874,7 @@ License: For each use you must have a valid license purchased only from above li
                         
                            
                             </tr>
-                           
+                           @endif
                             @endfor
 
 
