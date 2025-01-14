@@ -1746,7 +1746,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--begin::Card-->
 											<div class="card card-stretch">
 												<!--begin::Link-->
-												<a href="../../demo9/dist/apps/customers/view.html" class="btn btn-flex btn-text-gray-800 btn-icon-gray-400 btn-active-color-primary bg-body flex-column justfiy-content-start align-items-start text-start w-100 p-10">
+												<a href="/filtrofallido" class="btn btn-flex btn-text-gray-800 btn-icon-gray-400 btn-active-color-primary bg-body flex-column justfiy-content-start align-items-start text-start w-100 p-10">
 													<i class="ki-duotone ki-abstract-26 fs-2tx mb-5 ms-n1">
 														<span class="path1"></span>
 														<span class="path2"></span>
@@ -1763,7 +1763,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--begin::Card-->
 											<div class="card card-stretch">
 												<!--begin::Link-->
-												<a href="../../demo9/dist/apps/projects/project.html" class="btn btn-flex btn-text-gray-800 btn-icon-gray-400 btn-active-color-primary bg-body flex-column justfiy-content-start align-items-start text-start w-100 p-10">
+												<a href="/filtronoentregado" class="btn btn-flex btn-text-gray-800 btn-icon-gray-400 btn-active-color-primary bg-body flex-column justfiy-content-start align-items-start text-start w-100 p-10">
 													<i class="ki-duotone ki-basket fs-2tx mb-5 ms-n1">
 														<span class="path1"></span>
 														<span class="path2"></span>
@@ -1782,7 +1782,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--begin::Card-->
 											<div class="card card-stretch">
 												<!--begin::Link-->
-												<a href="../../demo9/dist/apps/projects/users.html" class="btn btn-flex btn-text-gray-800 btn-icon-gray-400 btn-active-color-primary bg-body flex-column justfiy-content-start align-items-start text-start w-100 p-10">
+												<a href="./filtroreprogramado" class="btn btn-flex btn-text-gray-800 btn-icon-gray-400 btn-active-color-primary bg-body flex-column justfiy-content-start align-items-start text-start w-100 p-10">
 													<i class="ki-duotone ki-rocket fs-2tx mb-5 ms-n1">
 														<span class="path1"></span>
 														<span class="path2"></span>

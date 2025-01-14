@@ -27,5 +27,8 @@ Route::get('/auth/redirect/{provider}', [SocialiteController::class, 'redirect']
 
 Route::get('/filtroruta', [App\Http\Controllers\DashboardController::class, 'filtroruta'] )->name('filtroruta');
 Route::get('/filtroentregado', [App\Http\Controllers\DashboardController::class, 'filtroentregado'] )->name('filtroentregado');
+Route::get('/filtrofallido', [App\Http\Controllers\DashboardController::class, 'filtrofallido'] )->name('filtrofallido');
+Route::get('/filtronoentregado', [App\Http\Controllers\DashboardController::class, 'filtronoentregado'] )->name('filtronoentregado');
+Route::get('/filtroreprogramado', [App\Http\Controllers\DashboardController::class, 'filtroreprogramado'] )->name('filtroreprogramado');
 
 require __DIR__.'/auth.php';
