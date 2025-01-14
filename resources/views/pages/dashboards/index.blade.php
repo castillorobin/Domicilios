@@ -1709,7 +1709,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--begin::Card-->
 											<div class="card card-stretch">
 												<!--begin::Link-->
-												<a href="../../demo9/dist/account/statements.html" class="btn btn-flex btn-text-gray-800 btn-icon-gray-400 btn-active-color-primary bg-body flex-column justfiy-content-start align-items-start text-start w-100 p-10">
+												<a href="/filtroruta" class="btn btn-flex btn-text-gray-800 btn-icon-gray-400 btn-active-color-primary bg-body flex-column justfiy-content-start align-items-start text-start w-100 p-10">
 													<i class="ki-duotone ki-technology-2 fs-2tx mb-5 ms-n1">
 														<span class="path1"></span>
 														<span class="path2"></span>
@@ -1726,7 +1726,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--begin::Card-->
 											<div class="card card-stretch">
 												<!--begin::Link-->
-												<a href="../../demo9/dist/account/referrals.html" class="btn btn-flex btn-text-gray-800 btn-icon-gray-400 btn-active-color-primary bg-body flex-column justfiy-content-start align-items-start text-start w-100 p-10">
+												<a href="/filtroentregado" class="btn btn-flex btn-text-gray-800 btn-icon-gray-400 btn-active-color-primary bg-body flex-column justfiy-content-start align-items-start text-start w-100 p-10">
 													<i class="ki-duotone ki-fingerprint-scanning fs-2tx mb-5 ms-n1">
 														<span class="path1"></span>
 														<span class="path2"></span>
@@ -1850,7 +1850,25 @@ License: For each use you must have a valid license purchased only from above li
                             <td>{{ $envios[$i]->fecha_entrega }}</td>
                             <td>$ {{ $envios[$i]->precio }}</td>
                        
-                            <td>{{ $envios[$i]->estado }}</td>
+                            <td class="text-center">
+                                                    @if( $envios[$i]->estado == 'No entregado')
+                                                    <span class="badge badge-danger">{{ $envios[$i]->estado }}</span>
+                                                    @elseif( $envios[$i]->estado == 'Creado')
+                                                    <span class="badge badge-warning">{{ $envios[$i]->estado }}</span>
+                                                    @elseif( $envios[$i]->estado == 'Entregado')
+                                                    <span class="badge badge-success">{{ $envios[$i]->estado }}</span>
+                                                    @elseif( $envios[$i]->estado == 'En ruta')
+                                                    <span class="badge badge-info">{{ $envios[$i]->estado }}</span>
+                                                    @elseif( $envios[$i]->estado == 'Reprogramado')
+                                                    <span class="badge badge-dark">{{ $envios[$i]->estado }}</span>
+                                                    @elseif( $envios[$i]->estado == 'Devuelto al comercio')
+                                                    <span class="badge badge-primary">{{ $envios[$i]->estado }}</span>
+                                                    @elseif( $envios[$i]->estado == 'Fallido')
+                                                    <span class="badge badge-secondary">{{ $envios[$i]->estado }}</span>
+                                                    @else
+                                                    <span class="badge badge-light">{{ $envios[$i]->estado }}</span>
+                                                    @endif
+                                                </td>
                         
                            
                             </tr>

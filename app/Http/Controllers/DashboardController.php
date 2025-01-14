@@ -14,4 +14,21 @@ class DashboardController extends Controller
 
        // return view('pages.dashboards.index');
     }
+
+    public function filtroruta()
+    {
+        $envios = Envio::where('estado', "En ruta")->get();
+        return view('pages.dashboards.index', compact('envios'));
+
+      
+    }
+
+    public function filtroentregado()
+    {
+        $envios = Envio::where('estado', "Entregado")->get();
+        return view('pages.dashboards.index', compact('envios'));
+
+      
+    }
+    
 }
