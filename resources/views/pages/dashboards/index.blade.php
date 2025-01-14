@@ -1824,19 +1824,40 @@ License: For each use you must have a valid license purchased only from above li
 														<table class="table table-row-dashed table-row-gray-200 align-middle gs-0 gy-4">
 															<!--begin::Table head-->
 															<thead>
-																<tr class="border-0">
-																	<th class="p-0 w-50px">Guia</th>
-																	<th class="p-0 min-w-150px">Comercio</th>
-																	<th class="p-0 min-w-140px">Destinatario</th>
+																<tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
+																	<th class="p-0 w-150px">Guia</th>
+																	<th class="p-0 min-w-100px">Comercio</th>
+																	<th class="p-0 min-w-100px">Destinatario</th>
 																	<th class="p-0 min-w-110px">Fecha</th>
 																	<th class="p-0 min-w-50px">Precio</th>
 																	<th class="p-0 min-w-50px">Estado</th>
 																</tr>
 															</thead>
 															<!--end::Table head-->
+
+
 															<!--begin::Table body-->
 															<tbody>
 																
+																@for ($i=0; $i< count($envios); $i++)
+                           
+                            
+                            <tr >
+                            <td>{{ $envios[$i]->guia }}</td>
+                           
+                            <td>{{ $envios[$i]->comercio }}</td>
+                            <td>{{ $envios[$i]->destinatario }}</td>
+                            <td>{{ $envios[$i]->fecha_entrega }}</td>
+                            <td>$ {{ $envios[$i]->precio }}</td>
+                       
+                            <td>{{ $envios[$i]->estado }}</td>
+                        
+                           
+                            </tr>
+                           
+                            @endfor
+
+
 															</tbody>
 															<!--end::Table body-->
 														</table>

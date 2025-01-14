@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Envio;
 
 class DashboardController extends Controller
 {
@@ -8,6 +9,9 @@ class DashboardController extends Controller
     {
         addVendors(['amcharts', 'amcharts-maps', 'amcharts-stock']);
 
-        return view('pages.dashboards.index');
+        $envios = Envio::all();
+        return view('pages.dashboards.index', compact('envios'));
+
+       // return view('pages.dashboards.index');
     }
 }
