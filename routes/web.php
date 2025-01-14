@@ -25,4 +25,7 @@ Route::get('/error', function () {
 
 Route::get('/auth/redirect/{provider}', [SocialiteController::class, 'redirect']);
 
+Route::get('/filtroruta', [App\Http\Controllers\DashboardController::class, 'filtroruta'] )->name('filtroruta');
+Route::get('/filtroentregado', [App\Http\Controllers\DashboardController::class, 'filtroentregado'] )->name('filtroentregado');
+
 require __DIR__.'/auth.php';
