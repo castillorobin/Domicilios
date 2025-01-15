@@ -82,7 +82,7 @@ License: For each use you must have a valid license purchased only from above li
 										<div class="menu-item">
 											<!--begin:Menu content-->
 											<div class="menu-content">
-												<span class="menu-section fs-5 fw-bolder ps-1 py-1">Inicio</span>
+												<span class="menu-section fs-5 fw-bolder ps-1 py-1">Inicioooooooooo</span>
 											</div>
 											<!--end:Menu content-->
 										</div>
@@ -1877,43 +1877,7 @@ License: For each use you must have a valid license purchased only from above li
 															<!--begin::Table body-->
 															<tbody>
 																
-																@for ($i=0; $i< count($envios); $i++)
-                           @if($envios[$i]->repartidor ==  Auth::user()->name ) 
-							
-						   
 																
-                            <tr >
-                            <td>{{ $envios[$i]->guia }}</td>
-                           
-                            <td>{{ $envios[$i]->comercio }}</td>
-                            <td>{{ $envios[$i]->destinatario }}</td>
-                            <td>{{ $envios[$i]->fecha_entrega }}</td>
-                            <td>$ {{ $envios[$i]->precio }}</td>
-                       
-                            <td class="text-center">
-                                                    @if( $envios[$i]->estado == 'No entregado')
-                                                    <span class="badge badge-danger">{{ $envios[$i]->estado }}</span>
-                                                    @elseif( $envios[$i]->estado == 'Creado')
-                                                    <span class="badge badge-warning">{{ $envios[$i]->estado }}</span>
-                                                    @elseif( $envios[$i]->estado == 'Entregado')
-                                                    <span class="badge badge-success">{{ $envios[$i]->estado }}</span>
-                                                    @elseif( $envios[$i]->estado == 'En ruta')
-                                                    <span class="badge badge-info">{{ $envios[$i]->estado }}</span>
-                                                    @elseif( $envios[$i]->estado == 'Reprogramado')
-                                                    <span class="badge badge-dark">{{ $envios[$i]->estado }}</span>
-                                                    @elseif( $envios[$i]->estado == 'Devuelto al comercio')
-                                                    <span class="badge badge-primary">{{ $envios[$i]->estado }}</span>
-                                                    @elseif( $envios[$i]->estado == 'Fallido')
-                                                    <span class="badge badge-secondary">{{ $envios[$i]->estado }}</span>
-                                                    @else
-                                                    <span class="badge badge-light">{{ $envios[$i]->estado }}</span>
-                                                    @endif
-                                                </td>
-                        
-                           
-                            </tr>
-                           @endif
-                            @endfor
 
 
 															</tbody>

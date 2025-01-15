@@ -14,7 +14,7 @@ License: For each use you must have a valid license purchased only from above li
 <html lang="en">
 	<!--begin::Head-->
 	<head> 
-        <base href=""/>
+		<base href="../../../" />
 		<title>Melo Express - Domicilios</title>
 		<meta charset="utf-8" />
 		<meta name="description" content="The most advanced Bootstrap 5 Admin Theme with 40 unique prebuilt layouts on Themeforest trusted by 100,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue, Asp.Net Core, Rails, Spring, Blazor, Django, Express.js, Node.js, Flask, Symfony & Laravel versions. Grab your copy now and get life-time updates for free." />
@@ -82,7 +82,7 @@ License: For each use you must have a valid license purchased only from above li
 										<div class="menu-item">
 											<!--begin:Menu content-->
 											<div class="menu-content">
-												<span class="menu-section fs-5 fw-bolder ps-1 py-1">Inicio</span>
+												<span class="menu-section fs-5 fw-bolder ps-1 py-1">Usuarios</span>
 											</div>
 											<!--end:Menu content-->
 										</div>
@@ -262,7 +262,7 @@ License: For each use you must have a valid license purchased only from above li
 							<div class="page-title d-flex flex-column align-items-start justify-content-center flex-wrap me-lg-20 py-3 py-lg-0 me-3">
 								<!--begin::Heading-->
 								<h1 class="d-flex flex-column text-dark fw-bold my-1">
-									<span class="text-white fs-1">Inicio</span>
+									<span class="text-white fs-1">Usuarios</span>
 									<small class="text-gray-600 fs-6 fw-normal pt-2"></small>
 								</h1>
 								<!--end::Heading-->
@@ -1718,134 +1718,19 @@ License: For each use you must have a valid license purchased only from above li
 						<!--begin::Container-->
 						<div class="container-xxl" id="kt_content_container">
 							<!--begin::Row-->
-							<div class="row g-5 g-xl-8">
+							<div class="row ">
 								<!--begin::Col-->
-								<div class="col-xl-4">
-									<!--begin::Misc Widget 1-->
-									<div class="row mb-5 mb-xl-8 g-5 g-xl-8">
-										<!--begin::Col-->
-										<div class="col-6">
-											<!--begin::Card-->
-											<div class="card card-stretch">
-												<!--begin::Link-->
-												<a href="/dashboard" class="btn btn-flex btn-text-gray-800 btn-icon-gray-400 btn-active-color-primary bg-body flex-column justfiy-content-start align-items-start text-start w-100 p-10">
-													<i class="ki-duotone ki-gift fs-2tx mb-5 ms-n1">
-														<span class="path1"></span>
-														<span class="path2"></span>
-														<span class="path3"></span>
-														<span class="path4"></span>
-													</i>
-													<span class="fs-4 fw-bold">Asignados</span>
-												</a>
-												<!--end::Link-->
-											</div>
-											<!--end::Card-->
-										</div>
-										<!--end::Col-->
-										<!--begin::Col-->
-										<div class="col-6">
-											<!--begin::Card-->
-											<div class="card card-stretch">
-												<!--begin::Link-->
-												<a href="/filtroruta" class="btn btn-flex btn-text-gray-800 btn-icon-gray-400 btn-active-color-primary bg-body flex-column justfiy-content-start align-items-start text-start w-100 p-10">
-													<i class="ki-duotone ki-technology-2 fs-2tx mb-5 ms-n1">
-														<span class="path1"></span>
-														<span class="path2"></span>
-													</i>
-													<span class="fs-4 fw-bold">En ruta</span>
-												</a>
-												<!--end::Link-->
-											</div>
-											<!--end::Card-->
-										</div>
-										<!--end::Col-->
-										<!--begin::Col-->
-										<div class="col-6">
-											<!--begin::Card-->
-											<div class="card card-stretch">
-												<!--begin::Link-->
-												<a href="/filtroentregado" class="btn btn-flex btn-text-gray-800 btn-icon-gray-400 btn-active-color-primary bg-body flex-column justfiy-content-start align-items-start text-start w-100 p-10">
-													<i class="ki-duotone ki-fingerprint-scanning fs-2tx mb-5 ms-n1">
-														<span class="path1"></span>
-														<span class="path2"></span>
-														<span class="path3"></span>
-														<span class="path4"></span>
-														<span class="path5"></span>
-													</i>
-													<span class="fs-4 fw-bold">Entregados</span>
-												</a>
-												<!--end::Link-->
-											</div>
-											<!--end::Card-->
-										</div>
-										<!--end::Col-->
-										<!--begin::Col-->
-										<div class="col-6">
-											<!--begin::Card-->
-											<div class="card card-stretch">
-												<!--begin::Link-->
-												<a href="/filtrofallido" class="btn btn-flex btn-text-gray-800 btn-icon-gray-400 btn-active-color-primary bg-body flex-column justfiy-content-start align-items-start text-start w-100 p-10">
-													<i class="ki-duotone ki-abstract-26 fs-2tx mb-5 ms-n1">
-														<span class="path1"></span>
-														<span class="path2"></span>
-													</i>
-													<span class="fs-4 fw-bold">Fallidos</span>
-												</a>
-												<!--end::Link-->
-											</div>
-											<!--end::Card-->
-										</div>
-										<!--end::Col-->
-										<!--begin::Col-->
-										<div class="col-6">
-											<!--begin::Card-->
-											<div class="card card-stretch">
-												<!--begin::Link-->
-												<a href="/filtronoentregado" class="btn btn-flex btn-text-gray-800 btn-icon-gray-400 btn-active-color-primary bg-body flex-column justfiy-content-start align-items-start text-start w-100 p-10">
-													<i class="ki-duotone ki-basket fs-2tx mb-5 ms-n1">
-														<span class="path1"></span>
-														<span class="path2"></span>
-														<span class="path3"></span>
-														<span class="path4"></span>
-													</i>
-													<span class="fs-4 fw-bold">No entregados</span>
-												</a>
-												<!--end::Link-->
-											</div>
-											<!--end::Card-->
-										</div>
-										<!--end::Col-->
-										<!--begin::Col-->
-										<div class="col-6">
-											<!--begin::Card-->
-											<div class="card card-stretch">
-												<!--begin::Link-->
-												<a href="./filtroreprogramado" class="btn btn-flex btn-text-gray-800 btn-icon-gray-400 btn-active-color-primary bg-body flex-column justfiy-content-start align-items-start text-start w-100 p-10">
-													<i class="ki-duotone ki-rocket fs-2tx mb-5 ms-n1">
-														<span class="path1"></span>
-														<span class="path2"></span>
-													</i>
-													<span class="fs-4 fw-bold">Reprogramados</span>
-												</a>
-												<!--end::Link-->
-											</div>
-											<!--end::Card-->
-										</div>
-										<!--end::Col-->
-									</div>
-									
-							
-								</div>
+								
 								<!--end::Col-->
 								<!--begin::Col-->
-								<div class="col-xl-8 ps-xl-12">
+								<div class="col-xl-12 ps-xl-12">
 									<!--begin::Engage widget 1-->
 									<div class="card bgi-position-y-bottom bgi-position-x-end bgi-no-repeat bgi-size-cover min-h-250px bg-primary mb-5 mb-xl-8" style="background-color:white !important; " dir="ltr">
 										<!--begin::Body-->
 										<!--begin::Header-->
 										<div class="card-header border-0 pt-5">
 											<h3 class="card-title align-items-start flex-column">
-												<span class="card-label fw-bold fs-3 mb-1">Envios Asignados</span>
+												<span class="card-label fw-bold fs-3 mb-1">Listado de Usuarios</span>
 												<span class="text-muted mt-1 fw-semibold fs-7"></span>
 											</h3>
 											
@@ -1856,71 +1741,212 @@ License: For each use you must have a valid license purchased only from above li
 											<div class="tab-content">
 												<!--begin::Tap pane-->
 												<div class="tab-pane fade show active" id="kt_table_widget_5_tab_1">
-													<!--begin::Table container-->
-													<div class="table-responsive">
-														<!--begin::Table-->
-														<table class="table table-row-dashed table-row-gray-200 align-middle gs-0 gy-4">
-															<!--begin::Table head-->
-															<thead>
-																<tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
-																	<th class="p-0 w-150px">Guia</th>
-																	<th class="p-0 min-w-100px">Comercio</th>
-																	<th class="p-0 min-w-100px">Destinatario</th>
-																	<th class="p-0 min-w-110px">Fecha</th>
-																	<th class="p-0 min-w-50px">Precio</th>
-																	<th class="p-0 min-w-50px">Estado</th>
-																</tr>
-															</thead>
-															<!--end::Table head-->
+													
+            <!--begin::Content-->
+            <div id="kt_app_content" class="app-content flex-column-fluid">
+                <!--begin::Content container-->
+                <div id="kt_app_content_container" class="app-container container-xxl">
+                    <!--begin::Card-->
+                    <div class="card">
+                        <!--begin::Card header-->
+                        <div class="card-header border-0 pt-6">
+                            <!--begin::Card title--> 
+                            <div class="card-title">
+                                <!--begin::Search-->
+                                <div class="d-flex align-items-center position-relative my-1">
+                                    <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-5">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                    </i>
+                                    <input type="text" data-kt-user-table-filter="search" class="form-control form-control-solid w-250px ps-13" placeholder="Buscar usuario" />
+                                    <span style="color:red; font-weight:bolder;"></span>
+                                </div>
+                                <!--end::Search-->
+                            </div>
+                            <!--begin::Card title-->
+
+                            <!--begin::Card toolbar-->
+                            <div class="card-toolbar">
+                                <!--begin::Toolbar-->
+                                <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
+                              
+
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_add_user">
+                                        <i class="ki-duotone ki-plus fs-2"></i>Añadir usuario</button>
+                                    <!--end::Add user-->
+                                </div>
+                                <!--end::Toolbar-->
+                                <!--begin::Group actions-->
+                             
+                                <!--end::Group actions-->
+                                <!--begin::Modal - Adjust Balance-->
+                                <div class="modal fade" id="kt_modal_export_users" tabindex="-1" aria-hidden="true">
+                                    <!--begin::Modal dialog-->
+                                    <div class="modal-dialog modal-dialog-centered mw-650px">
+                                        <!--begin::Modal content-->
+                                        <div class="modal-content">
+                                            <!--begin::Modal header-->
+                                            <div class="modal-header">
+                                                <!--begin::Modal title-->
+                                                <h2 class="fw-bold">Exportar usuarios</h2>
+                                                <!--end::Modal title-->
+                                                <!--begin::Close-->
+                                                <div class="btn btn-icon btn-sm btn-active-icon-primary" data-kt-users-modal-action="close">
+                                                    <i class="ki-duotone ki-cross fs-1">
+                                                        <span class="path1"></span>
+                                                        <span class="path2"></span>
+                                                    </i>
+                                                </div>
+                                                <!--end::Close-->
+                                            </div>
+                                            <!--end::Modal header-->
+                                            <!--begin::Modal body-->
+                                            <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
+                                                <!--begin::Form-->
+                                                <form id="kt_modal_export_users_form" class="form" action="#">
+                                                    <!--begin::Input group-->
+                                                    <div class="fv-row mb-10">
+                                                        <!--begin::Label-->
+                                                        <label class="fs-6 fw-semibold form-label mb-2">Exportar por roles:</label>
+                                                        <!--end::Label-->
+                                                        <!--begin::Input-->
+                                                        <select name="role" data-control="select2" data-placeholder="Seleccione un rol" data-hide-search="true" class="form-select form-select-solid fw-bold">
+                                                            <option></option>
+                                                            <option value="Administrator">Administrator</option>
+                                                            <option value="Gerente general">Gerente general</option>
+                                                            <option value="Gerente general">Gerente financiero</option>
+                                                            <option value="Jefe de digitado">Jefe de digitado</option>
+                                                            <option value="Jefe de atencion al cliente">Jefe de atencion al cliente</option>
+                                                            <option value="Cajero">Cajero</option>
+                                                            <option value="Digitador">Digitador</option>
+                                                            <option value="Atencion al cliente">Atencion al cliente</option>
+                                                            <option value="Operario">Operario</option>
+                                                            <option value="Repartidor">Repartidor</option>
+                                                        </select>
+                                                        <!--end::Input-->
+                                                    </div>
+                                                    <!--end::Input group-->
+                                                    <!--begin::Input group-->
+                                                    <div class="fv-row mb-10">
+                                                        <!--begin::Label-->
+                                                        <label class="required fs-6 fw-semibold form-label mb-2">Seleccione el formato de exportación:</label>
+                                                        <!--end::Label-->
+                                                        <!--begin::Input-->
+                                                        <select name="format" data-control="select2" data-placeholder="Seleccione un formato" data-hide-search="true" class="form-select form-select-solid fw-bold">
+                                                            <option></option>
+                                                            <option value="excel">Excel</option>
+                                                            <option value="pdf">PDF</option>
+                                                        </select>
+                                                        <!--end::Input-->
+                                                    </div>
+                                                    <!--end::Input group-->
+                                                    <!--begin::Actions-->
+                                                    <div class="text-center">
+                                                        <button type="reset" class="btn btn-light me-3" data-kt-users-modal-action="cancel">Cancelar</button>
+                                                        <button type="submit" class="btn btn-primary" data-kt-users-modal-action="submit">
+                                                            <span class="indicator-label">Exportar</span>
+                                                            <span class="indicator-progress">Espere por favor...
+                                                                <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+                                                        </button>
+                                                    </div>
+                                                    <!--end::Actions-->
+                                                </form>
+                                                <!--end::Form-->
+                                            </div>
+                                            <!--end::Modal body-->
+                                        </div>
+                                        <!--end::Modal content-->
+                                    </div>
+                                    <!--end::Modal dialog-->
+                                </div>
+                                <!--end::Modal - New Card-->
 
 
-															<!--begin::Table body-->
-															<tbody>
-																
-																@for ($i=0; $i< count($envios); $i++)
-                           @if($envios[$i]->repartidor ==  Auth::user()->name ) 
-							
-						   
-																
-                            <tr >
-                            <td>{{ $envios[$i]->guia }}</td>
-                           
-                            <td>{{ $envios[$i]->comercio }}</td>
-                            <td>{{ $envios[$i]->destinatario }}</td>
-                            <td>{{ $envios[$i]->fecha_entrega }}</td>
-                            <td>$ {{ $envios[$i]->precio }}</td>
-                       
-                            <td class="text-center">
-                                                    @if( $envios[$i]->estado == 'No entregado')
-                                                    <span class="badge badge-danger">{{ $envios[$i]->estado }}</span>
-                                                    @elseif( $envios[$i]->estado == 'Creado')
-                                                    <span class="badge badge-warning">{{ $envios[$i]->estado }}</span>
-                                                    @elseif( $envios[$i]->estado == 'Entregado')
-                                                    <span class="badge badge-success">{{ $envios[$i]->estado }}</span>
-                                                    @elseif( $envios[$i]->estado == 'En ruta')
-                                                    <span class="badge badge-info">{{ $envios[$i]->estado }}</span>
-                                                    @elseif( $envios[$i]->estado == 'Reprogramado')
-                                                    <span class="badge badge-dark">{{ $envios[$i]->estado }}</span>
-                                                    @elseif( $envios[$i]->estado == 'Devuelto al comercio')
-                                                    <span class="badge badge-primary">{{ $envios[$i]->estado }}</span>
-                                                    @elseif( $envios[$i]->estado == 'Fallido')
-                                                    <span class="badge badge-secondary">{{ $envios[$i]->estado }}</span>
-                                                    @else
-                                                    <span class="badge badge-light">{{ $envios[$i]->estado }}</span>
-                                                    @endif
-                                                </td>
-                        
-                           
-                            </tr>
-                           @endif
-                            @endfor
+                                <!--end::Modal - Add task-->
+                            </div>
+                            <!--end::Card toolbar-->
+                        </div>
+                        <!--end::Card header-->
+                        <!--begin::Card body-->
+                        <div class="card-body py-4">
+                            <!--begin::Table-->
+                            <form class="form" action="/usuarios/eliminartodo/" method="POST">
+                                @csrf
+                                @method('GET')
+                            <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
+                                <thead>
+                                    <tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
+                                        <th class="w-10px pe-2">
+                                            <div class="form-check form-check-sm form-check-custom form-check-solid me-3">
+                                                <input class="form-check-input" type="checkbox" data-kt-check="true" id="check33" name="checked[]" data-kt-check-target="#kt_table_users .form-check-input" />
+                                            </div>
+                                        </th>
+                                        <th class="min-w-100px">Usuario</th>
+                                        <th class="min-w-50px">Rol</th>
+                                        <th class="min-w-50p0px">Ultimo acceso</th>
+                                        <th class="min-w-50p0px">Sesion</th>
+                                        <th class="min-w-50p0px">Fecha De Incorporación</th>
+                                        <th class="text-center min-w-50p0px">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-gray-600 fw-semibold">
+                                   <tr>
+                                        <td>
+                                           
+                                        </td>
+                                        <td class="d-flex align-items-center">
+                                            
+                                        </td>
+                                        <td>
+                                           
+                                        </td>
+                                        <td>
+                                        
+                                            <div class="badge badge-light fw-bold">  </div>
+                                        </td>
+                                        <td>
+                                            
+                                      
+                                            
+                                        </td>
+                                        <td>
+                                        
+                                            </td>
+                                        <td class="text-end">
+                                           
+                                        </td>
+                                        </tr>
+                                      
+                                </tbody>
+                            </table>
+
+                            <div class="d-flex justify-content-end align-items-center d-none" data-kt-user-table-toolbar="selected">
+                                    <div class="fw-bold me-5">
+                                        <span class="me-2" data-kt-user-table-select="selected_count"></span>Seleccionado
+                                    </div>
+                                    
+
+                                                  
+                                                
+                                                    <input type="text" name="valores" id="valores" hidden>
+                                    
+                                    <button type="submit" class="btn btn-danger">Eliminar seleccionado</button>
+                                  
+                               
+                                </div>
 
 
-															</tbody>
-															<!--end::Table body-->
-														</table>
-													</div>
-													<!--end::Table-->
+
+
+                            </form>
+                            <!--end::Table-->
+                        </div>
+                        <!--end::Card body-->
+                    </div>
+                    <!--end::Card-->
+                </div>
+                <!--end::Content container-->
+            </div>
 												</div>
 												<!--end::Tap pane-->
 												<!--begin::Tap pane-->

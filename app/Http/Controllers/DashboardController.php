@@ -15,6 +15,16 @@ class DashboardController extends Controller
        // return view('pages.dashboards.index');
     }
 
+    public function usuarios()
+    {
+        addVendors(['amcharts', 'amcharts-maps', 'amcharts-stock']);
+
+        $envios = Envio::all();
+        return view('usuarios.index', compact('envios'));
+
+       // return view('pages.dashboards.index');
+    }
+
     public function filtroruta()
     {
         $envios = Envio::where('estado', "En ruta")->get();
