@@ -4,6 +4,9 @@ use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\RolController;
+use App\Http\Controllers\UsuarioController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +17,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+//Spatie
+Route::group(['middleware' => ['auth']], function(){
+    Route::resource('roles', RolController::class);
+    Route::resource('usuario', UsuarioController::class);
+});
 
 Route::get('/', [DashboardController::class, 'index'])->middleware(['auth', 'verified']);
 
