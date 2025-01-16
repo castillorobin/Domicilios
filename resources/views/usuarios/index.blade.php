@@ -1890,33 +1890,83 @@ License: For each use you must have a valid license purchased only from above li
                                     </tr>
                                 </thead>
                                 <tbody class="text-gray-600 fw-semibold">
-                                   <tr>
+
+
+
+								@for ($i = 0; $i < count($usuarios); $i++) <tr>
                                         <td>
-                                           
+                                            <div class="form-check form-check-sm form-check-custom form-check-solid">
+                                                <input class="form-check-input" type="checkbox" id="check3" name="checked[]" value="{{ $usuarios[$i]->id }}" onclick="borra()"/>
+                                            </div>
                                         </td>
                                         <td class="d-flex align-items-center">
-                                            
+                                            <!--begin:: Avatar -->
+                                            <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
+                                                <a href="{{ url('/usuarios/view') }}">
+                                                    <div class="symbol-label">
+                                                        <img src="/fotos/{{$usuarios[$i]->avatar}}" alt="" class="w-100" />
+                                                    </div> 
+                                                </a>
+                                            </div>
+                                            <!--end::Avatar--> 
+                                            <!--begin::User details-->
+                                            <div class="d-flex flex-column">
+                                                <a href="/usuarios/view/{{ $usuarios[$i]->id }}" class="text-gray-800 text-hover-primary mb-1">{{ $usuarios[$i]->name }}</a>
+                                                <span>{{ $usuarios[$i]->email }}</span>
+                                            </div>
+                                            <!--begin::User details -->
                                         </td>
                                         <td>
-                                           
+										
+                                            @if(!empty($usuarios[$i]->getRoleNames()))
+                                            @foreach($usuarios[$i]->getRoleNames() as $rolNombre)
+                                            <h5><span class="badge badge-dark">{{ $rolNombre }}</span></h5>
+                                            @endforeach
+                                            @endif
                                         </td>
                                         <td>
                                         
-                                            <div class="badge badge-light fw-bold">  </div>
+                                            <div class="badge badge-light fw-bold"> {{ $usuarios[$i]->updated_at }}  </div>
                                         </td>
                                         <td>
                                             
-                                      
+                                        @if($usuarios[$i]->status == "Offline")
+                                        <div class="badge badge-light-danger fw-bold">
+                                            {{$usuarios[$i]->status}}
+                                            </div> 
+                                        @else
+                                        <div class="badge badge-light-success fw-bold">
+                                            {{$usuarios[$i]->status}}
+                                            </div> 
+                                        @endif
                                             
                                         </td>
                                         <td>
-                                        
+                                        {{ date('d/m/Y', strtotime($usuarios[$i]->created_at)) }}
                                             </td>
                                         <td class="text-end">
-                                           
+                                            <a href="#" class="btn btn-light btn-active-light-primary btn-flex btn-center btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Acción
+                                                <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
+                                            <!--begin::Menu-->
+                                            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
+                                                <!--begin::Menu item-->
+                                                <div class="menu-item px-3">
+                                                    <a href="/usuarios/view/{{ $usuarios[$i]->id }}" class="menu-link px-3">Editar</a>
+                                                </div>
+                                                <!--end::Menu item-->
+                                                <!--begin::Menu item-->
+                                                <div class="menu-item px-3">
+                                                    <a href="/usuarios/eliminar/{{ $usuarios[$i]->id }}" class="menu-link px-3" data-kt-users-table-filter="delete_row">Borrar</a>
+                                                </div>
+                                                <!--end::Menu item-->
+                                            </div>
+                                            <!--end::Menu-->
                                         </td>
                                         </tr>
-                                      
+                                        @endfor
+
+
+								
                                 </tbody>
                             </table>
 
