@@ -40,4 +40,8 @@ Route::get('/filtrofallido', [App\Http\Controllers\DashboardController::class, '
 Route::get('/filtronoentregado', [App\Http\Controllers\DashboardController::class, 'filtronoentregado'] )->name('filtronoentregado');
 Route::get('/filtroreprogramado', [App\Http\Controllers\DashboardController::class, 'filtroreprogramado'] )->name('filtroreprogramado');
 
+
+//usuarios
+Route::get('/usuarios/lista', [App\Http\Controllers\DashboardController::class, 'usuarios'] )->name('indexuser') ;
+
 require __DIR__.'/auth.php';
