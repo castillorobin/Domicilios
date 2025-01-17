@@ -110,6 +110,7 @@ License: For each use you must have a valid license purchased only from above li
 
 								<div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item here show py-2">
 									<!--begin:Menu link-->
+									@can('repartidor-crear')
 									<a href="/usuarios/lista">
 									<span class="menu-link menu-center">
 										<span class="menu-icon me-0">
@@ -123,10 +124,12 @@ License: For each use you must have a valid license purchased only from above li
 										</span>
 									</span>
 								
-								
+									@endcan
 
 									
 									<!--end:Menu sub-->
+
+
 								</div>
 
 </a>
