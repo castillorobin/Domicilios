@@ -45,5 +45,6 @@ Route::get('/filtroreprogramado', [App\Http\Controllers\DashboardController::cla
 //Route::get('/usuarios/lista', [App\Http\Controllers\DashboardController::class, 'usuarios'] )->name('indexuser') ;
 
 Route::get('/usuarios/lista', [App\Http\Controllers\UsuarioController::class, 'index'] )->name('indexuser') ;
+Route::get('/guardaruser', [App\Http\Controllers\UsuarioController::class, 'guardaru'] )->name('guardaru') ;
 
 require __DIR__.'/auth.php';

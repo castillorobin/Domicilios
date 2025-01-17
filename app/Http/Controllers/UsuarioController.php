@@ -25,6 +25,8 @@ class UsuarioController extends Controller
     {
         $roles = Role::pluck('name','name')->all();
         $usuarios = User::all();
+
+
         $empleados = Empleado::all();
 /*
         foreach ($usuarios as $key => $user) {
@@ -35,7 +37,7 @@ class UsuarioController extends Controller
             }
         }
 */
-
+//dd($usuarios);
         $nota = " ";
         return view('usuarios.index',compact('usuarios', 'roles', 'empleados', 'nota')); 
 
@@ -97,6 +99,8 @@ class UsuarioController extends Controller
         $ema = $request->input('email');
         $envios = User::where('email', $ema)
         ->get();
+        /*
+        dd($ema);
         if($envios){
             $roles = Role::pluck('name','name')->all();
             $usuarios = User::all();
@@ -110,11 +114,11 @@ class UsuarioController extends Controller
                 }
             }
             $nota = "El usuario ya existe";
-            return view('usuarios.usuariolista', compact('usuarios', 'roles', 'empleados', 'nota'));
+            return view('usuarios.index', compact('usuarios', 'roles', 'empleados', 'nota'));
         }
         //dd($envios);
       
-
+*/
         $input = $request->all();
         if ($request->hasFile('avatar')) {
 
@@ -136,7 +140,7 @@ class UsuarioController extends Controller
 
 
         $user->assignRole($request->input('roles'));
-        return redirect()->route('usuario.index');
+        return redirect()->route('indexuser');
         }
         
         $input['password'] = Hash::make($input['password']);
@@ -168,7 +172,7 @@ class UsuarioController extends Controller
         $user = User::create($input);
         $user->assignRole($request->input('roles'));
         */
-        return redirect()->route('usuario.index');
+        return redirect()->route('indexuser');
     }
 
     /**

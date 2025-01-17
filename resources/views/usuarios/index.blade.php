@@ -1759,7 +1759,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <span class="path2"></span>
                                     </i>
                                     <input type="text" data-kt-user-table-filter="search" class="form-control form-control-solid w-250px ps-13" placeholder="Buscar usuario" />
-                                    <span style="color:red; font-weight:bolder;"></span>
+                                    <span style="color:red; font-weight:bolder;">{{$nota}}</span>
                                 </div>
                                 <!--end::Search-->
                             </div>
@@ -1893,7 +1893,11 @@ License: For each use you must have a valid license purchased only from above li
 
 
 
-								@for ($i = 0; $i < count($usuarios); $i++) <tr>
+								@for ($i = 0; $i < count($usuarios); $i++) 
+								@if(!empty($usuarios[$i]->getRoleNames()))
+                                            @foreach($usuarios[$i]->getRoleNames() as $rolNombre)
+								@if($rolNombre == "Repartidor")
+								<tr>
                                         <td>
                                             <div class="form-check form-check-sm form-check-custom form-check-solid">
                                                 <input class="form-check-input" type="checkbox" id="check3" name="checked[]" value="{{ $usuarios[$i]->id }}" onclick="borra()"/>
@@ -1963,6 +1967,12 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Menu-->
                                         </td>
                                         </tr>
+										@endif
+										@endforeach
+                                           
+										@endif
+
+
                                         @endfor
 
 
@@ -1997,6 +2007,272 @@ License: For each use you must have a valid license purchased only from above li
                 </div>
                 <!--end::Content container-->
             </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			<!--begin::Modal - Add task-->
+                                <div class="modal fade" id="kt_modal_add_user" tabindex="-1" aria-hidden="true">
+                                    <!--begin::Modal dialog-->
+                                    <div class="modal-dialog modal-dialog-centered mw-650px">
+                                        <!--begin::Modal content-->
+                                        <div class="modal-content">
+                                            <!--begin::Modal header-->
+                                            <div class="modal-header" id="kt_modal_add_user_header">
+                                                <!--begin::Modal title-->
+                                                <h2 class="fw-bold">Crear usuario</h2>
+                                                <!--end::Modal title-->
+                                                <!--begin::Close-->
+                                                <div class="btn btn-icon btn-sm btn-active-icon-primary" data-kt-users-modal-action="close">
+                                                    <i class="ki-duotone ki-cross fs-1">
+                                                        <span class="path1"></span>
+                                                        <span class="path2"></span>
+                                                    </i>
+                                                </div>
+                                                <!--end::Close-->
+                                            </div>
+                                            <!--end::Modal header-->
+                                            <!--begin::Modal body-->
+                                            <div class="modal-body scroll-y mx-5 mx-xl-15 my-7"> 
+                                                <!--begin::Form-->
+                                                <form id="kt_modal_add_user_form" class="form" action="/guardaruser" method="POST" enctype="multipart/form-data">
+
+                                                    @csrf
+                                                    @method('GET')
+                                                    <!--begin::Scroll-->
+
+
+                                                    <div class="d-flex flex-column scroll-y me-n7 pe-7" id="kt_modal_add_user_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_user_header" data-kt-scroll-wrappers="#kt_modal_add_user_scroll" data-kt-scroll-offset="300px">
+
+                                                        <!--begin::Input group-->
+                                                        <div class="fv-row mb-7">
+                                                            <!--begin::Label-->
+                                                            <label class="d-block fw-semibold fs-6 mb-5">Foto</label>
+                                                            <!--end::Label-->
+                                                            <!--begin::Image placeholder-->
+                                                            <style>
+                                                                .image-input-placeholder {
+                                                                    background-image: url('assets/media/svg/files/blank-image.svg');
+                                                                }
+
+                                                                [data-bs-theme="dark"] .image-input-placeholder {
+                                                                    background-image: url('assets/media/svg/files/blank-image-dark.svg');
+                                                                }
+                                                            </style>
+                                                            <!--end::Image placeholder-->
+                                                            <!--begin::Image input-->
+                                                            <div class="image-input image-input-outline image-input-placeholder" data-kt-image-input="true">
+                                                                <!--begin::Preview existing avatar-->
+                                                                <div class="image-input-wrapper w-125px h-125px" style="background-image: url(assets/media/avatars/300-6.jpg);"></div>
+                                                                <!--end::Preview existing avatar-->
+                                                                <!--begin::Label-->
+                                                                <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
+                                                                    <i class="ki-duotone ki-pencil fs-7">
+                                                                        <span class="path1"></span>
+                                                                        <span class="path2"></span>
+                                                                    </i>
+                                                                    <!--begin::Inputs-->
+                                                                    <input type="file" name="avatar" accept=".png, .jpg, .jpeg" />
+                                                                    <input type="hidden" name="avatar" />
+                                                                    <!--end::Inputs-->
+                                                                </label>
+                                                                <!--end::Label-->
+                                                                <!--begin::Cancel-->
+                                                                <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
+                                                                    <i class="ki-duotone ki-cross fs-2">
+                                                                        <span class="path1"></span>
+                                                                        <span class="path2"></span>
+                                                                    </i>
+                                                                </span>
+                                                                <!--end::Cancel-->
+                                                                <!--begin::Remove-->
+                                                                <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
+                                                                    <i class="ki-duotone ki-cross fs-2">
+                                                                        <span class="path1"></span>
+                                                                        <span class="path2"></span>
+                                                                    </i>
+                                                                </span>
+                                                                <!--end::Remove-->
+                                                            </div>
+                                                            <!--end::Image input-->
+                                                            <!--begin::Hint-->
+                                                            <div class="form-text">Allowed file types: png, jpg, jpeg.</div>
+                                                            <!--end::Hint-->
+                                                        </div>
+
+                                                        <div class="fv-row mb-7">
+                                                            <label class="required fw-semibold fs-6 mb-2">Selecione un empleado</label>
+                                                            <select class="form-select form-select-transparent" name="name" onchange="valor()" id="name" data-placeholder="...">
+                                                            <option value=" ">  </option>
+                                                                @foreach ($empleados as $empleado)
+                                                                <option value="{{$empleado->nombre}}">{{ $empleado->nombre }} </option>
+                                                                @endforeach
+                                                            </select>
+
+                                                            @foreach ($empleados as $empleado)
+                                                            <input hidden id="ema{{$empleado->nombre}}" value="{{ $empleado->correo }} ">
+
+                                                            @endforeach
+
+                                                        </div>
+                                                        <!--begin::Input group-->
+
+                                                        <!--end::Input group-->
+
+                                                        <!--begin::Input group-->
+                                                        <div class="fv-row mb-7">
+                                                            <!--begin::Label-->
+                                                            <label class="required fw-semibold fs-6 mb-2">Correo electronico</label>
+                                                            <!--end::Label-->
+                                                            <!--begin::Input-->
+                                                            <input type="email" name="email" class="form-control form-control-solid mb-3 mb-lg-0" id="email" value=" " />
+                                                            <!--end::Input-->
+                                                        </div>
+                                                        <!--end::Input group-->
+                                                        <!--begin::Input group-->
+                                                        <div class="mb-10 fv-row" data-kt-password-meter="true">
+                                                            <!--begin::Wrapper-->
+                                                            <div class="mb-1">
+                                                                <!--begin::Label-->
+                                                                <label class="form-label fw-semibold fs-6 mb-2">Contraseña</label>
+                                                                <!--end::Label-->
+                                                                <!--begin::Input wrapper-->
+                                                                <div class="position-relative mb-3">
+                                                                    <input class="form-control form-control-lg form-control-solid" type="password" placeholder="" name="password" autocomplete="off" />
+                                                                    <span class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2" data-kt-password-meter-control="visibility">
+                                                                        <i class="ki-duotone ki-eye-slash fs-1">
+                                                                            <span class="path1"></span>
+                                                                            <span class="path2"></span>
+                                                                            <span class="path3"></span>
+                                                                            <span class="path4"></span>
+                                                                        </i>
+                                                                        <i class="ki-duotone ki-eye d-none fs-1">
+                                                                            <span class="path1"></span>
+                                                                            <span class="path2"></span>
+                                                                            <span class="path3"></span>
+                                                                        </i>
+                                                                    </span>
+                                                                </div>
+                                                                <!--end::Input wrapper-->
+                                                                <!--begin::Meter-->
+                                                                <div class="d-flex align-items-center mb-3" data-kt-password-meter-control="highlight">
+                                                                    <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
+                                                                    <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
+                                                                    <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
+                                                                    <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px"></div>
+                                                                </div>
+                                                                <!--end::Meter-->
+                                                            </div>
+                                                            <!--end::Wrapper-->
+                                                            <!--begin::Hint-->
+                                                            <div class="text-muted">Utilice 8 o más caracteres con una combinación de letras, números y símbolos.</div>
+                                                            <!--end::Hint-->
+                                                        </div>
+                                                        <!--end::Input group=-->
+                                                        <!--begin::Input group=-->
+                                                        <div class="fv-row mb-10">
+                                                            <label class="form-label fw-semibold fs-6 mb-2">Confirme Contraseña</label>
+                                                            <input class="form-control form-control-lg form-control-solid" type="password" placeholder="" name="confirm_password" autocomplete="off" />
+                                                        </div>
+                                                        <!--begin::Input group-->
+                                                        <div class="mb-7">
+                                                            <!--begin::Label-->
+                                                            <label class="required fw-semibold fs-6 mb-5">Rol</label>
+                                                            <!--end::Label-->
+                                                            <!--begin::Roles-->
+                                                            <!--begin::Input row-->
+
+                                                            @foreach ($roles as $rol)
+																@if($rol == "Repartidor")
+                                                            <div class="d-flex fv-row">
+                                                                <!--begin::Radio-->
+                                                                <div class="form-check form-check-custom form-check-solid">
+                                                                    <!--begin::Input-->
+                                                                    <input class="form-check-input me-3" name="roles" type="radio" value="{{ $rol}}" id="kt_modal_update_role_option_0" checked='checked' />
+                                                                    <!--end::Input-->
+                                                                    <!--begin::Label-->
+                                                                    <label class="form-check-label" for="kt_modal_update_role_option_0">
+                                                                        <div class="fw-bold text-gray-800">{{ $rol}}</div>
+
+                                                                    </label>
+                                                                    <!--end::Label-->
+                                                                </div>
+                                                                <!--end::Radio-->
+                                                            </div>
+                                                            <!--end::Input row-->
+                                                            <div class='separator separator-dashed my-5'></div>
+															@endif
+                                                            @endforeach
+
+
+
+                                                            <!--begin::Input row-->
+                                                        </div>
+                                                        <!--end::Input group-->
+                                                    </div>
+                                                    <!--end::Scroll-->
+                                                    <!--begin::Actions-->
+                                                    <div class="text-center pt-15">
+                                                        <button type="button" class="btn btn-light me-3" data-bs-dismiss="modal">Cancelar</button>
+                                                        <button type="submit" class="btn btn-primary">
+                                                            <span class="indicator-label">Crear</span>
+                                                           
+                                                        </button>
+                                                    </div>
+
+                                                    <!--end::Actions-->
+                                                </form>
+                                                <!--end::Form-->
+                                            </div>
+                                            <!--end::Modal body-->
+                                        </div>
+                                        <!--end::Modal content-->
+                                    </div>
+                                    <!--end::Modal dialog-->
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 												</div>
 												<!--end::Tap pane-->
 												<!--begin::Tap pane-->
@@ -6137,6 +6413,22 @@ License: For each use you must have a valid license purchased only from above li
 		<!--end::Modals-->
 		<!--begin::Javascript-->
 		<script>var hostUrl = "assets/";</script>
+
+		<script>
+    function valor() {
+
+        nombre = document.getElementById("name").value;
+
+        nom = document.getElementById("ema" + nombre).value;
+
+        document.getElementById("email").value = nom;
+
+    }
+</script>
+
+
+
+
 		<!--begin::Global Javascript Bundle(mandatory for all pages)-->
 		<script src="assets/plugins/global/plugins.bundle.js"></script>
 		<script src="assets/js/scripts.bundle.js"></script>
