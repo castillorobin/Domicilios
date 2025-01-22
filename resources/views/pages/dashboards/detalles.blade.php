@@ -14,7 +14,7 @@ License: For each use you must have a valid license purchased only from above li
 <html lang="en">
 	<!--begin::Head-->
 	<head> 
-        <base href=""/>
+		<base href="../../../" />
 		<title>Melo Express - Domicilios</title>
 		<meta charset="utf-8" />
 		<meta name="description" content="The most advanced Bootstrap 5 Admin Theme with 40 unique prebuilt layouts on Themeforest trusted by 100,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue, Asp.Net Core, Rails, Spring, Blazor, Django, Express.js, Node.js, Flask, Symfony & Laravel versions. Grab your copy now and get life-time updates for free." />
@@ -82,7 +82,7 @@ License: For each use you must have a valid license purchased only from above li
 										<div class="menu-item">
 											<!--begin:Menu content-->
 											<div class="menu-content">
-												<span class="menu-section fs-5 fw-bolder ps-1 py-1">Inicio</span>
+												<span class="menu-section fs-5 fw-bolder ps-1 py-1">Usuarios</span>
 											</div>
 											<!--end:Menu content-->
 										</div>
@@ -110,7 +110,6 @@ License: For each use you must have a valid license purchased only from above li
 
 								<div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item here show py-2">
 									<!--begin:Menu link-->
-									@can('repartidor-crear')
 									<a href="/usuarios/lista">
 									<span class="menu-link menu-center">
 										<span class="menu-icon me-0">
@@ -124,12 +123,10 @@ License: For each use you must have a valid license purchased only from above li
 										</span>
 									</span>
 								
-									@endcan
+								
 
 									
 									<!--end:Menu sub-->
-
-
 								</div>
 
 </a>
@@ -265,7 +262,7 @@ License: For each use you must have a valid license purchased only from above li
 							<div class="page-title d-flex flex-column align-items-start justify-content-center flex-wrap me-lg-20 py-3 py-lg-0 me-3">
 								<!--begin::Heading-->
 								<h1 class="d-flex flex-column text-dark fw-bold my-1">
-									<span class="text-white fs-1">Inicio</span>
+									<span class="text-white fs-1">Usuarios</span>
 									<small class="text-gray-600 fs-6 fw-normal pt-2"></small>
 								</h1>
 								<!--end::Heading-->
@@ -1721,134 +1718,19 @@ License: For each use you must have a valid license purchased only from above li
 						<!--begin::Container-->
 						<div class="container-xxl" id="kt_content_container">
 							<!--begin::Row-->
-							<div class="row g-5 g-xl-8">
+							<div class="row ">
 								<!--begin::Col-->
-								<div class="col-xl-4">
-									<!--begin::Misc Widget 1-->
-									<div class="row mb-5 mb-xl-8 g-5 g-xl-8">
-										<!--begin::Col-->
-										<div class="col-6">
-											<!--begin::Card-->
-											<div class="card card-stretch">
-												<!--begin::Link-->
-												<a href="/filtroasig" class="btn btn-flex btn-text-gray-800 btn-icon-gray-400 btn-active-color-primary bg-body flex-column justfiy-content-start align-items-start text-start w-100 p-10">
-													<i class="ki-duotone ki-gift fs-2tx mb-5 ms-n1">
-														<span class="path1"></span>
-														<span class="path2"></span>
-														<span class="path3"></span>
-														<span class="path4"></span>
-													</i>
-													<span class="fs-4 fw-bold">Asignados</span>
-												</a>
-												<!--end::Link-->
-											</div>
-											<!--end::Card-->
-										</div>
-										<!--end::Col-->
-										<!--begin::Col-->
-										<div class="col-6">
-											<!--begin::Card-->
-											<div class="card card-stretch">
-												<!--begin::Link-->
-												<a href="/filtroruta" class="btn btn-flex btn-text-gray-800 btn-icon-gray-400 btn-active-color-primary bg-body flex-column justfiy-content-start align-items-start text-start w-100 p-10">
-													<i class="ki-duotone ki-technology-2 fs-2tx mb-5 ms-n1">
-														<span class="path1"></span>
-														<span class="path2"></span>
-													</i>
-													<span class="fs-4 fw-bold">En ruta</span>
-												</a>
-												<!--end::Link-->
-											</div>
-											<!--end::Card-->
-										</div>
-										<!--end::Col-->
-										<!--begin::Col-->
-										<div class="col-6">
-											<!--begin::Card-->
-											<div class="card card-stretch">
-												<!--begin::Link-->
-												<a href="/filtroentregado" class="btn btn-flex btn-text-gray-800 btn-icon-gray-400 btn-active-color-primary bg-body flex-column justfiy-content-start align-items-start text-start w-100 p-10">
-													<i class="ki-duotone ki-fingerprint-scanning fs-2tx mb-5 ms-n1">
-														<span class="path1"></span>
-														<span class="path2"></span>
-														<span class="path3"></span>
-														<span class="path4"></span>
-														<span class="path5"></span>
-													</i>
-													<span class="fs-4 fw-bold">Entregados</span>
-												</a>
-												<!--end::Link-->
-											</div>
-											<!--end::Card-->
-										</div>
-										<!--end::Col-->
-										<!--begin::Col-->
-										<div class="col-6">
-											<!--begin::Card-->
-											<div class="card card-stretch">
-												<!--begin::Link-->
-												<a href="/filtrofallido" class="btn btn-flex btn-text-gray-800 btn-icon-gray-400 btn-active-color-primary bg-body flex-column justfiy-content-start align-items-start text-start w-100 p-10">
-													<i class="ki-duotone ki-abstract-26 fs-2tx mb-5 ms-n1">
-														<span class="path1"></span>
-														<span class="path2"></span>
-													</i>
-													<span class="fs-4 fw-bold">Fallidos</span>
-												</a>
-												<!--end::Link-->
-											</div>
-											<!--end::Card-->
-										</div>
-										<!--end::Col-->
-										<!--begin::Col-->
-										<div class="col-6">
-											<!--begin::Card-->
-											<div class="card card-stretch">
-												<!--begin::Link-->
-												<a href="/filtronoentregado" class="btn btn-flex btn-text-gray-800 btn-icon-gray-400 btn-active-color-primary bg-body flex-column justfiy-content-start align-items-start text-start w-100 p-10">
-													<i class="ki-duotone ki-basket fs-2tx mb-5 ms-n1">
-														<span class="path1"></span>
-														<span class="path2"></span>
-														<span class="path3"></span>
-														<span class="path4"></span>
-													</i>
-													<span class="fs-4 fw-bold">No entregados</span>
-												</a>
-												<!--end::Link-->
-											</div>
-											<!--end::Card-->
-										</div>
-										<!--end::Col-->
-										<!--begin::Col-->
-										<div class="col-6">
-											<!--begin::Card-->
-											<div class="card card-stretch">
-												<!--begin::Link-->
-												<a href="./filtroreprogramado" class="btn btn-flex btn-text-gray-800 btn-icon-gray-400 btn-active-color-primary bg-body flex-column justfiy-content-start align-items-start text-start w-100 p-10">
-													<i class="ki-duotone ki-rocket fs-2tx mb-5 ms-n1">
-														<span class="path1"></span>
-														<span class="path2"></span>
-													</i>
-													<span class="fs-4 fw-bold">Reprogramados</span>
-												</a>
-												<!--end::Link-->
-											</div>
-											<!--end::Card-->
-										</div>
-										<!--end::Col-->
-									</div>
-									
-							
-								</div>
+								
 								<!--end::Col-->
 								<!--begin::Col-->
-								<div class="col-xl-8 ps-xl-12">
+								<div class="col-xl-12 ps-xl-12">
 									<!--begin::Engage widget 1-->
 									<div class="card bgi-position-y-bottom bgi-position-x-end bgi-no-repeat bgi-size-cover min-h-250px bg-primary mb-5 mb-xl-8" style="background-color:white !important; " dir="ltr">
 										<!--begin::Body-->
 										<!--begin::Header-->
 										<div class="card-header border-0 pt-5">
 											<h3 class="card-title align-items-start flex-column">
-												<span class="card-label fw-bold fs-3 mb-1">Envios Asignados</span>
+												<span class="card-label fw-bold fs-3 mb-1">Detalles del envio</span>
 												<span class="text-muted mt-1 fw-semibold fs-7"></span>
 											</h3>
 											
@@ -1859,33 +1741,462 @@ License: For each use you must have a valid license purchased only from above li
 											<div class="tab-content">
 												<!--begin::Tap pane-->
 												<div class="tab-pane fade show active" id="kt_table_widget_5_tab_1">
-													<!--begin::Table container-->
-													<div class="table-responsive">
-														<!--begin::Table-->
-														<table class="table table-row-dashed table-row-gray-200 align-middle gs-0 gy-4">
-															<!--begin::Table head-->
-															<thead>
-																<tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
-																	<th class="p-0 w-150px">Guia</th>
-																	<th class="p-0 min-w-100px">Comercio</th>
-																	<th class="p-0 min-w-100px">Destinatario</th>
-																	<th class="p-0 min-w-110px">Fecha</th>
-																	<th class="p-0 min-w-50px">Precio</th>
-																	<th class="p-0 min-w-50px">Estado</th>
-																</tr>
-															</thead>
-															<!--end::Table head-->
+													
+
+										<table>
+																	<tr style=" height:50px;">
+																	<td>	
+																	<span class="text-muted fw-semibold d-block" style="width: 200px; " > Guia </span>
+																	</td>
+																	<td class="text-dark fw-bold text-hover-primary mb-1 fs-6" > {{ $envios[0]->guia }}
+																	</td>
+																	</tr>
+
+																	<tr style=" height:50px;">
+																	<td>	
+																	<span class="text-muted fw-semibold d-block" style="width: 200px;" > Comercio </span>
+																	</td>
+																	<td class="text-dark fw-bold text-hover-primary mb-1 fs-6" > {{ $envios[0]->comercio }}
+																	</td>
+																	</tr>
+
+																	<tr style=" height:50px;">
+																	<td>	
+																	<span class="text-muted fw-semibold d-block" style="width: 200px;" > Destinatario </span>
+																	</td>
+																	<td class="text-dark fw-bold text-hover-primary mb-1 fs-6" > {{ $envios[0]->destinatario }}
+																	</td>
+																	</tr>
+
+																	<tr style=" height:50px;">
+																	<td>	
+																	<span class="text-muted fw-semibold d-block" style="width: 200px;" > Dirección </span>
+																	</td>
+																	<td class="text-dark fw-bold text-hover-primary mb-1 fs-6" > {{ $envios[0]->direccion }}
+																	</td>
+																	</tr>
+
+																	<tr style=" height:50px;">
+																	<td>	
+																	<span class="text-muted fw-semibold d-block" style="width: 200px;" > Teléfono </span>
+																	</td>
+																	<td class="text-dark fw-bold text-hover-primary mb-1 fs-6" > {{ $envios[0]->telefono }}
+																	</td>
+																	</tr>
+
+																	<tr style=" height:50px;">
+																	<td>	
+																	<span class="text-muted fw-semibold d-block" style="width: 200px;" > Estado</span>
+																	</td>
+																	<td class="text-dark fw-bold text-hover-primary mb-1 fs-6" > {{ $envios[0]->estado }}
+																	</td>
+																	</tr>
+
+																	
+										</table>
+										<p></p>
+										<h3 class="card-title align-items-start flex-column">
+												<span class="card-label fw-bold fs-3 mb-1">Fotos</span>
+												<span class="text-muted mt-1 fw-semibold fs-7"></span>
+											</h3>
+										<hr>
 
 
-															<!--begin::Table body-->
-															<tbody>
-																
 
-															</tbody>
-															<!--end::Table body-->
-														</table>
-													</div>
-													<!--end::Table-->
+
+            <!--begin::Content-->
+            <div id="kt_app_content" class="app-content flex-column-fluid">
+                <!--begin::Content container-->
+                <div id="kt_app_content_container" class="app-container container-xxl">
+                    <!--begin::Card-->
+                    <div class="card">
+                        <!--begin::Card header-->
+                        <div class="card-header border-0 pt-6">
+                            <!--begin::Card title--> 
+                            <div class="card-title">
+                                <!--begin::Search-->
+                                <div class="d-flex align-items-center position-relative my-1">
+                                  
+                                  
+                                    <span style="color:red; font-weight:bolder;"></span>
+                                </div>
+                                <!--end::Search-->
+                            </div>
+                            <!--begin::Card title-->
+
+                            <!--begin::Card toolbar-->
+                            <div class="card-toolbar">
+                                <!--begin::Toolbar-->
+                                <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
+                              
+
+                                    
+                                </div>
+                                <!--end::Toolbar-->
+                                <!--begin::Group actions-->
+                             
+                                <!--end::Group actions-->
+                                <!--begin::Modal - Adjust Balance-->
+                                <div class="modal fade" id="kt_modal_export_users" tabindex="-1" aria-hidden="true">
+                                    <!--begin::Modal dialog-->
+                                    <div class="modal-dialog modal-dialog-centered mw-650px">
+                                        <!--begin::Modal content-->
+                                        <div class="modal-content">
+                                            <!--begin::Modal header-->
+                                            <div class="modal-header">
+                                                <!--begin::Modal title-->
+                                                <h2 class="fw-bold">Envios</h2>
+                                                <!--end::Modal title-->
+                                                <!--begin::Close-->
+                                                <div class="btn btn-icon btn-sm btn-active-icon-primary" data-kt-users-modal-action="close">
+                                                    <i class="ki-duotone ki-cross fs-1">
+                                                        <span class="path1"></span>
+                                                        <span class="path2"></span>
+                                                    </i>
+                                                </div>
+                                                <!--end::Close-->
+                                            </div>
+                                            <!--end::Modal header-->
+                                            <!--begin::Modal body-->
+                                            <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
+                                                <!--begin::Form-->
+                                                <form id="kt_modal_export_users_form" class="form" action="#">
+                                                    <!--begin::Input group-->
+                                                    <div class="fv-row mb-10">
+                                                        <!--begin::Label-->
+                                                        <label class="fs-6 fw-semibold form-label mb-2">Exportar por roles:</label>
+                                                        <!--end::Label-->
+                                                        <!--begin::Input-->
+                                                        <select name="role" data-control="select2" data-placeholder="Seleccione un rol" data-hide-search="true" class="form-select form-select-solid fw-bold">
+                                                            <option></option>
+                                                            <option value="Administrator">Administrator</option>
+                                                            <option value="Gerente general">Gerente general</option>
+                                                            <option value="Gerente general">Gerente financiero</option>
+                                                            <option value="Jefe de digitado">Jefe de digitado</option>
+                                                            <option value="Jefe de atencion al cliente">Jefe de atencion al cliente</option>
+                                                            <option value="Cajero">Cajero</option>
+                                                            <option value="Digitador">Digitador</option>
+                                                            <option value="Atencion al cliente">Atencion al cliente</option>
+                                                            <option value="Operario">Operario</option>
+                                                            <option value="Repartidor">Repartidor</option>
+                                                        </select>
+                                                        <!--end::Input-->
+                                                    </div>
+                                                    <!--end::Input group-->
+                                                    <!--begin::Input group-->
+                                                    <div class="fv-row mb-10">
+                                                        <!--begin::Label-->
+                                                        <label class="required fs-6 fw-semibold form-label mb-2">Seleccione el formato de exportación:</label>
+                                                        <!--end::Label-->
+                                                        <!--begin::Input-->
+                                                        <select name="format" data-control="select2" data-placeholder="Seleccione un formato" data-hide-search="true" class="form-select form-select-solid fw-bold">
+                                                            <option></option>
+                                                            <option value="excel">Excel</option>
+                                                            <option value="pdf">PDF</option>
+                                                        </select>
+                                                        <!--end::Input-->
+                                                    </div>
+                                                    <!--end::Input group-->
+                                                    <!--begin::Actions-->
+                                                    <div class="text-center">
+                                                        <button type="reset" class="btn btn-light me-3" data-kt-users-modal-action="cancel">Cancelar</button>
+                                                        <button type="submit" class="btn btn-primary" data-kt-users-modal-action="submit">
+                                                            <span class="indicator-label">Exportar</span>
+                                                            <span class="indicator-progress">Espere por favor...
+                                                                <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+                                                        </button>
+                                                    </div>
+                                                    <!--end::Actions-->
+                                                </form>
+                                                <!--end::Form-->
+                                            </div>
+                                            <!--end::Modal body-->
+                                        </div>
+                                        <!--end::Modal content-->
+                                    </div>
+                                    <!--end::Modal dialog-->
+                                </div>
+                                <!--end::Modal - New Card-->
+
+
+                                <!--end::Modal - Add task-->
+                            </div>
+                            <!--end::Card toolbar-->
+                        </div>
+                        <!--end::Card header-->
+                        <!--begin::Card body-->
+                        <div class="card-body py-4">
+                            <!--begin::Table-->
+                            <form class="form" action="/usuarios/eliminartodo/" method="POST">
+                                @csrf
+                                @method('GET')
+                            <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
+                                
+                            </table>
+
+                            <div class="d-flex justify-content-end align-items-center d-none" data-kt-user-table-toolbar="selected">
+                                    <div class="fw-bold me-5">
+                                        <span class="me-2" data-kt-user-table-select="selected_count"></span>Seleccionado
+                                    </div>
+                                    
+
+                                                  
+                                                
+                                                    <input type="text" name="valores" id="valores" hidden>
+                                    
+                                    <button type="submit" class="btn btn-danger">Eliminar seleccionado</button>
+                                  
+                               
+                                </div>
+
+
+
+
+                            </form>
+                            <!--end::Table-->
+                        </div>
+                        <!--end::Card body-->
+                    </div>
+                    <!--end::Card-->
+                </div>
+                <!--end::Content container-->
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			<!--begin::Modal - Add task-->
+                                <div class="modal fade" id="kt_modal_add_user" tabindex="-1" aria-hidden="true">
+                                    <!--begin::Modal dialog-->
+                                    <div class="modal-dialog modal-dialog-centered mw-650px">
+                                        <!--begin::Modal content-->
+                                        <div class="modal-content">
+                                            <!--begin::Modal header-->
+                                            <div class="modal-header" id="kt_modal_add_user_header">
+                                                <!--begin::Modal title-->
+                                                <h2 class="fw-bold">Crear usuario</h2>
+                                                <!--end::Modal title-->
+                                                <!--begin::Close-->
+                                                <div class="btn btn-icon btn-sm btn-active-icon-primary" data-kt-users-modal-action="close">
+                                                    <i class="ki-duotone ki-cross fs-1">
+                                                        <span class="path1"></span>
+                                                        <span class="path2"></span>
+                                                    </i>
+                                                </div>
+                                                <!--end::Close-->
+                                            </div>
+                                            <!--end::Modal header-->
+                                            <!--begin::Modal body-->
+                                            <div class="modal-body scroll-y mx-5 mx-xl-15 my-7"> 
+                                                <!--begin::Form-->
+                                                <form id="kt_modal_add_user_form" class="form" action="/guardaruser" method="POST" enctype="multipart/form-data">
+
+                                                    @csrf
+                                                    @method('GET')
+                                                    <!--begin::Scroll-->
+
+
+                                                    <div class="d-flex flex-column scroll-y me-n7 pe-7" id="kt_modal_add_user_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_user_header" data-kt-scroll-wrappers="#kt_modal_add_user_scroll" data-kt-scroll-offset="300px">
+
+                                                        <!--begin::Input group-->
+                                                        <div class="fv-row mb-7">
+                                                            <!--begin::Label-->
+                                                            <label class="d-block fw-semibold fs-6 mb-5">Foto</label>
+                                                            <!--end::Label-->
+                                                            <!--begin::Image placeholder-->
+                                                            <style>
+                                                                .image-input-placeholder {
+                                                                    background-image: url('assets/media/svg/files/blank-image.svg');
+                                                                }
+
+                                                                [data-bs-theme="dark"] .image-input-placeholder {
+                                                                    background-image: url('assets/media/svg/files/blank-image-dark.svg');
+                                                                }
+                                                            </style>
+                                                            <!--end::Image placeholder-->
+                                                            <!--begin::Image input-->
+                                                            <div class="image-input image-input-outline image-input-placeholder" data-kt-image-input="true">
+                                                                <!--begin::Preview existing avatar-->
+                                                                <div class="image-input-wrapper w-125px h-125px" style="background-image: url(assets/media/avatars/300-6.jpg);"></div>
+                                                                <!--end::Preview existing avatar-->
+                                                                <!--begin::Label-->
+                                                                <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
+                                                                    <i class="ki-duotone ki-pencil fs-7">
+                                                                        <span class="path1"></span>
+                                                                        <span class="path2"></span>
+                                                                    </i>
+                                                                    <!--begin::Inputs-->
+                                                                    <input type="file" name="avatar" accept=".png, .jpg, .jpeg" />
+                                                                    <input type="hidden" name="avatar" />
+                                                                    <!--end::Inputs-->
+                                                                </label>
+                                                                <!--end::Label-->
+                                                                <!--begin::Cancel-->
+                                                                <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
+                                                                    <i class="ki-duotone ki-cross fs-2">
+                                                                        <span class="path1"></span>
+                                                                        <span class="path2"></span>
+                                                                    </i>
+                                                                </span>
+                                                                <!--end::Cancel-->
+                                                                <!--begin::Remove-->
+                                                                <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
+                                                                    <i class="ki-duotone ki-cross fs-2">
+                                                                        <span class="path1"></span>
+                                                                        <span class="path2"></span>
+                                                                    </i>
+                                                                </span>
+                                                                <!--end::Remove-->
+                                                            </div>
+                                                            <!--end::Image input-->
+                                                            <!--begin::Hint-->
+                                                            <div class="form-text">Allowed file types: png, jpg, jpeg.</div>
+                                                            <!--end::Hint-->
+                                                        </div>
+
+                                                        <div class="fv-row mb-7">
+                                                            <label class="required fw-semibold fs-6 mb-2">Selecione un empleado</label>
+                                                            
+
+                                                        </div>
+                                                        <!--begin::Input group-->
+
+                                                        <!--end::Input group-->
+
+                                                        <!--begin::Input group-->
+                                                        <div class="fv-row mb-7">
+                                                            <!--begin::Label-->
+                                                            <label class="required fw-semibold fs-6 mb-2">Correo electronico</label>
+                                                            <!--end::Label-->
+                                                            <!--begin::Input-->
+                                                            <input type="email" name="email" class="form-control form-control-solid mb-3 mb-lg-0" id="email" value=" " />
+                                                            <!--end::Input-->
+                                                        </div>
+                                                        <!--end::Input group-->
+                                                        <!--begin::Input group-->
+                                                        <div class="mb-10 fv-row" data-kt-password-meter="true">
+                                                            <!--begin::Wrapper-->
+                                                            <div class="mb-1">
+                                                                <!--begin::Label-->
+                                                                <label class="form-label fw-semibold fs-6 mb-2">Contraseña</label>
+                                                                <!--end::Label-->
+                                                                <!--begin::Input wrapper-->
+                                                                <div class="position-relative mb-3">
+                                                                    <input class="form-control form-control-lg form-control-solid" type="password" placeholder="" name="password" autocomplete="off" />
+                                                                    <span class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2" data-kt-password-meter-control="visibility">
+                                                                        <i class="ki-duotone ki-eye-slash fs-1">
+                                                                            <span class="path1"></span>
+                                                                            <span class="path2"></span>
+                                                                            <span class="path3"></span>
+                                                                            <span class="path4"></span>
+                                                                        </i>
+                                                                        <i class="ki-duotone ki-eye d-none fs-1">
+                                                                            <span class="path1"></span>
+                                                                            <span class="path2"></span>
+                                                                            <span class="path3"></span>
+                                                                        </i>
+                                                                    </span>
+                                                                </div>
+                                                                <!--end::Input wrapper-->
+                                                                <!--begin::Meter-->
+                                                                <div class="d-flex align-items-center mb-3" data-kt-password-meter-control="highlight">
+                                                                    <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
+                                                                    <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
+                                                                    <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
+                                                                    <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px"></div>
+                                                                </div>
+                                                                <!--end::Meter-->
+                                                            </div>
+                                                            <!--end::Wrapper-->
+                                                            <!--begin::Hint-->
+                                                            <div class="text-muted">Utilice 8 o más caracteres con una combinación de letras, números y símbolos.</div>
+                                                            <!--end::Hint-->
+                                                        </div>
+                                                        <!--end::Input group=-->
+                                                        <!--begin::Input group=-->
+                                                        <div class="fv-row mb-10">
+                                                            <label class="form-label fw-semibold fs-6 mb-2">Confirme Contraseña</label>
+                                                            <input class="form-control form-control-lg form-control-solid" type="password" placeholder="" name="confirm_password" autocomplete="off" />
+                                                        </div>
+                                                        <!--begin::Input group-->
+                                                        <div class="mb-7">
+                                                            <!--begin::Label-->
+                                                            <label class="required fw-semibold fs-6 mb-5">Rol</label>
+                                                            <!--end::Label-->
+                                                            <!--begin::Roles-->
+                                                            <!--begin::Input row-->
+
+                                                           
+
+
+
+                                                            <!--begin::Input row-->
+                                                        </div>
+                                                        <!--end::Input group-->
+                                                    </div>
+                                                    <!--end::Scroll-->
+                                                    <!--begin::Actions-->
+                                                    <div class="text-center pt-15">
+                                                        <button type="button" class="btn btn-light me-3" data-bs-dismiss="modal">Cancelar</button>
+                                                        <button type="submit" class="btn btn-primary">
+                                                            <span class="indicator-label">Crear</span>
+                                                           
+                                                        </button>
+                                                    </div>
+
+                                                    <!--end::Actions-->
+                                                </form>
+                                                <!--end::Form-->
+                                            </div>
+                                            <!--end::Modal body-->
+                                        </div>
+                                        <!--end::Modal content-->
+                                    </div>
+                                    <!--end::Modal dialog-->
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 												</div>
 												<!--end::Tap pane-->
 												<!--begin::Tap pane-->
@@ -6026,6 +6337,22 @@ License: For each use you must have a valid license purchased only from above li
 		<!--end::Modals-->
 		<!--begin::Javascript-->
 		<script>var hostUrl = "assets/";</script>
+
+		<script>
+    function valor() {
+
+        nombre = document.getElementById("name").value;
+
+        nom = document.getElementById("ema" + nombre).value;
+
+        document.getElementById("email").value = nom;
+
+    }
+</script>
+
+
+
+
 		<!--begin::Global Javascript Bundle(mandatory for all pages)-->
 		<script src="assets/plugins/global/plugins.bundle.js"></script>
 		<script src="assets/js/scripts.bundle.js"></script>
