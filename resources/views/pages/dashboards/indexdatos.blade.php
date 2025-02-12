@@ -41,6 +41,10 @@ License: For each use you must have a valid license purchased only from above li
     <!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
     <link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+
     <!--end::Global Stylesheets Bundle-->
 </head>
 <!--end::Head-->
@@ -121,12 +125,18 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--begin:Menu item-->
                                     <div class="menu-item">
                                         <!--begin:Menu link-->
-                                        <a class="menu-link active" href="#">
+                                        <a class="menu-link active" href="/filtroasig">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
                                             <span class="menu-title">Asignados</span>
                                         </a>
+                                        <a class="menu-link active" href="/usuarios/lista">
+											<span class="menu-bullet">
+												<span class="bullet bullet-dot"></span>
+											</span>
+											<span class="menu-title">Usuarios</span>
+										</a>
                                         <!--end:Menu link-->
                                     </div>
                                     <!--end:Menu item-->
@@ -143,18 +153,18 @@ License: For each use you must have a valid license purchased only from above li
                                 data-kt-menu-placement="right-start" class="menu-item here show py-2">
                                 <!--begin:Menu link-->
                                 @can('repartidor-crear')
-                                    <a href="/usuarios/lista">
-                                        <span class="menu-link menu-center">
-                                            <span class="menu-icon me-0">
-                                                <i class="ki-duotone ki-badge fs-2x">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                    <span class="path3"></span>
-                                                    <span class="path4"></span>
-                                                    <span class="path5"></span>
-                                                </i>
-                                            </span>
+                                <a href="/usuarios/lista">
+                                    <span class="menu-link menu-center">
+                                        <span class="menu-icon me-0">
+                                            <i class="ki-duotone ki-badge fs-2x">
+                                                <span class="path1"></span>
+                                                <span class="path2"></span>
+                                                <span class="path3"></span>
+                                                <span class="path4"></span>
+                                                <span class="path5"></span>
+                                            </i>
                                         </span>
+                                    </span>
                                     @endcan
 
 
@@ -1923,9 +1933,14 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--end::Menu item-->
                                         <!--begin::Menu item-->
                                         <div class="menu-item px-5">
-                                            <a href="../../demo9/dist/authentication/layouts/corporate/sign-in.html"
-                                                class="menu-link px-5">Sign Out</a>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                @csrf
+                                            </form>
+                                            <a href="#" class="menu-link px-5" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                Sign Out
+                                            </a>
                                         </div>
+
                                         <!--end::Menu item-->
                                     </div>
                                     <!--end::User account menu-->
@@ -2030,525 +2045,291 @@ License: For each use you must have a valid license purchased only from above li
                 <!--begin::Content-->
                 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
                     <!--begin::Container-->
-                    <div class="container-xxl" id="kt_content_container">
+                    <div class="container-fluid m-0" id="kt_content_container">
                         <!--begin::Row-->
                         <div class="row g-5 g-xl-8">
                             <!--begin::Col-->
                             <div class="col-xl-4">
-                                <!--begin::Misc Widget 1-->
                                 <div class="row mb-5 mb-xl-8 g-5 g-xl-8">
-                                    <!--begin::Col-->
+                                    @php
+                                    $routes = [
+                                    'dashboard' => 'Dashboard',
+                                    'filtroasig' => 'Asignados',
+                                    'filtroruta' => 'En ruta',
+                                    'filtroentregado' => 'Entregados',
+                                    'filtrofallido' => 'Fallidos',
+                                    'filtronoentregado' => 'No entregados',
+                                    'filtroreprogramado'=> 'Reprogramados',
+                                    'filtrocambio' => 'Cambios',
+                                    ];
+
+                                    $icons = [
+                                    'dashboard' => 'ki-gift',
+                                    'filtroasig' => 'ki-gift',
+                                    'filtroruta' => 'ki-technology-2',
+                                    'filtroentregado' => 'ki-fingerprint-scanning',
+                                    'filtrofallido' => 'ki-abstract-26',
+                                    'filtronoentregado' => 'ki-basket',
+                                    'filtroreprogramado'=> 'ki-rocket',
+                                    'filtrocambio' => 'ki-gift',
+                                    ];
+                                    @endphp
+
+                                    @foreach ($routes as $route => $label)
                                     <div class="col-6">
-                                        <!--begin::Card-->
                                         <div class="card card-stretch">
-                                            <!--begin::Link-->
-                                            <a href="/dashboard"
-                                                class="btn btn-flex btn-text-gray-800 btn-icon-gray-400 btn-active-color-primary bg-body flex-column justfiy-content-start align-items-start text-start w-100 p-10">
-                                                <i class="ki-duotone ki-gift fs-2tx mb-5 ms-n1">
+                                            <a href="/{{ $route }}"
+                                                class="btn btn-flex btn-text-gray-800 btn-icon-gray-400 btn-active-color-primary bg-body flex-column justfiy-content-start align-items-start text-start w-100 p-10 
+                                                       {{ Request::is($route) ? 'text-primary' : 'text-gray-800' }}">
+                                                <i class="ki-duotone {{ $icons[$route] }} fs-2tx mb-5 ms-n1 
+                                                       {{ Request::is($route) ? 'text-primary' : 'text-gray-400' }}">
                                                     <span class="path1"></span>
                                                     <span class="path2"></span>
                                                     <span class="path3"></span>
                                                     <span class="path4"></span>
                                                 </i>
-                                                <span class="fs-4 fw-bold">Asignados</span>
+                                                <span class="fs-4 fw-bold">{{ $label }}</span>
                                             </a>
-                                            <!--end::Link-->
                                         </div>
-                                        <!--end::Card-->
                                     </div>
-                                    <!--end::Col-->
-                                    <!--begin::Col-->
-                                    <div class="col-6">
-                                        <!--begin::Card-->
-                                        <div class="card card-stretch">
-                                            <!--begin::Link-->
-                                            <a href="/filtroruta"
-                                                class="btn btn-flex btn-text-gray-800 btn-icon-gray-400 btn-active-color-primary bg-body flex-column justfiy-content-start align-items-start text-start w-100 p-10">
-                                                <i class="ki-duotone ki-technology-2 fs-2tx mb-5 ms-n1">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                </i>
-                                                <span class="fs-4 fw-bold">En ruta</span>
-                                            </a>
-                                            <!--end::Link-->
-                                        </div>
-                                        <!--end::Card-->
-                                    </div>
-                                    <!--end::Col-->
-                                    <!--begin::Col-->
-                                    <div class="col-6">
-                                        <!--begin::Card-->
-                                        <div class="card card-stretch">
-                                            <!--begin::Link-->
-                                            <a href="/filtroentregado"
-                                                class="btn btn-flex btn-text-gray-800 btn-icon-gray-400 btn-active-color-primary bg-body flex-column justfiy-content-start align-items-start text-start w-100 p-10">
-                                                <i class="ki-duotone ki-fingerprint-scanning fs-2tx mb-5 ms-n1">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                    <span class="path3"></span>
-                                                    <span class="path4"></span>
-                                                    <span class="path5"></span>
-                                                </i>
-                                                <span class="fs-4 fw-bold">Entregados</span>
-                                            </a>
-                                            <!--end::Link-->
-                                        </div>
-                                        <!--end::Card-->
-                                    </div>
-                                    <!--end::Col-->
-                                    <!--begin::Col-->
-                                    <div class="col-6">
-                                        <!--begin::Card-->
-                                        <div class="card card-stretch">
-                                            <!--begin::Link-->
-                                            <a href="/filtrofallido"
-                                                class="btn btn-flex btn-text-gray-800 btn-icon-gray-400 btn-active-color-primary bg-body flex-column justfiy-content-start align-items-start text-start w-100 p-10">
-                                                <i class="ki-duotone ki-abstract-26 fs-2tx mb-5 ms-n1">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                </i>
-                                                <span class="fs-4 fw-bold">Fallidos</span>
-                                            </a>
-                                            <!--end::Link-->
-                                        </div>
-                                        <!--end::Card-->
-                                    </div>
-                                    <!--end::Col-->
-                                    <!--begin::Col-->
-                                    <div class="col-6">
-                                        <!--begin::Card-->
-                                        <div class="card card-stretch">
-                                            <!--begin::Link-->
-                                            <a href="/filtronoentregado"
-                                                class="btn btn-flex btn-text-gray-800 btn-icon-gray-400 btn-active-color-primary bg-body flex-column justfiy-content-start align-items-start text-start w-100 p-10">
-                                                <i class="ki-duotone ki-basket fs-2tx mb-5 ms-n1">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                    <span class="path3"></span>
-                                                    <span class="path4"></span>
-                                                </i>
-                                                <span class="fs-4 fw-bold">No entregados</span>
-                                            </a>
-                                            <!--end::Link-->
-                                        </div>
-                                        <!--end::Card-->
-                                    </div>
-                                    <!--end::Col-->
-                                    <!--begin::Col-->
-                                    <div class="col-6">
-                                        <!--begin::Card-->
-                                        <div class="card card-stretch">
-                                            <!--begin::Link-->
-                                            <a href="./filtroreprogramado"
-                                                class="btn btn-flex btn-text-gray-800 btn-icon-gray-400 btn-active-color-primary bg-body flex-column justfiy-content-start align-items-start text-start w-100 p-10">
-                                                <i class="ki-duotone ki-rocket fs-2tx mb-5 ms-n1">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                </i>
-                                                <span class="fs-4 fw-bold">Reprogramados</span>
-                                            </a>
-                                            <!--end::Link-->
-                                        </div>
-                                        <!--end::Card-->
-                                    </div>
-                                    <!--end::Col-->
+                                    @endforeach
                                 </div>
-
-
                             </div>
+
                             <!--end::Col-->
                             <!--begin::Col-->
-                            <div class="col-xl-8 ps-xl-12">
+                            <div class="col-xl-7 ps-xl-4">
                                 <!--begin::Engage widget 1-->
                                 <div class="card bgi-position-y-bottom bgi-position-x-end bgi-no-repeat bgi-size-cover min-h-250px bg-primary mb-5 mb-xl-8"
                                     style="background-color:white !important; " dir="ltr">
-                                    <!--begin::Body-->
                                     <!--begin::Header-->
                                     <div class="card-header border-0 pt-5">
                                         <h3 class="card-title align-items-start flex-column">
-                                            <span class="card-label fw-bold fs-3 mb-1 text-gray-600 text-uppercase">Envios Asignados</span>
-                                            <span class="text-muted mt-1 fw-semibold fs-7"></span>
-                                        </h3>
+                                            <span class="card-label fw-bold fs-3 mb-1 text-gray-600 text-uppercase">
+                                                @switch(Route::currentRouteName())
+                                                @case('filtroasig')
+                                                ENVIOS ASIGNADOS
+                                                @break
 
+                                                @case('filtroruta')
+                                                ENVIOS EN RUTA
+                                                @break
+
+                                                @case('filtroentregados')
+                                                ENVIOS ENTREGADOS
+                                                @break
+
+                                                @case('filtrofallido')
+                                                ENVIOS FALLIDOS
+                                                @break
+
+                                                @case('filtronoentregado')
+                                                ENVIOS NO ENTREGADOS
+                                                @break
+
+                                                @case('filtroreprogramado')
+                                                ENVIOS REPROGRAMADOS
+                                                @break
+
+                                                @case('filtrocambio')
+                                                ENVIOS CON CAMBIO
+                                                @break
+
+                                                @default
+                                                ENVIOS
+                                                @endswitch
+                                            </span>
+                                            <span class="text-muted mt-1 fw-semibold fs-7">
+                                                <!-- Puedes agregar un subtítulo dinámico aquí si lo necesitas -->
+                                            </span>
+                                        </h3>
                                     </div>
                                     <!--end::Header-->
-                                    <!--begin::Body-->
-                                    <div class="card-body py-3">
-                                        <div class="tab-content">
-                                            <!--begin::Tap pane-->
-                                            <div class="tab-pane fade show active" id="kt_table_widget_5_tab_1">
-                                                <!--begin::Table container-->
-                                                <div class="table-responsive">
-                                                    <!--begin::Table-->
-                                                    <table
-                                                        class="table align-middle table-row-dashed fs-6 gy-5 dataTable"
-                                                        id="envios_table" style="width: 100%;">
-                                                        <thead>
-                                                            <tr
-                                                                class="text-start text-gray-600 fw-bold fs-7 text-uppercase gs-0">
-                                                                <th class="min-w-100px">GUIA</th>
-                                                                <th class="min-w-100px">COMERCIO</th>
-                                                                <th class="min-w-100px">DESTINATARIO</th>
-                                                                <th class="min-w-100px">FECHA</th>
-                                                                <th class="text-end min-w-75px">PRECIO</th>
-                                                                <th class="text-center min-w-100px">ESTADO</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody class="fw-semibold text-gray-600">
-                                                            @for ($i = 0; $i < count($envios); $i++)
-                                                                @if ($envios[$i]->repartidor == Auth::user()->name)
-                                                                    <tr>
-                                                                        <td>
-                                                                            <a href="/detalles/{{ $envios[$i]->guia }}"
-                                                                                class="text-gray-600 text-hover-primary">
-                                                                                {{ $envios[$i]->guia }}
-                                                                            </a>
-                                                                        </td>
-                                                                        <td>{{ $envios[$i]->comercio }}</td>
-                                                                        <td>{{ $envios[$i]->destinatario }}</td>
-                                                                        <td
-                                                                            data-order="{{ $envios[$i]->fecha_entrega }}">
-                                                                            {{ date('d M Y, h:i a', strtotime($envios[$i]->fecha_entrega)) }}
-                                                                        </td>
-                                                                        <td class="text-end">$
-                                                                            {{ number_format($envios[$i]->precio, 2) }}
-                                                                        </td>
-                                                                        <td class="text-center">
-                                                                            @if ($envios[$i]->estado == 'Fallido')
-                                                                                <span
-                                                                                    class="badge badge-danger">{{ $envios[$i]->estado }}</span>
-                                                                            @elseif ($envios[$i]->estado == 'Creado')
-                                                                                <span
-                                                                                    class="badge badge-warning">{{ $envios[$i]->estado }}</span>
-                                                                            @elseif ($envios[$i]->estado == 'En ruta')
-                                                                                <span
-                                                                                    class="badge badge-primary">{{ $envios[$i]->estado }}</span>
-                                                                            @elseif ($envios[$i]->estado == 'Entregado')
-                                                                                <span
-                                                                                    class="badge badge-success">{{ $envios[$i]->estado }}</span>
-                                                                            @else
-                                                                                <span
-                                                                                    class="badge badge-secondary">{{ $envios[$i]->estado }}</span>
-                                                                            @endif
-                                                                        </td>
-                                                                    </tr>
-                                                                @endif
-                                                            @endfor
-                                                        </tbody>
-                                                    </table>
-                                                </div>
 
-                                                <!--end::Table-->
+                                    <!--begin::Body-->
+
+                                    <div class="card-body py-3">
+                                        <div class="table-responsive" style="overflow-x: auto; padding: 0;">
+
+                                            <!--begin::Main wrapper-->
+                                            <div id="kt_docs_search_handler_basic"
+                                                data-kt-search-keypress="true"
+                                                data-kt-search-min-length="2"
+                                                data-kt-search-enter="true"
+                                                data-kt-search-layout="inline">
+
+                                                <!--begin::Input Form-->
+                                                <form data-kt-search-element="form" class="w-50 position-relative mb-5" autocomplete="off">
+                                                    <input type="hidden" />
+
+                                                    <!--begin::Icon (Font Awesome)-->
+                                                    <span class="position-absolute top-50 start-0 translate-middle-y ps-5 text-gray-500">
+                                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                                    </span>
+                                                    <!--end::Icon-->
+
+                                                    <input type="text" class="form-control form-control-lg form-control-solid px-15"
+                                                        name="search"
+                                                        value=""
+                                                        placeholder="Buscar..."
+                                                        data-kt-search-element="input" id="customSearch" />
+
+                                                    <span class="position-absolute top-50 end-0 translate-middle-y lh-0 d-none me-5" data-kt-search-element="spinner">
+                                                        <span class="spinner-border h-15px w-15px align-middle text-gray-500"></span>
+                                                    </span>
+
+                                                    <span class="btn btn-flush btn-active-color-primary position-absolute top-50 end-0 translate-middle-y lh-0 me-5 d-none"
+                                                        data-kt-search-element="clear" id="clearSearch">
+                                                        &#10006;
+                                                    </span>
+                                                </form>
                                             </div>
-                                            <!--end::Tap pane-->
-                                            <!--begin::Tap pane-->
-                                            <div class="tab-pane fade" id="kt_table_widget_5_tab_2">
-                                                <!--begin::Table container-->
-                                                <div class="table-responsive">
-                                                    <!--begin::Table-->
-                                                    <table
-                                                        class="table table-row-dashed table-row-gray-200 align-middle gs-0 gy-4">
-                                                        <!--begin::Table head-->
-                                                        <thead>
-                                                            <tr class="border-0">
-                                                                <th class="p-0 w-50px"></th>
-                                                                <th class="p-0 min-w-150px"></th>
-                                                                <th class="p-0 min-w-140px"></th>
-                                                                <th class="p-0 min-w-110px"></th>
-                                                                <th class="p-0 min-w-50px"></th>
-                                                            </tr>
-                                                        </thead>
-                                                        <!--end::Table head-->
-                                                        <!--begin::Table body-->
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="symbol symbol-45px me-2">
-                                                                        <span class="symbol-label">
-                                                                            <img src="assets/media/svg/brand-logos/plurk.svg"
-                                                                                class="h-50 align-self-center"
-                                                                                alt="" />
-                                                                        </span>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <a href="#"
-                                                                        class="text-dark fw-bold text-hover-primary mb-1 fs-6">Brad
-                                                                        Simmons</a>
-                                                                    <span class="text-muted fw-semibold d-block">Movie
-                                                                        Creator</span>
-                                                                </td>
-                                                                <td class="text-end text-muted fw-bold">React, HTML
-                                                                </td>
-                                                                <td class="text-end">
-                                                                    <span
-                                                                        class="badge badge-light-success">Approved</span>
-                                                                </td>
-                                                                <td class="text-end">
-                                                                    <a href="#"
-                                                                        class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary">
-                                                                        <i class="ki-duotone ki-arrow-right fs-2">
-                                                                            <span class="path1"></span>
-                                                                            <span class="path2"></span>
-                                                                        </i>
-                                                                    </a>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="symbol symbol-45px me-2">
-                                                                        <span class="symbol-label">
-                                                                            <img src="assets/media/svg/brand-logos/telegram.svg"
-                                                                                class="h-50 align-self-center"
-                                                                                alt="" />
-                                                                        </span>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <a href="#"
-                                                                        class="text-dark fw-bold text-hover-primary mb-1 fs-6">Popular
-                                                                        Authors</a>
-                                                                    <span class="text-muted fw-semibold d-block">Most
-                                                                        Successful</span>
-                                                                </td>
-                                                                <td class="text-end text-muted fw-bold">Python, MySQL
-                                                                </td>
-                                                                <td class="text-end">
-                                                                    <span class="badge badge-light-warning">In
-                                                                        Progress</span>
-                                                                </td>
-                                                                <td class="text-end">
-                                                                    <a href="#"
-                                                                        class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary">
-                                                                        <i class="ki-duotone ki-arrow-right fs-2">
-                                                                            <span class="path1"></span>
-                                                                            <span class="path2"></span>
-                                                                        </i>
-                                                                    </a>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="symbol symbol-45px me-2">
-                                                                        <span class="symbol-label">
-                                                                            <img src="assets/media/svg/brand-logos/bebo.svg"
-                                                                                class="h-50 align-self-center"
-                                                                                alt="" />
-                                                                        </span>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <a href="#"
-                                                                        class="text-dark fw-bold text-hover-primary mb-1 fs-6">Active
-                                                                        Customers</a>
-                                                                    <span class="text-muted fw-semibold d-block">Movie
-                                                                        Creator</span>
-                                                                </td>
-                                                                <td class="text-end text-muted fw-bold">AngularJS, C#
-                                                                </td>
-                                                                <td class="text-end">
-                                                                    <span
-                                                                        class="badge badge-light-danger">Rejected</span>
-                                                                </td>
-                                                                <td class="text-end">
-                                                                    <a href="#"
-                                                                        class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary">
-                                                                        <i class="ki-duotone ki-arrow-right fs-2">
-                                                                            <span class="path1"></span>
-                                                                            <span class="path2"></span>
-                                                                        </i>
-                                                                    </a>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                        <!--end::Table body-->
-                                                    </table>
-                                                </div>
-                                                <!--end::Table-->
-                                            </div>
-                                            <!--end::Tap pane-->
-                                            <!--begin::Tap pane-->
-                                            <div class="tab-pane fade" id="kt_table_widget_5_tab_3">
-                                                <!--begin::Table container-->
-                                                <div class="table-responsive">
-                                                    <!--begin::Table-->
-                                                    <table
-                                                        class="table table-row-dashed table-row-gray-200 align-middle gs-0 gy-4">
-                                                        <!--begin::Table head-->
-                                                        <thead>
-                                                            <tr class="border-0">
-                                                                <th class="p-0 w-50px"></th>
-                                                                <th class="p-0 min-w-150px"></th>
-                                                                <th class="p-0 min-w-140px"></th>
-                                                                <th class="p-0 min-w-110px"></th>
-                                                                <th class="p-0 min-w-50px"></th>
-                                                            </tr>
-                                                        </thead>
-                                                        <!--end::Table head-->
-                                                        <!--begin::Table body-->
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="symbol symbol-45px me-2">
-                                                                        <span class="symbol-label">
-                                                                            <img src="assets/media/svg/brand-logos/kickstarter.svg"
-                                                                                class="h-50 align-self-center"
-                                                                                alt="" />
-                                                                        </span>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <a href="#"
-                                                                        class="text-dark fw-bold text-hover-primary mb-1 fs-6">Bestseller
-                                                                        Theme</a>
-                                                                    <span class="text-muted fw-semibold d-block">Best
-                                                                        Customers</span>
-                                                                </td>
-                                                                <td class="text-end text-muted fw-bold">ReactJS, Ruby
-                                                                </td>
-                                                                <td class="text-end">
-                                                                    <span class="badge badge-light-warning">In
-                                                                        Progress</span>
-                                                                </td>
-                                                                <td class="text-end">
-                                                                    <a href="#"
-                                                                        class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary">
-                                                                        <i class="ki-duotone ki-arrow-right fs-2">
-                                                                            <span class="path1"></span>
-                                                                            <span class="path2"></span>
-                                                                        </i>
-                                                                    </a>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="symbol symbol-45px me-2">
-                                                                        <span class="symbol-label">
-                                                                            <img src="assets/media/svg/brand-logos/bebo.svg"
-                                                                                class="h-50 align-self-center"
-                                                                                alt="" />
-                                                                        </span>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <a href="#"
-                                                                        class="text-dark fw-bold text-hover-primary mb-1 fs-6">Active
-                                                                        Customers</a>
-                                                                    <span class="text-muted fw-semibold d-block">Movie
-                                                                        Creator</span>
-                                                                </td>
-                                                                <td class="text-end text-muted fw-bold">AngularJS, C#
-                                                                </td>
-                                                                <td class="text-end">
-                                                                    <span
-                                                                        class="badge badge-light-danger">Rejected</span>
-                                                                </td>
-                                                                <td class="text-end">
-                                                                    <a href="#"
-                                                                        class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary">
-                                                                        <i class="ki-duotone ki-arrow-right fs-2">
-                                                                            <span class="path1"></span>
-                                                                            <span class="path2"></span>
-                                                                        </i>
-                                                                    </a>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="symbol symbol-45px me-2">
-                                                                        <span class="symbol-label">
-                                                                            <img src="assets/media/svg/brand-logos/vimeo.svg"
-                                                                                class="h-50 align-self-center"
-                                                                                alt="" />
-                                                                        </span>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <a href="#"
-                                                                        class="text-dark fw-bold text-hover-primary mb-1 fs-6">New
-                                                                        Users</a>
-                                                                    <span
-                                                                        class="text-muted fw-semibold d-block">Awesome
-                                                                        Users</span>
-                                                                </td>
-                                                                <td class="text-end text-muted fw-bold">
-                                                                    Laravel,Metronic</td>
-                                                                <td class="text-end">
-                                                                    <span
-                                                                        class="badge badge-light-primary">Success</span>
-                                                                </td>
-                                                                <td class="text-end">
-                                                                    <a href="#"
-                                                                        class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary">
-                                                                        <i class="ki-duotone ki-arrow-right fs-2">
-                                                                            <span class="path1"></span>
-                                                                            <span class="path2"></span>
-                                                                        </i>
-                                                                    </a>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="symbol symbol-45px me-2">
-                                                                        <span class="symbol-label">
-                                                                            <img src="assets/media/svg/brand-logos/telegram.svg"
-                                                                                class="h-50 align-self-center"
-                                                                                alt="" />
-                                                                        </span>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <a href="#"
-                                                                        class="text-dark fw-bold text-hover-primary mb-1 fs-6">Popular
-                                                                        Authors</a>
-                                                                    <span class="text-muted fw-semibold d-block">Most
-                                                                        Successful</span>
-                                                                </td>
-                                                                <td class="text-end text-muted fw-bold">Python, MySQL
-                                                                </td>
-                                                                <td class="text-end">
-                                                                    <span class="badge badge-light-warning">In
-                                                                        Progress</span>
-                                                                </td>
-                                                                <td class="text-end">
-                                                                    <a href="#"
-                                                                        class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary">
-                                                                        <i class="ki-duotone ki-arrow-right fs-2">
-                                                                            <span class="path1"></span>
-                                                                            <span class="path2"></span>
-                                                                        </i>
-                                                                    </a>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                        <!--end::Table body-->
-                                                    </table>
-                                                </div>
-                                                <!--end::Table-->
-                                            </div>
-                                            <!--end::Tap pane-->
+                                            <!--end::Main wrapper-->
+
+                                            <table class="table align-middle table-row-dashed fs-6 gy-5 dataTable" id="envios_table" style="width: 100%; table-layout: auto; overflow-x: hidden;">
+                                                <thead>
+                                                    <tr class="text-start text-gray-600 fw-bold fs-7 text-uppercase gs-0">
+                                                        <th class="min-w-100px">GUIA</th>
+                                                        <th class="min-w-100px">COMERCIO</th>
+                                                        <th class="min-w-100px">DESTINATARIO</th>
+
+                                                        @if (Route::currentRouteName() !== 'filtroreprogramado')
+                                                        <th class="min-w-100px">FECHA</th> <!-- Solo visible si NO es filtroreprogramado -->
+                                                        @endif
+
+                                                        @if (Route::currentRouteName() === 'filtroreprogramado')
+                                                        <th class="min-w-150px">FECHA REPROGRAMADO</th> <!-- Solo visible en filtroreprogramado -->
+                                                        @endif
+
+                                                        <th class="text-end min-w-75px">PRECIO</th>
+                                                        <th class="text-center min-w-100px">ESTADO</th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody class="fw-semibold text-gray-600">
+                                                    @php
+                                                    $estadoColores = [
+                                                    'En ruta' => '#F39C12',
+                                                    'Entregado' => '#2ECC71',
+                                                    'Fallido' => '#E74C3C',
+                                                    'No entregado' => '#C0392B',
+                                                    'Reprogramado' => '#F1C40F',
+                                                    'Cambio' => '#3498DB'
+                                                    ];
+                                                    @endphp
+
+                                                    @foreach ($envios as $envio)
+                                                    @if ($envio->repartidor == Auth::user()->name)
+                                                    @php
+                                                    $estado = $envio->estado;
+                                                    $color = $estadoColores[$estado] ?? '#BDC3C7';
+                                                    @endphp
+
+                                                    <tr>
+                                                        <td><a href="/detalles/{{ $envio->guia }}" class="text-gray-600 text-hover-primary">{{ $envio->guia }}</a></td>
+                                                        <td>{{ $envio->comercio }}</td>
+                                                        <td>{{ $envio->destinatario }}</td>
+
+                                                        @if (Route::currentRouteName() !== 'filtroreprogramado')
+                                                        <td data-order="{{ $envio->fecha_entrega }}">
+                                                            {{ date('d M Y, h:i a', strtotime($envio->fecha_entrega)) }}
+                                                        </td>
+                                                        @endif
+
+                                                        @if (Route::currentRouteName() === 'filtroreprogramado')
+                                                        <td data-order="{{ $envio->fecha_reprogramado }}">
+                                                            @if ($envio->fecha_reprogramado)
+                                                            {{ date('d M Y', strtotime($envio->fecha_reprogramado)) }}
+                                                            @else
+                                                            -
+                                                            @endif
+                                                        </td>
+                                                        @endif
+
+                                                        <td class="text-end">${{ number_format($envio->precio, 2) }}</td>
+                                                        <td class="text-center">
+                                                            <span class="badge" style="background-color: {{ $color }}; color: white; padding: 8px 8px; border-radius: 6px;">{{ $estado }}</span>
+                                                        </td>
+                                                    </tr>
+                                                    @endif
+                                                    @endforeach
+                                                </tbody>
+
+
+                                            </table>
+
+                                            <style>
+                                                #envios_table {
+                                                    width: 100% !important;
+                                                    table-layout: auto;
+                                                    overflow-x: hidden;
+                                                }
+
+                                                .table-responsive {
+                                                    overflow-x: auto;
+                                                    -webkit-overflow-scrolling: touch;
+                                                }
+
+                                                .dataTables_info,
+                                                .dataTables_filter {
+                                                    display: none !important;
+                                                }
+
+                                                table.dataTable.no-footer,
+                                                .dataTables_scrollBody {
+                                                    border-bottom: none !important;
+                                                }
+                                            </style>
+
                                         </div>
+
+                                        <script>
+                                            $(document).ready(function() {
+                                                var table = $('#envios_table').DataTable({
+                                                    "pageLength": 10,
+                                                    "lengthChange": false,
+                                                    "scrollY": "400px",
+                                                    "scrollCollapse": true,
+                                                    "paging": false,
+                                                    "autoWidth": false,
+                                                    "responsive": true,
+                                                    "footer": false
+                                                });
+
+                                                $('#customSearch').on('keyup', function() {
+                                                    table.search(this.value).draw();
+                                                });
+
+                                                $('#clearSearch').on('click', function() {
+                                                    $('#customSearch').val('');
+                                                    table.search('').draw();
+                                                    $(this).addClass('d-none');
+                                                });
+
+                                                $('#customSearch').on('input', function() {
+                                                    if ($(this).val().length > 0) {
+                                                        $('#clearSearch').removeClass('d-none');
+                                                    } else {
+                                                        $('#clearSearch').addClass('d-none');
+                                                    }
+                                                });
+                                            });
+                                        </script>
                                     </div>
+
                                     <!--end::Body-->
                                 </div>
                                 <!--end::Engage widget 1-->
-                                <!--begin::Row-->
-                                <div class="row g-5 g-xl-8">
 
-                                </div>
                             </div>
                         </div>
-                        <!--end::Row-->
 
-                        <!--end::Tables Widget 5-->
-
-                        <!--end::Row-->
                     </div>
                     <!--end::Container-->
                 </div>
                 <!--end::Content-->
                 <!--begin::Footer-->
-                <div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
+                {{-- <div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
                     <!--begin::Container-->
                     <div class="container-fluid d-flex flex-column flex-md-row flex-stack">
                         <!--begin::Copyright-->
@@ -2575,7 +2356,7 @@ License: For each use you must have a valid license purchased only from above li
                         <!--end::Menu-->
                     </div>
                     <!--end::Container-->
-                </div>
+                </div> --}}
                 <!--end::Footer-->
             </div>
             <!--end::Wrapper-->

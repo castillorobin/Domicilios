@@ -3,38 +3,40 @@
 <html lang="en">
 
 <head>
-	<base href="../../../" />
-	<title>Melo Express - Domicilios</title>
-	<meta charset="utf-8" />
-	<meta name="description" content="The most advanced Bootstrap 5 Admin Theme with 40 unique prebuilt layouts on Themeforest trusted by 100,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue, Asp.Net Core, Rails, Spring, Blazor, Django, Express.js, Node.js, Flask, Symfony & Laravel versions. Grab your copy now and get life-time updates for free." />
-	<meta name="keywords" content="metronic, bootstrap, bootstrap 5, angular, VueJs, React, Asp.Net Core, Rails, Spring, Blazor, Django, Express.js, Node.js, Flask, Symfony & Laravel starter kits, admin themes, web design, figma, web development, free templates, free admin themes, bootstrap theme, bootstrap template, bootstrap dashboard, bootstrap dak mode, bootstrap button, bootstrap datepicker, bootstrap timepicker, fullcalendar, datatables, flaticon" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta property="og:locale" content="en_US" />
-	<meta property="og:type" content="article" />
-	<meta property="og:title" content="Metronic - Bootstrap Admin Template, HTML, VueJS, React, Angular. Laravel, Asp.Net Core, Ruby on Rails, Spring Boot, Blazor, Django, Express.js, Node.js, Flask Admin Dashboard Theme & Template" />
-	<meta property="og:url" content="https://keenthemes.com/metronic" />
-	<meta property="og:site_name" content="Keenthemes | Metronic" />
-	<link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
-	<link rel="shortcut icon" href="assets/media/logos/favicon.ico" />
-	<!--begin::Fonts(mandatory for all pages)-->
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
-	<!--end::Fonts-->
-	<!--begin::Vendor Stylesheets(used for this page only)-->
-	<link href="assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
-	<link href="assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
-	<!--end::Vendor Stylesheets-->
-	<!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
-	<link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-	<link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
-	<!-- Cargar jQuery primero -->
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <base href="../../../" />
+    <title>Melo Express - Domicilios</title>
+    <meta charset="utf-8" />
+    <meta name="description"
+        content="The most advanced Bootstrap 5 Admin Theme with 40 unique prebuilt layouts on Themeforest trusted by 100,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue, Asp.Net Core, Rails, Spring, Blazor, Django, Express.js, Node.js, Flask, Symfony & Laravel versions. Grab your copy now and get life-time updates for free." />
+    <meta name="keywords"
+        content="metronic, bootstrap, bootstrap 5, angular, VueJs, React, Asp.Net Core, Rails, Spring, Blazor, Django, Express.js, Node.js, Flask, Symfony & Laravel starter kits, admin themes, web design, figma, web development, free templates, free admin themes, bootstrap theme, bootstrap template, bootstrap dashboard, bootstrap dak mode, bootstrap button, bootstrap datepicker, bootstrap timepicker, fullcalendar, datatables, flaticon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title"
+        content="Metronic - Bootstrap Admin Template, HTML, VueJS, React, Angular. Laravel, Asp.Net Core, Ruby on Rails, Spring Boot, Blazor, Django, Express.js, Node.js, Flask Admin Dashboard Theme & Template" />
+    <meta property="og:url" content="https://keenthemes.com/metronic" />
+    <meta property="og:site_name" content="Keenthemes | Metronic" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
+    <link rel="shortcut icon" href="assets/media/logos/favicon.ico" />
+    <!--begin::Fonts(mandatory for all pages)-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
+    <!--end::Fonts-->
+    <!--begin::Vendor Stylesheets(used for this page only)-->
+    <link href="assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
+    <!--end::Vendor Stylesheets-->
+    <!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
+    <link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+    <script src="assets/plugins/global/plugins.bundle.js"></script>
 
-	<!-- Luego cargar Bootstrap JS si lo necesitas -->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
-
-
-	<!--end::Global Stylesheets Bundle-->
+    <!--end::Global Stylesheets Bundle-->
 </head>
 
 <!--end::Head-->
@@ -115,7 +117,7 @@
                                     <!--begin:Menu item-->
                                     <div class="menu-item">
                                         <!--begin:Menu link-->
-                                        <a class="menu-link active" href="#">
+                                        <a class="menu-link active" href="/usuarios/lista">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -261,6 +263,7 @@
                 <!--end::Footer-->
             </div>
             <!--end::Aside-->
+
             <!--begin::Wrapper-->
             <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
                 <!--begin::Header tablet and mobile-->
@@ -323,59 +326,76 @@
                             <!--begin::Col-->
                             <div class="col-xl-8">
                                 <!--begin::Engage widget 1-->
-                                    <div class="card bgi-position-y-bottom bgi-position-x-end bgi-no-repeat bgi-size-cover min-h-250px bg-primary mb-3"
-                                        style="background-color:white !important; border: 1px solid #d3d3d3;" dir="ltr" >
-                                        <!--begin::Header-->
-                                        <div class="card-header border-0 pt-3 mb-3">
-                                            <h3 class="card-title align-items-start flex-column">
-                                                <span class="card-label fw-bold fs-3 mb-1">GUIA: {{ $envios[0]->guia }}</span>
-                                                <span class="text-muted mt-1 fw-semibold fs-7"></span>
-                                            </h3>
-                                        </div>
-                                        <!--end::Header-->
-                                        <!--begin::Body-->
-                                        <div class="card-body py-2 mb-3">
+                                <div class="card bgi-position-y-bottom bgi-position-x-end bgi-no-repeat bgi-size-cover min-h-250px bg-primary mb-3"
+                                    style="background-color:white !important; border: 1px solid #d3d3d3;"
+                                    dir="ltr">
+                                    <!--begin::Header-->
+                                    <div class="card-header border-0 pt-3 mb-3">
+                                        <h2 class="card-title align-items-start flex-column text-uppercase">
+                                            <span class="card-label fw-bold fs-3 mb-1">GUIA:
+                                                {{ $envios[0]->guia }}</span>
+                                            <span class="text-muted mt-1 fw-semibold fs-7"></span>
+                                        </h2>
+                                    </div>
+                                    <!--end::Header-->
+                                    <!--begin::Body-->
+                                    <div class="card-body py-2 mb-3">
+                                        <div class="tab-content">
+                                            <!--begin::Tap pane-->
                                             <div class="tab-content">
                                                 <!--begin::Tap pane-->
-                                                <div class="tab-content">
-                                                    <!--begin::Tap pane-->
-                                                    <div class="tab-pane fade show active" id="kt_table_widget_5_tab_1">
-                                                        <!--begin::Data container-->
-                                                        <div class="data-container">
-															
+                                                <div class="tab-pane fade show active" id="kt_table_widget_5_tab_1">
+                                                    <!--begin::Data container-->
+                                                    <div class="data-container">
 
-                                                            <div class="d-flex align-items-center mb-3 w-100" style="gap: 20px;">
-                                                                <label class="text-gray-900 text-uppercase fw-bold fs-5" style="width: 150px;">Comercio:</label>
-                                                                <span class="fw-bold text-gray-400 fs-6">{{ $envios[0]->comercio }}</span>
-                                                            </div>
-                                                            <div class="d-flex align-items-center mb-3 w-100" style="gap: 20px;">
-                                                                <label class="text-gray-900 text-uppercase fw-bold fs-5" style="width: 150px;">Destinatario:</label>
-                                                                <span class="fw-bold text-gray-400 fs-6"> {{ $envios[0]->destinatario }}</span>
-                                                            </div>
-                                                            <div class="d-flex align-items-center mb-3 w-100" style="gap: 20px;">
-                                                                <label class="text-gray-900 text-uppercase fw-bold fs-5" style="width: 150px;">Dirección:</label>
-                                                                <span class="fw-bold text-gray-400 fs-6">{{ $envios[0]->direccion }}</span>
-                                                            </div>
-                                                            <div class="d-flex align-items-center mb-3 w-100" style="gap: 20px;">
-                                                                <label class="text-gray-900 text-uppercase fw-bold fs-5" style="width: 150px;">Total:</label>
-                                                                <span class="fw-bold text-gray-400 fs-6"> {{ $envios[0]->total }}</span>
-                                                            </div>
-															<div class="d-flex align-items-center mb-3 w-100" style="gap: 20px;">
-                                                                <label class="text-gray-900 text-uppercase fw-bold fs-5" style="width: 150px;">Estado:</label>
-                                                                <span class="fw-bold text-gray-400 fs-6">{{ $envios[0]->estado }}</span>
-                                                            </div>
-                                                            
 
+                                                        <div class="d-flex align-items-center mb-3 w-100"
+                                                            style="gap: 20px;">
+                                                            <label class="text-gray-900 text-uppercase fw-bold fs-5"
+                                                                style="width: 150px;">Comercio:</label>
+                                                            <span
+                                                                class="fw-bold text-gray-400 fs-6">{{ $envios[0]->comercio }}</span>
                                                         </div>
-                                                        <!--end::Data container-->
+                                                        <div class="d-flex align-items-center mb-3 w-100"
+                                                            style="gap: 20px;">
+                                                            <label class="text-gray-900 text-uppercase fw-bold fs-5"
+                                                                style="width: 150px;">Destinatario:</label>
+                                                            <span class="fw-bold text-gray-400 fs-6">
+                                                                {{ $envios[0]->destinatario }}</span>
+                                                        </div>
+                                                        <div class="d-flex align-items-center mb-3 w-100"
+                                                            style="gap: 20px;">
+                                                            <label class="text-gray-900 text-uppercase fw-bold fs-5"
+                                                                style="width: 150px;">Dirección:</label>
+                                                            <span
+                                                                class="fw-bold text-gray-400 fs-6">{{ $envios[0]->direccion }}</span>
+                                                        </div>
+                                                        <div class="d-flex align-items-center mb-3 w-100"
+                                                            style="gap: 20px;">
+                                                            <label class="text-gray-900 text-uppercase fw-bold fs-5"
+                                                                style="width: 150px;">Total:</label>
+                                                            <span class="fw-bold text-gray-400 fs-6">
+                                                                {{ $envios[0]->total }}</span>
+                                                        </div>
+                                                        <div class="d-flex align-items-center mb-3 w-100"
+                                                            style="gap: 20px;">
+                                                            <label class="text-gray-900 text-uppercase fw-bold fs-5"
+                                                                style="width: 150px;">Estado:</label>
+                                                            <span
+                                                                class="fw-bold text-gray-400 fs-6">{{ $envios[0]->estado }}</span>
+                                                        </div>
+
+
                                                     </div>
-                                                    <!--end::Tap pane-->
+                                                    <!--end::Data container-->
                                                 </div>
                                                 <!--end::Tap pane-->
                                             </div>
+                                            <!--end::Tap pane-->
                                         </div>
-                                        <!--end::Body-->
                                     </div>
+                                    <!--end::Body-->
+                                </div>
                                 <!--end::Engage widget 1-->
                             </div>
                         </div>
@@ -388,272 +408,397 @@
                             <!--begin::Col-->
                             <div class="col-xl-8">
                                 <!--begin::Engage widget 1-->
-                                <div class="card-body py-2 mb-3">
-									<div class="card card-flush py-3 mb-3" style="border: 1px solid #d3d3d3;">
-										<!--begin::Card header-->
-										<div class="card-header">
-											<div class="card-title">
-												<h2>Fotos</h2>
-											</div>
-										</div>
-										<!--end::Card header-->
-										<!--begin::Card body-->
-										<div class="card-body pt-1">
-											<!--begin::Input group-->
-											<div class="fv-row mb-1">
-												<!--begin::Dropzone-->
-												<div class="dropzone dz-clickable" id="kt_ecommerce_add_product_media">
-													<!--begin::Message-->
-													<div class="dz-message needsclick">
-														<!--begin::Icon-->
-														<i class="ki-duotone ki-file-up text-primary fs-3x"><span class="path1"></span><span class="path2"></span></i>
-														<!--end::Icon-->
-														<!--begin::Info-->
-														<div class="ms-4">
-															<h3 class="fs-5 fw-bold text-gray-900 mb-1">Drop files here or click to upload.</h3>
-															<span class="fs-7 fw-semibold text-gray-500">Upload up to 10 files</span>
-														</div>
-														<!--end::Info-->
-													</div>
-												</div>
-												<!--end::Dropzone-->
-											</div>
-											<!--end::Input group-->
-											<!--begin::Description-->
-											<div class="text-muted fs-7">Set the product media gallery.</div>
-											<!--end::Description-->
-										</div>
-										<!--end::Card body-->
-									</div>
-								</div>
-                                	
-								<div class="container-xl mt-6" id="kt_content_container">
-									<div class="d-flex flex-wrap justify-content-center">
-										<a href="#" class="btn hover-scale" style="background-color: #F39C12; color: white; margin: 5px;" data-bs-toggle="modal" data-bs-target="#kt_modal_en_ruta">En ruta</a> <!-- Naranja para estado en tránsito -->
-										<a href="#" class="btn hover-scale" style="background-color: #2ECC71; color: white; margin: 5px;" data-bs-toggle="modal" data-bs-target="#kt_modal_entregado">Entregado</a> <!-- Verde para éxito -->
-										<a href="#" class="btn hover-scale" style="background-color: #E74C3C; color: white; margin: 5px;" data-bs-toggle="modal" data-bs-target="#kt_modal_fallido">Fallido</a> <!-- Rojo oscuro para error -->
-										<a href="#" class="btn hover-scale" style="background-color: #C0392B; color: white; margin: 5px;" data-bs-toggle="modal" data-bs-target="#kt_modal_no_entregado">No entregado</a> <!-- Rojo más intenso para estado crítico -->
-										<a href="#" class="btn hover-scale" style="background-color: #F1C40F; color: white; margin: 5px;" data-bs-toggle="modal" data-bs-target="#kt_modal_reprogramado">Reprogramado</a> <!-- Amarillo para cambios de planificación -->
-										<a href="#" class="btn hover-scale" style="background-color: #3498DB; color: white; margin: 5px;" data-bs-toggle="modal" data-bs-target="#kt_modal_cambio">Cambio</a> <!-- Azul para indicar modificación o actualización -->
-									</div>
-								</div>
-								
+                                <div class="card-body py-2 mb-1">
+                                    <div class="card card-flush py-3 mb-1" style="border: 1px solid #d3d3d3;">
+                                        <!--begin::Card header-->
+                                        <div class="card-header">
+                                            <div class="card-title">
+                                                <h2>Fotos</h2>
+                                            </div>
+                                        </div>
+                                        <!--end::Card header-->
+                                        <!--begin::Card body-->
+                                        <div class="card-body pt-1">
+                                            <!--begin::Input group-->
+                                            <div class="fv-row">
+                                                <!--begin::Dropzone-->
+
+                                                <!--end::Dropzone-->
+                                            </div>
+                                            <!--end::Input group-->
+                                            <!--begin::Description-->
+                                            <div class="text-muted fs-7">Fotos recuperadas desde la bd.
+                                            </div>
+                                            <!--end::Description-->
+                                        </div>
+                                        <!--end::Card body-->
+                                    </div>
+                                </div>
+
+                                <!-- Nuevo div para mostrar las fotos cargadas -->
+                                <div class="card-body py-2 mb-3" id="fotosCargadas" style="display: none;">
+                                    <div class="card card-flush py-3 mb-3" style="border: 1px solid #d3d3d3;">
+                                        <!--begin::Card header-->
+                                        <div class="card-header">
+                                            <div class="card-title">
+                                                <h2 class="card-title align-items-start flex-column text-uppercase">
+                                                    <span class="card-label fw-bold fs-3 mb-1">GUIA:
+                                                        {{ $envios[0]->guia }}</span>
+                                                    <span class="text-muted mt-1 fw-semibold fs-7"></span>
+                                                </h2>
+                                            </div>
+                                        </div>
+                                        <!--end::Card header-->
+                                        <!--begin::Card body-->
+                                        <div class="card-body pt-1">
+                                            <div class="card-title">
+                                                <h3>Fotos de cambio</h3>
+                                            </div>
+                                            <!--begin::Input group-->
+                                            <div class="fv-row">
+                                                <!--begin::Dropzone-->
+                                                <div id="imagenesCargadas"></div>
+                                                <!--end::Dropzone-->
+                                            </div>
+                                            <!--end::Input group-->
+                                            <!--begin::Description-->
+                                            <div class="text-muted fs-7">Fotos recuperadas desde la bd.</div>
+                                            <!--end::Description-->
+                                        </div>
+                                        <!--end::Card body-->
+                                    </div>
+                                </div>
+
+                                @foreach ($envios as $envio)
+                                <div class="container-xl mt-6" id="kt_content_container">
+                                    <div class="d-flex flex-wrap justify-content-center">
+                                        <!-- Botón En Ruta -->
+                                        <a class="btn hover-scale"
+                                            style="background-color: #F39C12; color: white; margin: 5px;"
+                                            data-estado="En ruta"
+                                            data-guia="{{ $envio->guia }}" 
+                                            onclick="cambiarEstado(this, '{{ route('filtroruta') }}')">En ruta</a>
+
+                                        <!-- Botón Entregado -->
+                                        <a class="btn hover-scale"
+                                            style="background-color: #2ECC71; color: white; margin: 5px;"
+                                            data-estado="Entregado"
+                                            data-guia="{{ $envio->guia }}" 
+                                            onclick="cambiarEstado(this, '{{ route('filtroentregado') }}')">Entregado</a>
+
+                                        <!-- Botón Fallido (abre modal) -->
+                                        <a href="#" class="btn hover-scale"
+                                            style="background-color: #E74C3C; color: white; margin: 5px;"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#kt_modal_fallido"
+                                            data-guia="{{ $envio->guia }}">Fallido</a>
+
+                                        <!-- Botón No Entregado (abre modal) -->
+                                        <a href="#" class="btn hover-scale"
+                                            style="background-color: #C0392B; color: white; margin: 5px;"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#kt_modal_no_entregado"
+                                            data-estado="No entregado"
+                                            data-guia="{{ $envio->guia }}">No entregado</a>
+
+                                        <!-- Botón Reprogramado (abre modal) -->
+                                        <a href="#" class="btn hover-scale"
+                                            style="background-color: #F1C40F; color: white; margin: 5px;"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#kt_modal_reprogramado"
+                                            data-estado="Reprogramado"
+                                            data-guia="{{ $envio->guia }}">Reprogramado</a>
+
+                                        <!-- Botón Cambio (abre modal) -->
+                                        <a href="#" class="btn hover-scale"
+                                            style="background-color: #3498DB; color: white; margin: 5px;"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#kt_modal_cambio"
+                                            data-guia="{{ $envio->guia }}"
+                                            onclick="mostrarFotos(event)">Cambio</a>
+                                    </div>
+                                </div>
+                            @endforeach
+
+
+
                             </div>
-							
+
                         </div>
                         <!--end::Row-->
 
-						<!--begin::Modals-->
-						<div class="modal fade" tabindex="-1" id="kt_modal_en_ruta">
-							<div class="modal-dialog modal-dialog-centered">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h3 class="modal-title">En ruta</h3>
-										<div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
-											<i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
-										</div>
-									</div>
-									<div class="modal-body">
-										<p>Detalles del estado en ruta.</p>
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-										<button type="button" class="btn btn-primary">Save changes</button>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						<div class="modal fade" tabindex="-1" id="kt_modal_entregado">
-							<div class="modal-dialog modal-dialog-centered">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h3 class="modal-title">Entregado</h3>
-										<div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
-											<i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
-										</div>
-									</div>
-									<div class="modal-body">
-										<p>Detalles del estado entregado.</p>
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-										<button type="button" class="btn btn-primary">Save changes</button>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						<div class="modal fade" tabindex="-1" id="kt_modal_fallido">
-							<div class="modal-dialog modal-dialog-centered">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h3 class="modal-title">ESTADO FALLIDO</h3>
-										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-									</div>
-									<div class="modal-body">
+                        <!--begin::Modals-->
 
-										<!-- Select con opciones -->
-										<label for="estadoSelect" class="form-label p-2">Motivo</label>
-										<select id="estadoSelect" class="form-select form-select-solid" data-control="select2" data-placeholder="Select an option" data-hide-search="true" onchange="toggleNotaField()">
-											<option></option>
-											<option value="1">Cliente no contesta</option>
-											<option value="2" selected>Cliente no estaba en el lugar</option>
-											<option value="3">Cliente no tenía dinero</option>
-											<option value="otro">Otro</option>
-										</select>
-										
-										<!-- Campo de Nota (solo se muestra si se selecciona "Otro") -->
-										<div id="notaField" class="rounded border  p-2 mt-3" style="display: none;">
-											<label for="nota" class="form-label">Nota</label>
-											<textarea id="nota" class="form-control" data-kt-autosize="true" placeholder="Escribe tu nota aquí..."></textarea>
-										</div>
-									</div>
+                        <!-- Modal Fallido -->
+                        <div class="modal fade" tabindex="-1" id="kt_modal_fallido">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h3 class="modal-title">ESTADO FALLIDO</h3>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <label for="estadoSelect" class="form-label p-2">Motivo</label>
+                                        <select id="estadoSelect" class="form-select form-select-solid"
+                                            data-control="select2" data-placeholder="Seleccionar una opción"
+                                            data-hide-search="true" onchange="toggleNotaField()">
+                                            <option></option>
+                                            <option value="Cliente no contesta">Cliente no contesta</option>
+                                            <option value="Cliente no estaba en el lugar" selected>Cliente no estaba en el lugar</option>
+                                            <option value="Cliente no tenía dinero">Cliente no tenía dinero</option>
+                                            <option value="Otro">Otro</option>
+                                        </select>
 
-									<script>
-										// Función para mostrar u ocultar el campo de nota
-										function toggleNotaField() {
-											var estado = document.getElementById("estadoSelect").value;
-											var notaField = document.getElementById("notaField");
-			
-											if (estado === "otro") { // Si selecciona la opción "Otro"
-												notaField.style.display = "block"; // Mostrar campo de nota
-											} else {
-												notaField.style.display = "none"; // Ocultar campo de nota
-											}
-										}
-									</script>
-						
-						
-									<div class="modal-footer">
-										<button type="button" class="btn btn-light" data-bs-dismiss="modal">Cerrar</button>
-										<button type="button" class="btn btn-primary">Guardar</button>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						
+                                        <div id="notaField" class="rounded border p-2 mt-3" style="display: none;">
+                                            <label for="nota_fallido" class="form-label">Nota</label>
+                                            <textarea id="nota_fallido" class="form-control" data-kt-autosize="true" placeholder="Escribe tu nota aquí..."></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cerrar</button>
+                                        <button type="button" class="btn btn-primary" data-estado="Fallido"
+                                            onclick="guardarEstado(this, '{{ route('filtrofallido') }}')" data-guia="{{ $envio->guia }}">Guardar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-						
-						<div class="modal fade" tabindex="-1" id="kt_modal_no_entregado">
-							<div class="modal-dialog modal-dialog-centered">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h3 class="modal-title">ESTADO NO ENTREGADO</h3>
+                        <!-- Modal No Entregado -->
+                        <div class="modal fade" tabindex="-1" id="kt_modal_no_entregado">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h3 class="modal-title">ESTADO NO ENTREGADO</h3>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div id="notaContainer" class="rounded border d-flex flex-column p-2 mt-3">
+                                            <label for="nota_no_entregado" class="form-label">Motivo</label>
+                                            <textarea id="nota_no_entregado" class="form-control" data-kt-autosize="true" placeholder="Escribe el motivo..."></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cerrar</button>
+                                        <button type="button" class="btn btn-primary" data-estado="No entregado"
+                                            onclick="guardarEstado(this, '{{ route('filtronoentregado') }}')" data-guia="{{ $envio->guia }}">Guardar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-									</div>
-									<div class="modal-body">
-                                        <div id="notaContainer" class="rounded border d-flex flex-column p-2 mt-3" style="display: none;">
-                                            <label for="nota" class="form-label">Motivo</label>
-                                            <textarea id="nota" class="form-control" data-kt-autosize="true"></textarea>
-                                        </div>									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-										<button type="button" class="btn btn-primary">Save changes</button>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						<div class="modal fade" tabindex="-1" id="kt_modal_reprogramado">
-							<div class="modal-dialog modal-dialog-centered">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h5 class="modal-title">ESTADO REPROGRAMADO</h5>
-										<!--begin::Close-->
-										<div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
-											<span class="svg-icon fs-2x"></span>
-										</div>
-										<!--end::Close-->
-									</div>
-									<div class="modal-body">
-										<div class="mb-0">
-											<label class="form-label p-2">Nueva Fecha</label>
-											<input class="form-control form-control-solid" placeholder="Seleccione la Fecha" id="kt_daterangepicker_3"/>
-											<div id="notaContainer" class="rounded border d-flex flex-column p-2 mt-3" style="display: none;">
-												<label for="nota" class="form-label">Motivo</label>
-												<textarea id="nota" class="form-control" data-kt-autosize="true"></textarea>
-											</div>
-										</div>
-									</div>
+                        <!-- Modal Reprogramado -->
+                        <div class="modal fade" tabindex="-1" id="kt_modal_reprogramado">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">ESTADO REPROGRAMADO</h5>
+                                        <div class="btn btn-icon btn-sm btn-active-light-primary ms-2"
+                                            data-bs-dismiss="modal" aria-label="Cerrar">
+                                            <span class="svg-icon fs-2x"></span>
+                                        </div>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="mb-0">
+                                            <label class="form-label p-2">Nueva Fecha</label>
+                                            <input class="form-control form-control-solid"
+                                                placeholder="Seleccione la Fecha" id="kt_daterangepicker_3" />
 
-									<script>
-										$(document).ready(function() {
-											$("#kt_daterangepicker_3").daterangepicker({
-												singleDatePicker: true,
-												showDropdowns: true,
-												minYear: 1901,
-												maxYear: parseInt(moment().format("YYYY"),12)
-											}, function(start) {
-												$("#kt_daterangepicker_3").val(start.format("YYYY-MM-DD")); // Asignar la fecha seleccionada al input
-											});
-										});
-									</script>
+                                            <div id="notaContainer" class="rounded border d-flex flex-column p-2 mt-3">
+                                                <label for="nota_reprogramado" class="form-label">Motivo</label>
+                                                <textarea id="nota_reprogramado" class="form-control" data-kt-autosize="true" placeholder="Escribe el motivo..."></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
 
-									<div class="modal-footer">
-										<button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-										<button type="button" class="btn btn-primary">Save changes</button>
-									</div>
-								</div>
-							</div>
-						</div>
-					
-					
-						
-						<div class="modal fade" tabindex="-1" id="kt_modal_cambio">
-							<div class="modal-dialog modal-dialog-centered">
-							  <div class="modal-content">
-								<div class="modal-header">
-								  <h3 class="modal-title">ESTADO CAMBIO</h3>
-								  <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
-									<i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
-								  </div>
-								</div>
-								<div class="modal-body">
-						  
-								  <!-- Div centralizado para la cámara -->
-								  <div class="d-flex justify-content-center mb-5">
-									<i class="fa-solid fa-camera fs-5x text-primary" onclick="openCamera()"></i>
-									<input type="file" id="cameraInput" accept="image/*" capture="environment" style="display: none;" onchange="handleImage(event)">
-								  </div>
-						  
-								  <!-- Div no centralizado para el label y el input -->
-								  <div class="mb-5">
-									<label  class="form-label p-2">Guia de Cambio</label>
-									<input type="text" class="form-control form-control-solid"/>
-								  </div>
-						  
-								  <script>
-									function openCamera() {
-									  document.getElementById('cameraInput').click();
-									}
-						  
-									function handleImage(event) {
-									  const file = event.target.files[0];
-									  if (file) {
-										alert("Imagen capturada: " + file.name);
-										// Aquí puedes hacer algo con la imagen, como mostrar una vista previa o subirla
-									  }
-									}
-								  </script>
-						  
-								</div>
-								<div class="modal-footer">
-								  <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-								  <button type="button" class="btn btn-primary">Save changes</button>
-								</div>
-							  </div>
-							</div>
-						  </div>
-						  
-						
-						<!--end::Modals-->
+                                    <script>                                
+                                        $(document).ready(function() {
+                                            $("#kt_daterangepicker_3").daterangepicker({
+                                                singleDatePicker: true,
+                                                showDropdowns: true,
+                                                minYear: 1901,
+                                                maxYear: parseInt(moment().format("YYYY"), 12),
+                                                locale: {
+                                                    format: 'YYYY-MM-DD' // Formato esperado por MySQL
+                                                }
+                                            }, function(start) {
+                                                $("#kt_daterangepicker_3").val(start.format("YYYY-MM-DD"));
+                                            });
+                                        });
+
+                                    </script>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cerrar</button>
+                                        <button type="button" class="btn btn-primary" data-estado="Reprogramado"
+                                            onclick="guardarEstado(this, '{{ route('filtroreprogramado') }}')" data-guia="{{ $envio->guia }}">Guardar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" tabindex="-1" id="kt_modal_cambio">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h3 class="modal-title">ESTADO CAMBIO</h3>
+                                        <div class="btn btn-icon btn-sm btn-active-light-primary ms-2"
+                                            data-bs-dismiss="modal" aria-label="Cerrar">
+                                            <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span
+                                                    class="path2"></span></i>
+                                        </div>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <!--begin::Dropzone-->
+                                        <div class="dropzone" id="kt_dropzonejs_example_1">
+                                            <!--begin::Message-->
+                                            <div class="dz-message needsclick">
+                                                <i class="ki-duotone ki-file-up fs-3x text-primary"><span
+                                                        class="path1"></span><span class="path2"></span></i>
+
+                                                <!--begin::Info-->
+                                                <div class="ms-4">
+                                                    <h3 class="fs-5 fw-bold text-gray-900 mb-1">Drop files here or
+                                                        click to upload.</h3>
+                                                    <span class="fs-7 fw-semibold text-gray-500">Upload up to 10
+                                                        files</span>
+                                                </div>
+                                                <!--end::Info-->
+                                            </div>
+                                        </div>
+
+                                        <script>
+                                            var myDropzone = new Dropzone("#kt_dropzonejs_example_1", {
+                                                url: "/upload", // Ahora apunta a la ruta de Laravel
+                                                paramName: "file",
+                                                maxFiles: 5, // EN LA BD ESTA HASTA FOTO 5
+                                                maxFilesize: 10, // MB
+                                                addRemoveLinks: true,
+                                                headers: {
+                                                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                                                },
+                                                success: function(file, response) {
+                                                    console.log("Archivo subido:", response);
+                                                },
+                                                error: function(file, errorMessage) {
+                                                    console.error("Error al subir:", errorMessage);
+                                                }
+                                            });
+                                        </script>
+                                        <!--end::Dropzone-->
+
+                                        <!-- Div no centralizado para el label y el input -->
+                                        <div class="mb-5">
+                                            <label class="form-label p-2">Guia de Cambio</label>
+                                            <input type="text" class="form-control form-control-solid" />
+                                        </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-light"
+                                            data-bs-dismiss="modal">Cerrar</button>
+                                        <button type="button" class="btn btn-primary" data-estado="Cambio"
+                                            onclick="guardarEstado(this, '{{ route('filtrocambio') }}')" data-guia="{{ $envio->guia }}">Guardar</button>
+                                    </div>
+
+                                    <script>
+                                        function mostrarFotos(event) {
+                                            // Prevenir el comportamiento predeterminado del enlace
+                                            event.preventDefault();
+
+                                            // Mostrar el div de fotos cargadas
+                                            document.getElementById('fotosCargadas').style.display = 'block';
+                                        }
+                                    </script>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <script>
+                            function cambiarEstado(button, redirigirUrl) {
+                                var estado = button.getAttribute('data-estado');
+                                var guia = button.getAttribute('data-guia'); // Obtenemos la guía específica del botón
+
+                                $.ajax({
+                                    url: '/cambiar-estado',
+                                    method: 'POST',
+                                    data: {
+                                        _token: '{{ csrf_token() }}',
+                                        estado: estado,
+                                        guia: guia // Enviamos la guía en lugar del ID
+                                    },
+                                    success: function(response) {
+                                        window.location.href = redirigirUrl;
+                                    },
+                                    error: function(xhr) {
+                                        alert('Error al cambiar el estado');
+                                    }
+                                });
+                            }
+
+                            function guardarEstado(button, redirigirUrl) {
+                                var estado = button.getAttribute('data-estado');
+                                var guia = button.getAttribute('data-guia'); // Obtenemos la guía específica del botón
+
+                                var motivo = null;
+                                var nota = null;
+                                var fechaReprogramado = null;
+
+                                if (estado === "No entregado") {
+                                    nota = document.getElementById("nota_no_entregado").value || null;
+                                }
+
+                                if (estado === "Fallido") {
+                                    var selectMotivo = document.getElementById("estadoSelect").value;
+                                    motivo = selectMotivo;
+
+                                    if (selectMotivo === "Otro") {
+                                        nota = document.getElementById("nota_fallido").value || null;
+                                    }
+                                }
+
+                                if (estado === "Reprogramado") {
+                                    fechaReprogramado = document.getElementById("kt_daterangepicker_3").value || null;
+                                    nota = document.getElementById("nota_reprogramado").value || null;
+                                }
+
+                                $.ajax({
+                                    url: '/cambiar-estado',
+                                    method: 'POST',
+                                    data: {
+                                        _token: '{{ csrf_token() }}',
+                                        estado: estado,
+                                        guia: guia, // Enviamos la guía en lugar del ID
+                                        nota: motivo,
+                                        nota_repartidor: nota,
+                                        fecha_reprogramado: fechaReprogramado
+                                    },
+                                    success: function(response) {
+                                        window.location.href = redirigirUrl;
+                                    },
+                                    error: function(xhr) {
+                                        alert('Error al guardar el estado');
+                                    }
+                                });
+                            }
+
+                            function toggleNotaField() {
+                                var estado = document.getElementById("estadoSelect").value;
+                                var notaField = document.getElementById("notaField");
+                                if (estado === "Otro") {
+                                    notaField.style.display = "block";
+                                } else {
+                                    notaField.style.display = "none";
+                                }
+                            }
+                        </script>
+
+
+                        <!--end::Modals-->
 
                     </div>
 
 
-                    <!--end::Container-->
 
 
                 </div>
@@ -661,7 +806,7 @@
                 <!--end::Content-->
 
 
-                <!--begin::Footer-->
+                {{--                 <!--begin::Footer-->
                 <div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
                     <!--begin::Container-->
                     <div class="container-fluid d-flex flex-column flex-md-row flex-stack">
@@ -690,9 +835,10 @@
                     </div>
                     <!--end::Container-->
                 </div>
-                <!--end::Footer-->
+                <!--end::Footer--> --}}
             </div>
             <!--end::Wrapper-->
+
         </div>
         <!--end::Page-->
     </div>
@@ -4957,52 +5103,52 @@
     </div>
     <!--end::Modal - Invite Friend-->
     <!--end::Modals-->
-	<script>
-		var hostUrl = "assets/";
-	</script>
+    <script>
+        var hostUrl = "assets/";
+    </script>
 
-	<script>
-		function valor() {
+    <script>
+        function valor() {
 
-			nombre = document.getElementById("name").value;
+            nombre = document.getElementById("name").value;
 
-			nom = document.getElementById("ema" + nombre).value;
+            nom = document.getElementById("ema" + nombre).value;
 
-			document.getElementById("email").value = nom;
+            document.getElementById("email").value = nom;
 
-		}
-	</script>
-
-
+        }
+    </script>
 
 
-	<!--begin::Global Javascript Bundle(mandatory for all pages)-->
-	<script src="assets/plugins/global/plugins.bundle.js"></script>
-	<script src="assets/js/scripts.bundle.js"></script>
-	<!--end::Global Javascript Bundle-->
-	<!--begin::Vendors Javascript(used for this page only)-->
-	<script src="assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
-	<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
-	<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
-	<script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
-	<script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
-	<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
-	<script src="https://cdn.amcharts.com/lib/5/map.js"></script>
-	<script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
-	<script src="https://cdn.amcharts.com/lib/5/geodata/continentsLow.js"></script>
-	<script src="https://cdn.amcharts.com/lib/5/geodata/usaLow.js"></script>
-	<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZonesLow.js"></script>
-	<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZoneAreasLow.js"></script>
-	<script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
-	<!--end::Vendors Javascript-->
-	<!--begin::Custom Javascript(used for this page only)-->
-	<script src="assets/js/widgets.bundle.js"></script>
-	<script src="assets/js/custom/widgets.js"></script>
-	<script src="assets/js/custom/apps/chat/chat.js"></script>
-	<script src="assets/js/custom/utilities/modals/upgrade-plan.js"></script>
-	<script src="assets/js/custom/utilities/modals/create-app.js"></script>
-	<script src="assets/js/custom/utilities/modals/users-search.js"></script>
-	<!--end::Custom Javascript-->
+
+
+    <!--begin::Global Javascript Bundle(mandatory for all pages)-->
+    <script src="assets/plugins/global/plugins.bundle.js"></script>
+    <script src="assets/js/scripts.bundle.js"></script>
+    <!--end::Global Javascript Bundle-->
+    <!--begin::Vendors Javascript(used for this page only)-->
+    <script src="assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/geodata/continentsLow.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/geodata/usaLow.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZonesLow.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZoneAreasLow.js"></script>
+    <script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
+    <!--end::Vendors Javascript-->
+    <!--begin::Custom Javascript(used for this page only)-->
+    <script src="assets/js/widgets.bundle.js"></script>
+    <script src="assets/js/custom/widgets.js"></script>
+    <script src="assets/js/custom/apps/chat/chat.js"></script>
+    <script src="assets/js/custom/utilities/modals/upgrade-plan.js"></script>
+    <script src="assets/js/custom/utilities/modals/create-app.js"></script>
+    <script src="assets/js/custom/utilities/modals/users-search.js"></script>
+    <!--end::Custom Javascript-->
 </body>
 <!--end::Body-->
 

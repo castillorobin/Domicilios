@@ -64,10 +64,16 @@ class DashboardController extends Controller
         return view('pages.dashboards.indexdatos', compact('envios'));
     }
 
+    public function filtrocambio()
+    {
+        $envios = Envio::where('estado', "Cambio")->get();
+        return view('pages.dashboards.indexdatos', compact('envios'));
+    }
+
     public function filtroasig()
     {
         $envios = Envio::all();
         return view('pages.dashboards.indexdatos', compact('envios'));
-    }
+    }   
      
 }
