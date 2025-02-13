@@ -23,7 +23,7 @@ class DashboardController extends Controller
 
        // return view('pages.dashboards.index');
     }
-
+ 
     public function usuarios()
     {
         addVendors(['amcharts', 'amcharts-maps', 'amcharts-stock']);
@@ -66,12 +66,26 @@ class DashboardController extends Controller
 
     public function filtrocambio()
     {
+        $imagen = $request->file("foto");
+        $guia = $request->file("guia1");
+        $nota = $request->file("notarepa");
+
+        if ($request->hasFile('foto')) {
+
+            $imagen = $request->file("foto");
+            $nombreimagen = Str::slug(time()) . "." . $imagen->guessExtension();
+            $empleado->foto = $nombreimagen;
+            $ruta = public_path("/fotos");
+            $imagen->move($ruta, $nombreimagen);
+        }
+
         $envios = Envio::where('estado', "Cambio")->get();
         return view('pages.dashboards.indexdatos', compact('envios'));
     }
 
     public function filtroasig()
     {
+        
         $envios = Envio::all();
         return view('pages.dashboards.indexdatos', compact('envios'));
     }   

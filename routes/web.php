@@ -32,7 +32,7 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['au
 
 Route::get('/error', function () {
     abort(500);
-});
+}); 
 
 Route::get('/auth/redirect/{provider}', [SocialiteController::class, 'redirect']);
 

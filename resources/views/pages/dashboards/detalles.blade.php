@@ -682,58 +682,55 @@
                                     </div>
                                     <div class="modal-body">
 
-                                        <!--begin::Dropzone-->
-                                        <div class="dropzone" id="kt_dropzonejs_example_1">
-                                            <!--begin::Message-->
-                                            <div class="dz-message needsclick">
-                                                <i class="ki-duotone ki-file-up fs-3x text-primary"><span
-                                                        class="path1"></span><span class="path2"></span></i>
+                                        <form action="/filtrocambio" method="POST" id="kt_account_profile_details_form" class="form" enctype="multipart/form-data">
+                                            @csrf
+                                            @method('GET')
 
-                                                <!--begin::Info-->
-                                                <div class="ms-4">
-                                                    <h3 class="fs-5 fw-bold text-gray-900 mb-1">Drop files here or
-                                                        click to upload.</h3>
-                                                    <span class="fs-7 fw-semibold text-gray-500">Upload up to 10
-                                                        files</span>
+                                        <div class="row mb-6">
+                                            <label class="col-lg-3 col-form-label fw-semibold fs-6">Foto</label>
+                                            <div class="col-lg-8">
+                                                <div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('assets/media/svg/avatars/blank.svg')">
+                                                    <div class="image-input-wrapper w-125px h-125px" style="background-image: url(/assets/media/avatars/300-1.jpg)"></div>
+                                                    <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
+                                                        <i class="ki-duotone ki-pencil fs-7">
+                                                            <span class="path1"></span>
+                                                            <span class="path2"></span>
+                                                        </i>
+                                                        <input type="file" name="foto" accept=".png, .jpg, .jpeg" capture="camera" /> <!-- Agregar capture="camera" -->
+                                                        <input type="hidden" name="avatar_remove" />
+                                                    </label>
+                                                    <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
+                                                        <i class="ki-duotone ki-cross fs-2">
+                                                            <span class="path1"></span>
+                                                            <span class="path2"></span>
+                                                        </i>
+                                                    </span>
+                                                    <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
+                                                        <i class="ki-duotone ki-cross fs-2">
+                                                            <span class="path1"></span>
+                                                            <span class="path2"></span>
+                                                        </i>
+                                                    </span>
                                                 </div>
-                                                <!--end::Info-->
+                                                <div class="form-text">Tipos de archivos: png, jpg, jpeg.</div>
                                             </div>
                                         </div>
-
-                                        <script>
-                                            var myDropzone = new Dropzone("#kt_dropzonejs_example_1", {
-                                                url: "/upload", // Ahora apunta a la ruta de Laravel
-                                                paramName: "file",
-                                                maxFiles: 5, // EN LA BD ESTA HASTA FOTO 5
-                                                maxFilesize: 10, // MB
-                                                addRemoveLinks: true,
-                                                headers: {
-                                                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                                                },
-                                                success: function(file, response) {
-                                                    console.log("Archivo subido:", response);
-                                                },
-                                                error: function(file, errorMessage) {
-                                                    console.error("Error al subir:", errorMessage);
-                                                }
-                                            });
-                                        </script>
-                                        <!--end::Dropzone-->
+                                        <!--end::Dropzone--> 
 
                                         <!-- Div no centralizado para el label y el input -->
                                         <div class="mb-5">
                                             <label class="form-label p-2">Guia de Cambio</label>
-                                            <input type="text" class="form-control form-control-solid" />
+                                            <input type="text" class="form-control form-control-solid" name="notarepa" />
                                         </div>
 
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-light"
                                             data-bs-dismiss="modal">Cerrar</button>
-                                        <button type="button" class="btn btn-primary" data-estado="Cambio"
-                                            onclick="guardarEstado(this, '{{ route('filtrocambio') }}')" data-guia="{{ $envio->guia }}">Guardar</button>
+                                        <button type="submit" class="btn btn-primary" data-estado="Cambio"
+                                            >Guardar</button>
                                     </div>
-
+                                </form>
                                     <script>
                                         function mostrarFotos(event) {
                                             // Prevenir el comportamiento predeterminado del enlace
