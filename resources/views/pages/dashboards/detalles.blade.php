@@ -722,7 +722,7 @@
                                             <label class="form-label p-2">Guia de Cambio</label>
                                             <input type="text" class="form-control form-control-solid" name="notarepa" />
                                         </div>
-                                        <input type="text" class="form-control form-control-solid" name="guia2" value="{{$envios[0]->id}}" />
+                                        <input type="text" class="form-control form-control-solid" name="guia2" value="{{$envios[0]->id}}" hidden/>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cerrar</button>
