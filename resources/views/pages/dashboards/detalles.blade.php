@@ -682,7 +682,7 @@
                                     </div>
                                     <div class="modal-body">
 
-                                        <form action="/filtrocambio" method="POST" class="form" enctype="multipart/form-data">
+                                        <form action="cambiando" method="POST" enctype="multipart/form-data">
                                             
                                             @method('GET')
 

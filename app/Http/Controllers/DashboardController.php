@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Envio;
 use Illuminate\Http\Request;
+use App\Models\Envio;
+use Illuminate\Support\Str;
+
+
 class DashboardController extends Controller
 {
     public function index()
@@ -64,20 +67,48 @@ class DashboardController extends Controller
         return view('pages.dashboards.indexdatos', compact('envios'));
     }
 
-    public function filtrocambio(Request $request)
+    public function filtrocambios(Request $request)
     {
         
         $imagen2 = $request->file("foto");
         $guia = $request->file("guia2");
         $nota = $request->file("notarepa");
-
+        dd($nota);
         $envios2 = Envio::find($guia);
 
-        dd($guia);
-        $envios2->foto5 = $nota;
+        
+        $envios2->estado = "Cambio";
 
         if ($request->hasFile('foto')) {
 
+            $imagen = $request->file("foto");
+            $nombreimagen = Str::slug(time()) . "." . $imagen->guessExtension();
+            $envios2->fotocambio = $nombreimagen;
+            $ruta = public_path("/fotos");
+            $imagen->move($ruta, $nombreimagen);
+        }
+
+        $envios2->save();
+
+        $envios = Envio::where('estado', "Cambio")->get();
+        return view('pages.dashboards.indexdatos', compact('envios'));
+    }
+
+    public function cambiando(Request $request)
+    {
+        
+        $imagen2 = $request->file("foto");
+        $guia = $request->get("guia2");
+        $nota = $request->get("notarepa");
+
+        //dd($guia);
+        $envios2 = Envio::find($guia);
+
+        
+        $envios2->estado = "Cambio";
+
+        if ($request->hasFile('foto')) {
+//dd("Hay Foto");
             $imagen = $request->file("foto");
             $nombreimagen = Str::slug(time()) . "." . $imagen->guessExtension();
             $envios2->fotocambio = $nombreimagen;

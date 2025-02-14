@@ -43,6 +43,7 @@ Route::get('/filtrofallido', [App\Http\Controllers\DashboardController::class, '
 Route::get('/filtronoentregado', [App\Http\Controllers\DashboardController::class, 'filtronoentregado'] )->name('filtronoentregado');
 Route::get('/filtroreprogramado', [App\Http\Controllers\DashboardController::class, 'filtroreprogramado'] )->name('filtroreprogramado');
 Route::get('/filtrocambio', [App\Http\Controllers\DashboardController::class, 'filtrocambio'] )->name('filtrocambio');
+Route::get('/cambiando', [App\Http\Controllers\DashboardController::class, 'cambiando'] )->name('cambiando');
 
 Route::get('/detalles/{id}', [App\Http\Controllers\DashboardController::class, 'detalles'] )->name('detalles');
 
