@@ -548,8 +548,8 @@
                                             style="background-color: #3498DB; color: white; margin: 5px;"
                                             data-bs-toggle="modal"
                                             data-bs-target="#kt_modal_cambio"
-                                            data-guia="{{ $envio->guia }}"
-                                            onclick="mostrarFotos(event)">Cambio</a>
+                                            
+                                            >Cambio</a>
                                     </div>
                                 </div>
                             @endforeach
@@ -682,8 +682,8 @@
                                     </div>
                                     <div class="modal-body">
 
-                                        <form action="/filtrocambio" method="POST" id="kt_account_profile_details_form" class="form" enctype="multipart/form-data">
-                                            @csrf
+                                        <form action="/filtrocambio" method="POST" class="form" enctype="multipart/form-data">
+                                            
                                             @method('GET')
 
                                         <div class="row mb-6">
@@ -722,24 +722,14 @@
                                             <label class="form-label p-2">Guia de Cambio</label>
                                             <input type="text" class="form-control form-control-solid" name="notarepa" />
                                         </div>
-
+                                        <input type="text" class="form-control form-control-solid" name="guia2" value="{{$envios[0]->id}}" />
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-light"
-                                            data-bs-dismiss="modal">Cerrar</button>
-                                        <button type="submit" class="btn btn-primary" data-estado="Cambio"
-                                            >Guardar</button>
+                                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cerrar</button>
+                                        <button type="submit" class="btn btn-primary">Guardar</button>
                                     </div>
                                 </form>
-                                    <script>
-                                        function mostrarFotos(event) {
-                                            // Prevenir el comportamiento predeterminado del enlace
-                                            event.preventDefault();
-
-                                            // Mostrar el div de fotos cargadas
-                                            document.getElementById('fotosCargadas').style.display = 'block';
-                                        }
-                                    </script>
+                                   
 
                                 </div>
                             </div>

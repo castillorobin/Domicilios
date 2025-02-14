@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Envio;
-
+use Illuminate\Http\Request;
 class DashboardController extends Controller
 {
     public function index()
@@ -64,20 +64,28 @@ class DashboardController extends Controller
         return view('pages.dashboards.indexdatos', compact('envios'));
     }
 
-    public function filtrocambio()
+    public function filtrocambio(Request $request)
     {
-        $imagen = $request->file("foto");
-        $guia = $request->file("guia1");
+        
+        $imagen2 = $request->file("foto");
+        $guia = $request->file("guia2");
         $nota = $request->file("notarepa");
+
+        $envios2 = Envio::find($guia);
+
+        dd($guia);
+        $envios2->foto5 = $nota;
 
         if ($request->hasFile('foto')) {
 
             $imagen = $request->file("foto");
             $nombreimagen = Str::slug(time()) . "." . $imagen->guessExtension();
-            $empleado->foto = $nombreimagen;
+            $envios2->fotocambio = $nombreimagen;
             $ruta = public_path("/fotos");
             $imagen->move($ruta, $nombreimagen);
         }
+
+        $envios2->save();
 
         $envios = Envio::where('estado', "Cambio")->get();
         return view('pages.dashboards.indexdatos', compact('envios'));
