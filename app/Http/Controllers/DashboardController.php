@@ -78,6 +78,7 @@ class DashboardController extends Controller
 
         
         $envios2->estado = "Cambio";
+        $envios2->estado = $nota;
 
         if ($request->hasFile('foto')) {
 
@@ -106,6 +107,7 @@ class DashboardController extends Controller
 
         
         $envios2->estado = "Cambio";
+        $envios2->guiacambio = $nota;
 
         if ($request->hasFile('foto')) {
 //dd("Hay Foto");
