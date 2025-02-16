@@ -2045,11 +2045,60 @@ License: For each use you must have a valid license purchased only from above li
                 <!--begin::Content-->
                 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
                     <!--begin::Container-->
-                   
+                    <div class="container-fluid m-0" id="kt_content_container">
+                        <!--begin::Row-->
+                        <div class="row g-5 g-xl-8">
+                            <!--begin::Col-->
+                            <div class="col-xl-4">
+                                <div class="row mb-5 mb-xl-8 g-5 g-xl-8">
+                                    @php
+                                    $routes = [
+                                    'dashboard' => 'Inicio',
+                                    'filtroasig' => 'Asignados',
+                                    
+                                    'filtroentregado' => 'Entregados',
+                                    'filtrofallido' => 'Fallidos',
+                                    'filtronoentregado' => 'No entregados',
+                                    'filtroreprogramado'=> 'Reprogramados',
+                                    'filtrocambio' => 'Cambios',
+                                    ];
+
+                                    $icons = [
+                                    'dashboard' => 'ki-gift',
+                                    'filtroasig' => 'ki-gift',
+                                    'filtroruta' => 'ki-technology-2',
+                                    'filtroentregado' => 'ki-fingerprint-scanning',
+                                    'filtrofallido' => 'ki-abstract-26',
+                                    'filtronoentregado' => 'ki-basket',
+                                    'filtroreprogramado'=> 'ki-rocket',
+                                    'filtrocambio' => 'ki-gift',
+                                    ];
+                                    @endphp
+
+                                    @foreach ($routes as $route => $label)
+                                    <div class="col-6">
+                                        <div class="card card-stretch">
+                                            <a href="/{{ $route }}"
+                                                class="btn btn-flex btn-text-gray-800 btn-icon-gray-400 btn-active-color-primary bg-body flex-column justfiy-content-start align-items-start text-start w-100 p-10 
+                                                       {{ Request::is($route) ? 'text-primary' : 'text-gray-800' }}">
+                                                <i class="ki-duotone {{ $icons[$route] }} fs-2tx mb-5 ms-n1 
+                                                       {{ Request::is($route) ? 'text-primary' : 'text-gray-400' }}">
+                                                    <span class="path1"></span>
+                                                    <span class="path2"></span>
+                                                    <span class="path3"></span>
+                                                    <span class="path4"></span>
+                                                </i>
+                                                <span class="fs-4 fw-bold">{{ $label }}</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    @endforeach
+                                </div>
+                            </div>
 
                             <!--end::Col-->
                             <!--begin::Col-->
-                            <div class="col-xl-11 ps-xl-4 " >
+                            <div class="col-xl-7 ps-xl-4">
                                 <!--begin::Engage widget 1-->
                                 <div class="card bgi-position-y-bottom bgi-position-x-end bgi-no-repeat bgi-size-cover min-h-250px bg-primary mb-5 mb-xl-8"
                                     style="background-color:white !important; " dir="ltr">
@@ -2154,7 +2203,6 @@ License: For each use you must have a valid license purchased only from above li
 
                                                         <th class="text-end min-w-75px">PRECIO</th>
                                                         <th class="text-center min-w-100px">ESTADO</th>
-                                                        
                                                     </tr>
                                                 </thead>
 
@@ -2202,8 +2250,6 @@ License: For each use you must have a valid license purchased only from above li
                                                         <td class="text-center">
                                                             <span class="badge" style="background-color: {{ $color }}; color: white; padding: 8px 8px; border-radius: 6px;">{{ $estado }}</span>
                                                         </td>
-
-                                                       
                                                     </tr>
                                                     @endif
                                                     @endforeach
@@ -2211,11 +2257,7 @@ License: For each use you must have a valid license purchased only from above li
 
 
                                             </table>
-                                            <a href="/dashboard">
-<div style="margin-top: 20px;">
-    <button type="button" class="btn btn-secondary" style="float: right">Cerrar</button>
-</div>
-</a>
+
                                             <style>
                                                 #envios_table {
                                                     width: 100% !important;
