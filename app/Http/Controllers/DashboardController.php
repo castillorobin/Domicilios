@@ -73,8 +73,9 @@ class DashboardController extends Controller
         $envios2->estado = "En ruta";
         $envios2->save();
 
-        $envios = Envio::where('estado', "En ruta")->get();
-        return view('pages.dashboards.indexdatos', compact('envios'));
+        $envios = Envio::all();
+        return redirect()->route('filtroasig');
+        //return view('pages.dashboards.indexdatos', compact('envios'));
     }
 
 
