@@ -129,7 +129,7 @@ License: For each use you must have a valid license purchased only from above li
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
-                                            <span class="menu-title">Asignados</span>
+                                            <span class="menu-title">Entregados</span>
                                         </a>
                                         
                                         <!--end:Menu link-->
@@ -212,7 +212,7 @@ License: For each use you must have a valid license purchased only from above li
                             class="page-title d-flex flex-column align-items-start justify-content-center flex-wrap me-lg-20 py-3 py-lg-0 me-3">
                             <!--begin::Heading-->
                             <h1 class="d-flex flex-column text-dark fw-bold my-1">
-                                <span class="text-white fs-1">Asignados</span>
+                                <span class="text-white fs-1">Entregados</span>
                                 <small class="text-gray-600 fs-6 fw-normal pt-2"></small>
                             </h1>
                             <!--end::Heading-->
@@ -394,7 +394,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <h3 class="card-title align-items-start flex-column">
                                             <span class="card-label fw-bold fs-3 mb-1 text-gray-600 text-uppercase">
                                                
-                                                ENVIOS ASIGNADOS
+                                                ENVIOS ENTREGADOS
                                                
                                             </span>
                                             <span class="text-muted mt-1 fw-semibold fs-7">
@@ -461,7 +461,7 @@ License: For each use you must have a valid license purchased only from above li
 
                                                         <th class="text-end min-w-75px">PRECIO</th>
                                                         <th class="text-center min-w-100px">ESTADO</th>
-                                                        <th class="text-center min-w-50p0px">Acciones</th>
+                                                       
                                                         
                                                     </tr>
                                                 </thead>
@@ -492,7 +492,7 @@ License: For each use you must have a valid license purchased only from above li
 
                                                         @if (Route::currentRouteName() !== 'filtroreprogramado')
                                                         <td data-order="{{ $envio->fecha_entrega }}">
-                                                            {{ date('d M Y', strtotime($envio->fecha_entrega)) }}
+                                                            {{ date('d M Y, h:i a', strtotime($envio->fecha_entrega)) }}
                                                         </td>
                                                         @endif
 
@@ -510,56 +510,7 @@ License: For each use you must have a valid license purchased only from above li
                                                         <td class="text-center">
                                                             <span class="badge" style="background-color: {{ $color }}; color: white; padding: 8px 8px; border-radius: 6px;">{{ $estado }}</span>
                                                         </td>
-                                                        <td class="text-end">
-																						<a href="#" class="btn btn-light btn-active-light-primary btn-flex btn-center btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Acción
-																							<i class="ki-duotone ki-down fs-5 ms-1"></i></a>
-																						<!--begin::Menu-->
-																						<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																							<!--begin::Menu item-->
-																							
-																							<!--end::Menu item-->
-                                                                                            <div class="menu-item px-3">
-                                                                                            <a class="menu-link px-3" href="/cambiarruta/{{ $envio->id }}" >En ruta</a>
-                                            </div>
-                                        <!-- Botón Entregado -->
-                                        <div class="menu-item px-3">
-                                        <a class="menu-link px-3" href="/cambiarentregado/{{ $envio->id }}" >Entregado</a>
-                                            </div>        
-                                        <!-- Botón Fallido (abre modal) -->
-                                        <div class="menu-item px-3">
-                                        <a href="#" class="menu-link px-3"
-                                            data-bs-toggle="modal"
-                                            data-bs-target="#kt_modal_fallido"
-                                            data-guia="{{ $envio->guia }}">Fallido</a>
-                                            </div>
-                                        <!-- Botón No Entregado (abre modal) -->
-                                        <div class="menu-item px-3">
-                                        <a href="#" class="menu-link px-3"
-                                            data-bs-toggle="modal"
-                                            data-bs-target="#kt_modal_no_entregado"
-                                            data-estado="No entregado"
-                                            data-guia="{{ $envio->guia }}">No entregado</a>
-                                            </div>
-                                        <!-- Botón Reprogramado (abre modal) -->
-                                        <div class="menu-item px-3">
-                                        <a href="#" class="menu-link px-3"
-                                            data-bs-toggle="modal"
-                                            data-bs-target="#kt_modal_reprogramado"
-                                            data-estado="Reprogramado"
-                                            data-guia="{{ $envio->guia }}">Reprogramado</a>
-                                            </div>
-                                        <!-- Botón Cambio (abre modal) -->
-                                        <div class="menu-item px-3">
-                                        <a href="#" class="menu-link px-3"
-                                            data-bs-toggle="modal"
-                                            data-bs-target="#kt_modal_cambio"
-                                            
-                                            >Cambio</a>
-
-                                            </div>
-																						</div>
-																						<!--end::Menu-->
-																					</td>
+                                                        
                                                        
                                                     </tr>
                                                     @endif
@@ -806,7 +757,9 @@ License: For each use you must have a valid license purchased only from above li
                                             <label class="form-label p-2">Guia de Cambio</label>
                                             <input type="text" class="form-control form-control-solid" name="notarepa" />
                                         </div>
+                                        @if($envios->isNotEmpty())
                                         <input type="text" class="form-control form-control-solid" name="guia2" value="{{$envios[0]->id}}" hidden/>
+                                        @endif
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cerrar</button>

@@ -47,6 +47,7 @@ Route::get('/cambiando', [App\Http\Controllers\DashboardController::class, 'camb
 
 Route::get('/detalles/{id}', [App\Http\Controllers\DashboardController::class, 'detalles'] )->name('detalles');
 Route::get('/cambiarruta/{id}', [App\Http\Controllers\DashboardController::class, 'cambiarruta'] )->name('cambiarruta');
+Route::get('/cambiarentregado/{id}', [App\Http\Controllers\DashboardController::class, 'cambiarentregado'] )->name('cambiarentregado');
 
 
 //usuarios

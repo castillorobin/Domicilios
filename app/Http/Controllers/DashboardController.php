@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Envio;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
 
 
 class DashboardController extends Controller
@@ -45,14 +46,17 @@ class DashboardController extends Controller
 
     public function filtroentregado()
     {
-        $envios = Envio::where('estado', "Entregado")->get();
-        return view('pages.dashboards.indexdatos', compact('envios'));
+       $envios = new Envio();
+       $envios = Envio::where('estado', "Entregado")->get();
+       // $envios = new Envio();
+       // $envios[0]->comercio = "No hay paquetes";
+        return view('pages.dashboards.indexentregados', compact('envios'));
     }
 
     public function filtrofallido()
     {
         $envios = Envio::where('estado', "Fallido")->get();
-        return view('pages.dashboards.indexdatos', compact('envios'));
+        return view('pages.dashboards.indexfallidos', compact('envios'));
     }
 
     public function filtronoentregado()
@@ -73,17 +77,22 @@ class DashboardController extends Controller
         $envios2->estado = "En ruta";
         $envios2->save();
 
-        $envios = Envio::all();
+        //$envios = Envio::all();
         return redirect()->route('filtroasig');
         //return view('pages.dashboards.indexdatos', compact('envios'));
     }
-
-
-
-
-
-
     
+    public function cambiarentregado($id)
+    {
+        $envios2 = Envio::find($id);
+        $envios2->estado = "Entregado";
+        $envios2->save();
+
+       // $envios = Envio::all();
+        return redirect()->route('filtroentregado');
+        //return view('pages.dashboards.indexdatos', compact('envios'));
+    }
+
 
     public function filtrocambios(Request $request)
     {
@@ -145,7 +154,8 @@ class DashboardController extends Controller
     public function filtroasig()
     {
         
-        $envios = Envio::all();
+        //$envios = Envio::all();
+        $envios = Envio::whereDate('fecha_entrega', Carbon::today())->get();
         return view('pages.dashboards.indexdatos', compact('envios'));
     }   
      
