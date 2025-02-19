@@ -62,13 +62,18 @@ class DashboardController extends Controller
     public function filtronoentregado()
     {
         $envios = Envio::where('estado', "No entregado")->get();
-        return view('pages.dashboards.indexdatos', compact('envios'));
+        return view('pages.dashboards.indexnoentregados', compact('envios'));
     }
 
     public function filtroreprogramado()
     {
         $envios = Envio::where('estado', "Reprogramado")->get();
         return view('pages.dashboards.indexdatos', compact('envios'));
+    }
+    public function filtrocambio()
+    {
+        $envios = Envio::where('estado', "Cambio")->get();
+        return view('pages.dashboards.indexcambios', compact('envios'));
     }
 
     public function cambiarruta($id)
