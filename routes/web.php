@@ -46,6 +46,7 @@ Route::get('/filtrocambio', [App\Http\Controllers\DashboardController::class, 'f
 Route::get('/cambiando', [App\Http\Controllers\DashboardController::class, 'cambiando'] )->name('cambiando');
 
 Route::get('/detalles/{id}', [App\Http\Controllers\DashboardController::class, 'detalles'] )->name('detalles');
+Route::get('/cambiarruta/{id}', [App\Http\Controllers\DashboardController::class, 'cambiarruta'] )->name('cambiarruta');
 
 
 //usuarios

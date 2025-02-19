@@ -67,6 +67,23 @@ class DashboardController extends Controller
         return view('pages.dashboards.indexdatos', compact('envios'));
     }
 
+    public function cambiarruta($id)
+    {
+        $envios2 = Envio::find($id);
+        $envios2->estado = "En ruta";
+        $envios2->save();
+
+        $envios = Envio::where('estado', "En ruta")->get();
+        return view('pages.dashboards.indexdatos', compact('envios'));
+    }
+
+
+
+
+
+
+    
+
     public function filtrocambios(Request $request)
     {
         
