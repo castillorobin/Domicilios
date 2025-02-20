@@ -48,6 +48,9 @@ Route::get('/cambiando', [App\Http\Controllers\DashboardController::class, 'camb
 Route::get('/detalles/{id}', [App\Http\Controllers\DashboardController::class, 'detalles'] )->name('detalles');
 Route::get('/cambiarruta/{id}', [App\Http\Controllers\DashboardController::class, 'cambiarruta'] )->name('cambiarruta');
 Route::get('/cambiarentregado/{id}', [App\Http\Controllers\DashboardController::class, 'cambiarentregado'] )->name('cambiarentregado');
+Route::get('/cambiarfallido', [App\Http\Controllers\DashboardController::class, 'cambiarfallido'] )->name('cambiarfallido');
+Route::get('/cambiarnoentre', [App\Http\Controllers\DashboardController::class, 'cambiarnoentre'] )->name('cambiarnoentre');
+Route::get('/cambiarreprogra', [App\Http\Controllers\DashboardController::class, 'cambiarreprogra'] )->name('cambiarreprogra');
 
 
 //usuarios

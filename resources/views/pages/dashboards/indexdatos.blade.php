@@ -44,7 +44,7 @@ License: For each use you must have a valid license purchased only from above li
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!--end::Global Stylesheets Bundle-->
 </head>
 <!--end::Head-->
@@ -449,16 +449,8 @@ License: For each use you must have a valid license purchased only from above li
                                                     <tr class="text-start text-gray-600 fw-bold fs-7 text-uppercase gs-0">
                                                         <th class="min-w-100px">GUIA</th>
                                                         <th class="min-w-100px">COMERCIO</th>
-                                                        <th class="min-w-100px">DESTINATARIO</th>
-
-                                                        @if (Route::currentRouteName() !== 'filtroreprogramado')
+                                                        <th class="min-w-100px">DESTINATARIO</th>                             
                                                         <th class="min-w-100px">FECHA</th> <!-- Solo visible si NO es filtroreprogramado -->
-                                                        @endif
-
-                                                        @if (Route::currentRouteName() === 'filtroreprogramado')
-                                                        <th class="min-w-150px">FECHA REPROGRAMADO</th> <!-- Solo visible en filtroreprogramado -->
-                                                        @endif
-
                                                         <th class="text-end min-w-75px">PRECIO</th>
                                                         <th class="text-center min-w-100px">ESTADO</th>
                                                         <th class="text-center min-w-50p0px">Acciones</th>
@@ -479,7 +471,7 @@ License: For each use you must have a valid license purchased only from above li
                                                     @endphp
 
                                                     @foreach ($envios as $envio)
-                                                    @if ($envio->repartidor == Auth::user()->name)
+                                                    @if ($envio->repartidor == Auth::user()->name && $envio->estado != "Entregado" ) 
                                                     @php
                                                     $estado = $envio->estado;
                                                     $color = $estadoColores[$estado] ?? '#BDC3C7';
@@ -490,21 +482,13 @@ License: For each use you must have a valid license purchased only from above li
                                                         <td>{{ $envio->comercio }}</td>
                                                         <td>{{ $envio->destinatario }}</td>
 
-                                                        @if (Route::currentRouteName() !== 'filtroreprogramado')
+                                                        
                                                         <td data-order="{{ $envio->fecha_entrega }}">
                                                             {{ date('d M Y', strtotime($envio->fecha_entrega)) }}
                                                         </td>
-                                                        @endif
+                                                        
 
-                                                        @if (Route::currentRouteName() === 'filtroreprogramado')
-                                                        <td data-order="{{ $envio->fecha_reprogramado }}">
-                                                            @if ($envio->fecha_reprogramado)
-                                                            {{ date('d M Y', strtotime($envio->fecha_reprogramado)) }}
-                                                            @else
-                                                            -
-                                                            @endif
-                                                        </td>
-                                                        @endif
+                                                        
 
                                                         <td class="text-end">${{ number_format($envio->precio, 2) }}</td>
                                                         <td class="text-center">
@@ -518,35 +502,33 @@ License: For each use you must have a valid license purchased only from above li
 																							<!--begin::Menu item-->
 																							
 																							<!--end::Menu item-->
-                                                                                            <div class="menu-item px-3">
-                                                                                            <a class="menu-link px-3" href="/cambiarruta/{{ $envio->id }}" >En ruta</a>
-                                            </div>
+                                                                                            
                                         <!-- Botón Entregado -->
                                         <div class="menu-item px-3">
                                         <a class="menu-link px-3" href="/cambiarentregado/{{ $envio->id }}" >Entregado</a>
                                             </div>        
                                         <!-- Botón Fallido (abre modal) -->
                                         <div class="menu-item px-3">
-                                        <a href="#" class="menu-link px-3"
+                                        <a href="#" class="menu-link px-3 edit"
                                             data-bs-toggle="modal"
                                             data-bs-target="#kt_modal_fallido"
-                                            data-guia="{{ $envio->guia }}">Fallido</a>
+                                            data-guia="{{ $envio->guia }}" id="{{ $envio->id }}">Fallido</a>
                                             </div>
                                         <!-- Botón No Entregado (abre modal) -->
                                         <div class="menu-item px-3">
-                                        <a href="#" class="menu-link px-3"
+                                        <a href="#" class="menu-link px-3 noentre"
                                             data-bs-toggle="modal"
                                             data-bs-target="#kt_modal_no_entregado"
                                             data-estado="No entregado"
-                                            data-guia="{{ $envio->guia }}">No entregado</a>
+                                            data-guia="{{ $envio->guia }}" id="{{ $envio->id }}">No entregado</a>
                                             </div>
                                         <!-- Botón Reprogramado (abre modal) -->
                                         <div class="menu-item px-3">
-                                        <a href="#" class="menu-link px-3"
+                                        <a href="#" class="menu-link px-3 reprogra"
                                             data-bs-toggle="modal"
                                             data-bs-target="#kt_modal_reprogramado"
                                             data-estado="Reprogramado"
-                                            data-guia="{{ $envio->guia }}">Reprogramado</a>
+                                            data-guia="{{ $envio->guia }}" id="{{ $envio->id }}">Reprogramado</a>
                                             </div>
                                         <!-- Botón Cambio (abre modal) -->
                                         <div class="menu-item px-3">
@@ -562,6 +544,7 @@ License: For each use you must have a valid license purchased only from above li
 																					</td>
                                                        
                                                     </tr>
+                                                    <span hidden id="id{{ $envio->id }}"> {{ $envio->id }}</span>
                                                     @endif
                                                     @endforeach
                                                 </tbody>
@@ -656,29 +639,35 @@ License: For each use you must have a valid license purchased only from above li
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                                     </div>
                                     <div class="modal-body">
+                                    <form class="form" action="/cambiarfallido" method="POST">
+                                @csrf
+                                @method('GET')
                                         <label for="estadoSelect" class="form-label p-2">Motivo</label>
                                         <select id="estadoSelect" class="form-select form-select-solid"
                                             data-control="select2" data-placeholder="Seleccionar una opción"
-                                            data-hide-search="true" onchange="toggleNotaField()">
+                                            data-hide-search="true" name="nota">
                                             <option></option>
                                             <option value="Cliente no contesta">Cliente no contesta</option>
                                             <option value="Cliente no estaba en el lugar" selected>Cliente no estaba en el lugar</option>
                                             <option value="Cliente no tenía dinero">Cliente no tenía dinero</option>
                                             <option value="Otro">Otro</option>
                                         </select>
-
+                                            <input type="text" id="idfallido" name="idfallido" hidden>
                                         <div id="notaField" class="rounded border p-2 mt-3" style="display: none;">
                                             <label for="nota_fallido" class="form-label">Nota</label>
-                                            <textarea id="nota_fallido" class="form-control" data-kt-autosize="true" placeholder="Escribe tu nota aquí..."></textarea>
+                                            <textarea id="nota_fallido" class="form-control" data-kt-autosize="true" placeholder="Escribe tu nota aquí..." ></textarea>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cerrar</button>
-                                        <button type="button" class="btn btn-primary" data-estado="Fallido"
-                                            >Guardar</button>
+                                    
+                                        <button type="submit" class="btn btn-primary" data-estado="Fallido">Guardar</button>
                                     </div>
+
+                                    </form>
                                 </div>
                             </div>
+
                         </div>
 
                         <!-- Modal No Entregado -->
@@ -689,16 +678,22 @@ License: For each use you must have a valid license purchased only from above li
                                         <h3 class="modal-title">ESTADO NO ENTREGADO</h3>
                                     </div>
                                     <div class="modal-body">
+                                    <form class="form" action="/cambiarnoentre" method="POST">
+                                @csrf
+                                @method('GET')
                                         <div id="notaContainer" class="rounded border d-flex flex-column p-2 mt-3">
                                             <label for="nota_no_entregado" class="form-label">Motivo</label>
-                                            <textarea id="nota_no_entregado" class="form-control" data-kt-autosize="true" placeholder="Escribe el motivo..."></textarea>
+                                            <textarea id="nota_no_entregado" class="form-control" data-kt-autosize="true" placeholder="Escribe el motivo..." name="nota"></textarea>
                                         </div>
+
+                                        <input type="text" id="idnoentre" name="idnoentre" hidden>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cerrar</button>
-                                        <button type="button" class="btn btn-primary" data-estado="No entregado"
+                                        <button type="submit" class="btn btn-primary" data-estado="No entregado"
                                             >Guardar</button>
                                     </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -715,14 +710,18 @@ License: For each use you must have a valid license purchased only from above li
                                         </div>
                                     </div>
                                     <div class="modal-body">
+                                    <form class="form" action="/cambiarreprogra" method="POST">
+                                @csrf
+                                @method('GET')
                                         <div class="mb-0">
                                             <label class="form-label p-2">Nueva Fecha</label>
                                             <input class="form-control form-control-solid"
-                                                placeholder="Seleccione la Fecha" id="kt_daterangepicker_3" />
+                                                placeholder="Seleccione la Fecha" id="kt_daterangepicker_3" name="fecha" />
+                                                <input type="text" id="idreprogra" name="idreprogra" hidden>
 
                                             <div id="notaContainer" class="rounded border d-flex flex-column p-2 mt-3">
                                                 <label for="nota_reprogramado" class="form-label">Motivo</label>
-                                                <textarea id="nota_reprogramado" class="form-control" data-kt-autosize="true" placeholder="Escribe el motivo..."></textarea>
+                                                <textarea id="nota_reprogramado" class="form-control" data-kt-autosize="true" placeholder="Escribe el motivo..." name="motivo"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -746,9 +745,10 @@ License: For each use you must have a valid license purchased only from above li
 
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cerrar</button>
-                                        <button type="button" class="btn btn-primary" data-estado="Reprogramado"
+                                        <button type="submit" class="btn btn-primary" data-estado="Reprogramado"
                                             >Guardar</button>
                                     </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -806,7 +806,11 @@ License: For each use you must have a valid license purchased only from above li
                                             <label class="form-label p-2">Guia de Cambio</label>
                                             <input type="text" class="form-control form-control-solid" name="notarepa" />
                                         </div>
+                                       
+
+                                        @if($envios->isNotEmpty())
                                         <input type="text" class="form-control form-control-solid" name="guia2" value="{{$envios[0]->id}}" hidden/>
+                                        @endif
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cerrar</button>
@@ -973,6 +977,97 @@ License: For each use you must have a valid license purchased only from above li
     <script src="assets/js/custom/utilities/modals/users-search.js"></script>
     <!--end::Custom Javascript-->
     <!--end::Javascript-->
+
+    <script>
+
+$(document).ready(function(){
+      $(".edit").click(function(){ 
+          var butval = this.id;
+         // $("#ctext").val(butval);
+
+         document.getElementById("idfallido").value = butval;
+          $("#myModal").modal('show');
+         // alert(butval);
+      });
+    });
+// } );
+ </script>
+
+
+<script>
+
+$(document).ready(function(){
+      $(".noentre").click(function(){ 
+          var butval2 = this.id;
+         // $("#ctext").val(butval);
+
+         document.getElementById("idnoentre").value = butval2;
+          $("#myModal").modal('show');
+         // alert(butval);
+      });
+    });
+// } );
+ </script>
+
+<script>
+
+$(document).ready(function(){
+      $(".reprogra").click(function(){ 
+          var butval3 = this.id;
+         // $("#ctext").val(butval);
+
+         document.getElementById("idreprogra").value = butval3;
+          $("#myModal").modal('show');
+         // alert(butval);
+      });
+    });
+// } );
+ </script>
+    
+   
+
+<script>
+       
+        /*
+       $(document).ready(function(){
+           $(document).on('click', '.edit', function(){
+              var cod=$(this).val();
+              var iden=$('#id'+cod).text();
+            
+               
+       alert(cod);
+               
+           
+               //$('#edit').modal('show');
+              $('#codigo').text(cod);
+          
+             
+             
+            
+               
+       
+               //$('#impri a').prop("href", ide);
+               //$('.paginacion a').prop('href','http://nuevaUrl.com');
+       
+              // document.getElementById("impri").href = ide;
+           });
+       });
+        
+       
+       
+       
+       
+       
+       
+           </script>
+
+
+
+
+
+
+
+
 </body>
 <!--end::Body-->
 

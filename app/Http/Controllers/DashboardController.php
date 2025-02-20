@@ -98,6 +98,50 @@ class DashboardController extends Controller
         //return view('pages.dashboards.indexdatos', compact('envios'));
     }
 
+    public function cambiarfallido(Request $request)
+    {
+        $id = $request->get("idfallido");
+        $nota = $request->get("nota");
+        $envios2 = Envio::find($id);
+        $envios2->estado = "Fallido";
+        $envios2->notafallido = $nota;
+        $envios2->save();
+
+       // $envios = Envio::all();
+        return redirect()->route('filtrofallido');
+        //return view('pages.dashboards.indexdatos', compact('envios'));
+    }
+
+    public function cambiarnoentre(Request $request)
+    {
+        $id = $request->get("idnoentre");
+        $nota = $request->get("nota");
+        $envios2 = Envio::find($id);
+        $envios2->estado = "No entregado";
+        $envios2->notanoentre = $nota;
+        $envios2->save();
+
+       // $envios = Envio::all();
+        return redirect()->route('filtronoentregado');
+        //return view('pages.dashboards.indexdatos', compact('envios'));
+    }
+
+    public function cambiarreprogra(Request $request)
+    {
+        $id = $request->get("idreprogra");
+        $nota = $request->get("motivo");
+        $fecha = $request->get("fecha");
+        $envios2 = Envio::find($id);
+        $envios2->estado = "Reprogramado";
+        $envios2->notareprogra = $nota;
+        $envios2->fechareprogra = $fecha;
+        $envios2->save();
+
+       // $envios = Envio::all();
+        return redirect()->route('filtroasig');
+        //return view('pages.dashboards.indexdatos', compact('envios'));
+    }
+
 
     public function filtrocambios(Request $request)
     {
@@ -151,9 +195,10 @@ class DashboardController extends Controller
         }
 
         $envios2->save();
+        return redirect()->route('filtrocambio');
 
-        $envios = Envio::where('estado', "Cambio")->get();
-        return view('pages.dashboards.indexdatos', compact('envios'));
+       // $envios = Envio::where('estado', "Cambio")->get();
+       // return view('pages.dashboards.indexdatos', compact('envios'));  filtrocambio
     }
 
     public function filtroasig()
