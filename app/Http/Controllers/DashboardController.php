@@ -101,10 +101,23 @@ class DashboardController extends Controller
     public function cambiarfallido(Request $request)
     {
         $id = $request->get("idfallido");
-        $nota = $request->get("nota");
+        $nota = $request->get("notaotro");
+        $nota2 = $request->get("notareprogra");
+        $motivo = $request->get("motivofallo");
+        $fecha = $request->get("fecha");
+
+       // dd($fecha);
         $envios2 = Envio::find($id);
         $envios2->estado = "Fallido";
-        $envios2->notafallido = $nota;
+        if ($motivo == "otro") {
+            $envios2->notafallido = $nota;
+        }
+        if ($motivo == "reprogramado") {
+            $envios2->notafallido = $nota2;
+        }
+        $envios2->fechareprogra = $fecha;
+        $envios2->motivofallo = $motivo;
+
         $envios2->save();
 
        // $envios = Envio::all();

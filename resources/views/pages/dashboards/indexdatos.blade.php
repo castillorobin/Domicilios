@@ -523,13 +523,7 @@ License: For each use you must have a valid license purchased only from above li
                                             data-guia="{{ $envio->guia }}" id="{{ $envio->id }}">No entregado</a>
                                             </div>
                                         <!-- Botón Reprogramado (abre modal) -->
-                                        <div class="menu-item px-3">
-                                        <a href="#" class="menu-link px-3 reprogra"
-                                            data-bs-toggle="modal"
-                                            data-bs-target="#kt_modal_reprogramado"
-                                            data-estado="Reprogramado"
-                                            data-guia="{{ $envio->guia }}" id="{{ $envio->id }}">Reprogramado</a>
-                                            </div>
+                                        
                                         <!-- Botón Cambio (abre modal) -->
                                         <div class="menu-item px-3">
                                         <a href="#" class="menu-link px-3"
@@ -643,19 +637,25 @@ License: For each use you must have a valid license purchased only from above li
                                 @csrf
                                 @method('GET')
                                         <label for="estadoSelect" class="form-label p-2">Motivo</label>
-                                        <select id="estadoSelect" class="form-select form-select-solid"
-                                            data-control="select2" data-placeholder="Seleccionar una opción"
-                                            data-hide-search="true" name="nota">
+                                        <select id="estadoSelect" class="form-select form-select-solid" name="motivofallo" onChange="toggleNotaField()" >
                                             <option></option>
                                             <option value="Cliente no contesta">Cliente no contesta</option>
                                             <option value="Cliente no estaba en el lugar" selected>Cliente no estaba en el lugar</option>
                                             <option value="Cliente no tenía dinero">Cliente no tenía dinero</option>
-                                            <option value="Otro">Otro</option>
+                                            <option value="reprogramado">Reprogramado</option>
+                                            <option value="otro">Otro</option>
                                         </select>
                                             <input type="text" id="idfallido" name="idfallido" hidden>
                                         <div id="notaField" class="rounded border p-2 mt-3" style="display: none;">
-                                            <label for="nota_fallido" class="form-label">Nota</label>
-                                            <textarea id="nota_fallido" class="form-control" data-kt-autosize="true" placeholder="Escribe tu nota aquí..." ></textarea>
+                                            <label for="notaotro" class="form-label">Nota</label>
+                                            <textarea id="notaotro" class="form-control" data-kt-autosize="true" placeholder="Escribe tu nota aquí..." name="notaotro"></textarea>
+                                        </div>
+                                        <div id="reprogra" class="rounded border p-2 mt-3" style="display: none;">
+                                        <input class="form-control form-control-solid"
+                                        placeholder="Seleccione la Fecha" id="kt_daterangepicker_3" name="fecha" />
+                                        <br>
+                                            <label for="notareprogra" class="form-label">Nota</label>
+                                            <textarea id="notareprogra" class="form-control" data-kt-autosize="true" placeholder="Escribe tu nota aquí..." name="notareprogra"></textarea>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -894,11 +894,26 @@ License: For each use you must have a valid license purchased only from above li
                             function toggleNotaField() {
                                 var estado = document.getElementById("estadoSelect").value;
                                 var notaField = document.getElementById("notaField");
-                                if (estado === "Otro") {
+                                var reprogra = document.getElementById("reprogra");
+                                if (estado === "otro") {
                                     notaField.style.display = "block";
-                                } else {
+                                    reprogra.style.display = "none";
+                                } 
+
+                                if (estado === "reprogramado") {
+                                    reprogra.style.display = "block";
+                                    notaField.style.display = "none";
+                                } 
+                                if (estado != "reprogramado" && estado != "otro" ) {
+                                    reprogra.style.display = "none";
                                     notaField.style.display = "none";
                                 }
+                                
+                                /*
+                                else {
+                                    notaField.style.display = "none";
+                                }
+                                    */
                             }
                         </script>
 
