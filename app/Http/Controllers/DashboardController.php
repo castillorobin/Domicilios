@@ -91,6 +91,7 @@ class DashboardController extends Controller
     {
         $envios2 = Envio::find($id);
         $envios2->estado = "Entregado";
+        $envios2->cambioasi = 1;
         $envios2->save();
 
        // $envios = Envio::all();
@@ -117,7 +118,7 @@ class DashboardController extends Controller
         }
         $envios2->fechareprogra = $fecha;
         $envios2->motivofallo = $motivo;
-
+        $envios2->cambioasi = 1;
         $envios2->save();
 
        // $envios = Envio::all();
@@ -132,8 +133,9 @@ class DashboardController extends Controller
         $envios2 = Envio::find($id);
         $envios2->estado = "No entregado";
         $envios2->notanoentre = $nota;
+        $envios2->cambioasi = 1;
         $envios2->save();
-
+        
        // $envios = Envio::all();
         return redirect()->route('filtronoentregado');
         //return view('pages.dashboards.indexdatos', compact('envios'));
@@ -148,6 +150,7 @@ class DashboardController extends Controller
         $envios2->estado = "Reprogramado";
         $envios2->notareprogra = $nota;
         $envios2->fechareprogra = $fecha;
+        $envios2->cambioasi = 1;
         $envios2->save();
 
        // $envios = Envio::all();
@@ -197,7 +200,7 @@ class DashboardController extends Controller
         
         $envios2->estado = "Cambio";
         $envios2->guiacambio = $nota;
-
+        $envios2->cambioasi = 1;
         if ($request->hasFile('foto')) {
 //dd("Hay Foto");
             $imagen = $request->file("foto");
@@ -218,7 +221,7 @@ class DashboardController extends Controller
     {
         
         //$envios = Envio::all();
-        $envios = Envio::whereDate('fecha_entrega', Carbon::today())->get();
+        $envios = Envio::whereDate('fechaasigna', Carbon::today())->where('cambioasi', 0)->get();
         return view('pages.dashboards.indexdatos', compact('envios'));
     }   
      
