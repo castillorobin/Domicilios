@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Envio;
+use App\Models\Hestado;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
 
@@ -94,6 +95,11 @@ class DashboardController extends Controller
         $envios2->cambioasi = 1;
         $envios2->save();
 
+        $hesta = new Hestado();
+        $hesta->idenvio = $envios2->id;
+        $hesta->estado = "Entregado";
+        $hesta->save();
+
        // $envios = Envio::all();
         return redirect()->route('filtroentregado');
         //return view('pages.dashboards.indexdatos', compact('envios'));
@@ -112,9 +118,25 @@ class DashboardController extends Controller
         $envios2->estado = "Fallido";
         if ($motivo == "otro") {
             $envios2->notafallido = $nota;
+
+            $hesta = new Hestado();
+            $hesta->idenvio = $envios2->id;
+            $hesta->estado = "Fallido";
+            $hesta->motivofallo = "Otro";
+            $hesta->notafallo = $nota;
+            $hesta->save();
         }
         if ($motivo == "reprogramado") {
             $envios2->notafallido = $nota2;
+
+            $hesta = new Hestado();
+            $hesta->idenvio = $envios2->id;
+            $hesta->estado = "Fallido";
+            $hesta->motivofallo = "Reprogramado";
+            $hesta->notafallo = $nota2;
+            $hesta->freprogra = $fecha;
+            $hesta->save();
+
         }
         $envios2->fechareprogra = $fecha;
         $envios2->motivofallo = $motivo;
@@ -135,6 +157,12 @@ class DashboardController extends Controller
         $envios2->notanoentre = $nota;
         $envios2->cambioasi = 1;
         $envios2->save();
+
+        $hesta = new Hestado();
+        $hesta->idenvio = $envios2->id;
+        $hesta->estado = "No entregado";
+        $hesta->nota = $nota;
+        $hesta->save();
         
        // $envios = Envio::all();
         return redirect()->route('filtronoentregado');
@@ -152,6 +180,8 @@ class DashboardController extends Controller
         $envios2->fechareprogra = $fecha;
         $envios2->cambioasi = 1;
         $envios2->save();
+
+
 
        // $envios = Envio::all();
         return redirect()->route('filtroasig');
