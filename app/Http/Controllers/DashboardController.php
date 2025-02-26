@@ -48,7 +48,9 @@ class DashboardController extends Controller
     public function filtroentregado()
     {
        $envios = new Envio();
-       $envios = Envio::where('estado', "Entregado")->get();
+       //$envios = Envio::where('estado', "Entregado")->get();
+       $envios = Envio::whereDate('fechaasigna', Carbon::today())->where('estado', "Entregado")->get();
+       
        // $envios = new Envio();
        // $envios[0]->comercio = "No hay paquetes";
         return view('pages.dashboards.indexentregados', compact('envios'));
@@ -56,24 +58,28 @@ class DashboardController extends Controller
 
     public function filtrofallido()
     {
-        $envios = Envio::where('estado', "Fallido")->get();
+       // $envios = Envio::where('estado', "Fallido")->get();
+        $envios = Envio::whereDate('fechaasigna', Carbon::today())->where('estado', "Fallido")->get();
         return view('pages.dashboards.indexfallidos', compact('envios'));
     }
 
     public function filtronoentregado()
     {
-        $envios = Envio::where('estado', "No entregado")->get();
+        //$envios = Envio::where('estado', "No entregado")->get();
+        $envios = Envio::whereDate('fechaasigna', Carbon::today())->where('estado', "No entregado")->get();
         return view('pages.dashboards.indexnoentregados', compact('envios'));
     }
 
     public function filtroreprogramado()
     {
-        $envios = Envio::where('estado', "Reprogramado")->get();
+        //$envios = Envio::where('estado', "Reprogramado")->get();
+        $envios = Envio::whereDate('fechaasigna', Carbon::today())->where('estado', "Reprogramado")->get();
         return view('pages.dashboards.indexdatos', compact('envios'));
     }
     public function filtrocambio()
     {
-        $envios = Envio::where('estado', "Cambio")->get();
+       // $envios = Envio::where('estado', "Cambio")->get();
+        $envios = Envio::whereDate('fechaasigna', Carbon::today())->where('estado', "Cambio")->get();
         return view('pages.dashboards.indexcambios', compact('envios'));
     }
 
