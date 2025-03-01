@@ -144,6 +144,18 @@ class DashboardController extends Controller
             $hesta->save();
 
         }
+        if ($motivo != "reprogramado" && $motivo != "otro") {
+            
+
+            $hesta = new Hestado();
+            $hesta->idenvio = $envios2->id;
+            $hesta->estado = "Fallido";
+            $hesta->motivofallo = $motivo;
+           // $hesta->notafallo = $nota2;
+           // $hesta->freprogra = $fecha;
+            $hesta->save();
+
+        }
         $envios2->fechareprogra = $fecha;
         $envios2->motivofallo = $motivo;
         $envios2->cambioasi = 1;
