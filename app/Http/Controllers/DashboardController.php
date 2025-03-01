@@ -255,7 +255,7 @@ class DashboardController extends Controller
 
     public function filtroasig()
     {
-        
+       // dd( Carbon::today());
         //$envios = Envio::all();
         $envios = Envio::whereDate('fechaasigna', Carbon::today())->where('cambioasi', 0)->get();
         return view('pages.dashboards.indexdatos', compact('envios'));
