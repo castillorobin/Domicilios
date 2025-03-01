@@ -99,6 +99,7 @@ class DashboardController extends Controller
         $envios2 = Envio::find($id);
         $envios2->estado = "Entregado";
         $envios2->cambioasi = 1;
+        
         $envios2->save();
 
         $hesta = new Hestado();
@@ -124,6 +125,7 @@ class DashboardController extends Controller
         $envios2->estado = "Fallido";
         if ($motivo == "otro") {
             $envios2->notafallido = $nota;
+            $envios2->notarepa = $nota;
 
             $hesta = new Hestado();
             $hesta->idenvio = $envios2->id;
@@ -134,6 +136,7 @@ class DashboardController extends Controller
         }
         if ($motivo == "reprogramado") {
             $envios2->notafallido = $nota2;
+            $envios2->notarepa = $nota2;
 
             $hesta = new Hestado();
             $hesta->idenvio = $envios2->id;
@@ -151,9 +154,11 @@ class DashboardController extends Controller
             $hesta->idenvio = $envios2->id;
             $hesta->estado = "Fallido";
             $hesta->motivofallo = $motivo;
+            
            // $hesta->notafallo = $nota2;
            // $hesta->freprogra = $fecha;
             $hesta->save();
+            $envios2->notarepa = $nota;
 
         }
         $envios2->fechareprogra = $fecha;
@@ -173,6 +178,7 @@ class DashboardController extends Controller
         $envios2 = Envio::find($id);
         $envios2->estado = "No entregado";
         $envios2->notanoentre = $nota;
+        $envios2->notarepa = $nota;
         $envios2->cambioasi = 1;
         $envios2->save();
 
@@ -195,6 +201,7 @@ class DashboardController extends Controller
         $envios2 = Envio::find($id);
         $envios2->estado = "Reprogramado";
         $envios2->notareprogra = $nota;
+        $envios2->notarepa = $nota;
         $envios2->fechareprogra = $fecha;
         $envios2->cambioasi = 1;
         $envios2->save();
@@ -248,6 +255,7 @@ class DashboardController extends Controller
         
         $envios2->estado = "Cambio";
         $envios2->guiacambio = $nota;
+        //$envios2->notarepa = $nota;
         $envios2->cambioasi = 1;
         if ($request->hasFile('foto')) {
 //dd("Hay Foto");
@@ -258,7 +266,17 @@ class DashboardController extends Controller
             $imagen->move($ruta, $nombreimagen);
         }
 
+
+
         $envios2->save();
+
+
+        $hesta = new Hestado();
+        $hesta->idenvio = $envios2->id;
+        $hesta->estado = "Cambio";
+        $hesta->nota = $nota;
+        //$hesta->notafallo = $nota;
+        $hesta->save();
         return redirect()->route('filtrocambio');
 
        // $envios = Envio::where('estado', "Cambio")->get();
