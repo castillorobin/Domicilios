@@ -91,74 +91,74 @@ License: For each use you must have a valid license purchased only from above li
                 <!--begin::Nav-->
                 <div class="aside-menu flex-column-fluid pt-0 pb-7 py-lg-10" id="kt_aside_menu">
                     <!--begin::Aside menu-->
-                    <div id="kt_aside_menu_wrapper" class="w-100 hover-scroll-overlay-y scroll-ps d-flex"
-                        data-kt-scroll="true" data-kt-scroll-height="auto"
-                        data-kt-scroll-dependencies="#kt_aside_logo, #kt_aside_footer"
-                        data-kt-scroll-wrappers="#kt_aside, #kt_aside_menu" data-kt-scroll-offset="0">
-                        <div id="kt_aside_menu"
-                            class="menu menu-column menu-title-gray-600 menu-state-primary menu-state-icon-primary menu-state-bullet-primary menu-icon-gray-400 menu-arrow-gray-400 fw-semibold fs-6 my-auto"
-                            data-kt-menu="true">
-                            <!--begin:Menu item-->
-                            <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
-                                data-kt-menu-placement="right-start" class="menu-item here show py-2">
-                                <!--begin:Menu link-->
-                                <span class="menu-link menu-center">
-                                    <span class="menu-icon me-0">
-                                        <i class="ki-duotone ki-home-2 fs-2x">
-                                            <span class="path1"></span>
-                                            <span class="path2"></span>
-                                        </i>
-                                    </span>
-                                </span>
-                                <!--end:Menu link-->
-                                <!--begin:Menu sub-->
-                                <div class="menu-sub menu-sub-dropdown px-2 py-4 w-250px mh-75 overflow-auto">
-                                    <!--begin:Menu item-->
-                                    <div class="menu-item">
-                                        <!--begin:Menu content-->
-                                        <div class="menu-content">
-                                            <span class="menu-section fs-5 fw-bolder ps-1 py-1">Inicio</span>
-                                        </div>
-                                        <!--end:Menu content-->
-                                    </div>
-                                    <!--end:Menu item-->
-                                    <!--begin:Menu item-->
-                                    <div class="menu-item">
-                                        <!--begin:Menu link-->
-                                        <a class="menu-link active" href="/filtroasig">
-                                            <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
-                                            </span>
-                                            <span class="menu-title">No entregados</span>
-                                        </a>
-                                        
-                                        <!--end:Menu link-->
-                                    </div>
-                                    <!--end:Menu item-->
+                    <div  class="pt-15 w-100 " data-kt-scroll="true" data-kt-scroll-height="auto" data-kt-scroll-dependencies="#kt_aside_logo, #kt_aside_footer" data-kt-scroll-wrappers="#kt_aside, #kt_aside_menu" data-kt-scroll-offset="0">
+						<div class="mt-0 menu menu-column menu-title-gray-600 menu-state-primary menu-state-icon-primary menu-state-bullet-primary menu-icon-gray-400 menu-arrow-gray-400 fw-semibold fs-6 " data-kt-menu="true">
+							<!--begin:Menu item-->
+							<div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="pt-0 menu-item here show py-2">
+								<!--begin:Menu link-->
+								<span class="menu-link menu-center">
+									<span class="menu-icon me-0">
+										<i class="ki-duotone ki-home-2 fs-2x">
+											<span class="path1"></span>
+											<span class="path2"></span>
+										</i>
+									</span>
+								</span>
+								
+							</div>
 
-                                </div>
 
-                                <!--end:Menu sub-->
-                            </div>
 
-                            <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
-                                data-kt-menu-placement="right-start" class="menu-item here show py-2">
-                                <!--begin:Menu link-->
-                                @can('repartidor-crear')
-                                <a href="/usuarios/lista">
-                                    <span class="menu-link menu-center">
-                                        <span class="menu-icon me-0">
-                                            <i class="ki-duotone ki-badge fs-2x">
-                                                <span class="path1"></span>
-                                                <span class="path2"></span>
-                                                <span class="path3"></span>
-                                                <span class="path4"></span>
-                                                <span class="path5"></span>
-                                            </i>
-                                        </span>
-                                    </span>
-                                    @endcan
+							<div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item here show py-2">
+								<!--begin:Menu link-->
+								@can('repartidor-crear')
+								
+									<span class="menu-link menu-center">
+										<span class="menu-icon me-0">
+											<i class="ki-duotone ki-badge fs-2x">
+												<span class="path1"></span>
+												<span class="path2"></span>
+												<span class="path3"></span>
+												<span class="path4"></span>
+												<span class="path5"></span>
+											</i>
+										</span>
+									</span>
+							
+									<div class="menu-sub menu-sub-dropdown px-2 py-4 w-250px mh-75 overflow-auto">
+										<!--begin:Menu item-->
+										<div class="menu-item">
+											<!--begin:Menu content-->
+											<div class="menu-content">
+												<span class="menu-section fs-5 fw-bolder ps-1 py-1">Usuarios</span>
+											</div>
+											<!--end:Menu content-->
+										</div>
+										<!--end:Menu item-->
+										<!--begin:Menu item-->
+										<div class="menu-item">
+											<!--begin:Menu link-->
+											<a class="menu-link" href="/usuarios/lista">
+												<span class="menu-bullet">
+													<span class="bullet bullet-dot"></span>
+												</span>
+												<span class="menu-title">Lista</span>
+											</a>
 
+											<a class="menu-link " href="">
+												<span class="menu-bullet">
+													<span class="bullet bullet-dot"></span>
+												</span>
+												<span class="menu-title">Crear</span>
+											</a>
+											
+											<!--end:Menu link-->
+										</div>
+										<!--end:Menu item-->
+	
+									</div>
+
+									@endcan
 
                                     <!--end:Menu sub-->
 
