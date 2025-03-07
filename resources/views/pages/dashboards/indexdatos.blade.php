@@ -145,13 +145,7 @@ License: For each use you must have a valid license purchased only from above li
 												<span class="menu-title">Lista</span>
 											</a>
 
-											<a class="menu-link " href="">
-												<span class="menu-bullet">
-													<span class="bullet bullet-dot"></span>
-												</span>
-												<span class="menu-title">Crear</span>
-											</a>
-											
+										
 											<!--end:Menu link-->
 										</div>
 										<!--end:Menu item-->
