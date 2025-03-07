@@ -88,13 +88,12 @@ License: For each use you must have a valid license purchased only from above li
                     </a>
                 </div>
                 <!--end::Logo-->
-                <!--begin::Nav-->
                 <div class="aside-menu flex-column-fluid pt-0 pb-7 py-lg-10" id="kt_aside_menu">
-                    <!--begin::Aside menu-->
-                    <div  class="pt-15 w-100 " data-kt-scroll="true" data-kt-scroll-height="auto" data-kt-scroll-dependencies="#kt_aside_logo, #kt_aside_footer" data-kt-scroll-wrappers="#kt_aside, #kt_aside_menu" data-kt-scroll-offset="0">
-						<div class="mt-0 menu menu-column menu-title-gray-600 menu-state-primary menu-state-icon-primary menu-state-bullet-primary menu-icon-gray-400 menu-arrow-gray-400 fw-semibold fs-6 " data-kt-menu="true">
+					<!--begin::Aside menu-->
+					<div class="pt-15 w-100 " data-kt-scroll="true" data-kt-scroll-height="auto" data-kt-scroll-dependencies="#kt_aside_logo, #kt_aside_footer" data-kt-scroll-wrappers="#kt_aside, #kt_aside_menu" data-kt-scroll-offset="0">
+						<div  class="menu menu-column menu-title-gray-600 menu-state-primary menu-state-icon-primary menu-state-bullet-primary menu-icon-gray-400 menu-arrow-gray-400 fw-semibold fs-6 my-auto" data-kt-menu="true">
 							<!--begin:Menu item-->
-							<div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="pt-0 menu-item here show py-2">
+							<div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item here show py-2">
 								<!--begin:Menu link-->
 								<span class="menu-link menu-center">
 									<span class="menu-icon me-0">
@@ -104,10 +103,31 @@ License: For each use you must have a valid license purchased only from above li
 										</i>
 									</span>
 								</span>
-								
+								<!--end:Menu link-->
+								<!--begin:Menu sub-->
+								<div class="menu-sub menu-sub-dropdown px-2 py-4 w-250px mh-75 overflow-auto">
+									<!--begin:Menu item-->
+									
+									<!--end:Menu item-->
+									<!--begin:Menu item-->
+									<div class="menu-item">
+										<!--begin:Menu link-->
+										<a class="menu-link active" href="/dashboard">
+											<span class="menu-bullet">
+												<span class="bullet bullet-dot"></span>
+											</span>
+											<span class="menu-title">Inicio</span>
+										</a>
+										
+										<!--end:Menu link-->
+									</div>
+									<!--end:Menu item-->
+
+								</div>
+
+
+								<!--end:Menu sub-->
 							</div>
-
-
 
 							<div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item here show py-2">
 								<!--begin:Menu link-->
